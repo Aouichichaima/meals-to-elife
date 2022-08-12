@@ -20,7 +20,8 @@
         INSERT INTO users VALUES (null,'14253648', 'mariem', 'm.', '71130172', 
         'mariem@fondation-tunisie.org', 'sg@%0x$Q696VrWk$sk', 'admin', null, 1);
     ```
-### [Configuration JavaFX dans Visual Studio Code](https://openjfx.io/openjfx-docs/#IDE-VSCode)
+### [Configuré JavaFX dans Visual Studio Code](https://openjfx.io/openjfx-docs/#IDE-VSCode)
+### [Télécharger mysql-connector-java-5.1.49](http://ftp.iij.ad.jp/pub/db/mysql/Downloads/Connector-J/mysql-connector-java-5.1.49.zip)
 
 ### les étapes a suivi pour utiliser `JDBC`
 - importer la Bibliothèque `mysql-connector-java` 
