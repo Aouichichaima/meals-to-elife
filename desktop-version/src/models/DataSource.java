@@ -3,6 +3,7 @@ package models;
 import java.sql.*;
 
 public class DataSource {
+    
     private static DataSource data;
     private Connection connection = null;
     private String url = "jdbc:mysql://localhost:3306/elife";

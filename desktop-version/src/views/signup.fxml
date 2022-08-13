@@ -6,53 +6,54 @@
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.SignupController">
    <children>
-      <Button layoutX="700.0" layoutY="385.0" mnemonicParsing="false" onAction="#signupHandler" prefHeight="30.0" prefWidth="211.0" text="signup">
+      <Button layoutX="700.0" layoutY="319.0" mnemonicParsing="false" onAction="#signupHandler" prefHeight="30.0" prefWidth="211.0" text="S'inscrire">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <TextField fx:id="cinTextField" layoutX="441.0" layoutY="146.0" prefHeight="30.0" prefWidth="211.0" promptText="CIN">
+      <TextField fx:id="cinTextField" layoutX="441.0" layoutY="80.0" prefHeight="30.0" prefWidth="211.0" promptText="CIN">
          <font>
             <Font size="14.0" />
          </font>
       </TextField>
-      <TextField fx:id="firstNameTextField" layoutX="700.0" layoutY="146.0" prefHeight="30.0" prefWidth="211.0" promptText="Nom">
+      <TextField fx:id="firstNameTextField" layoutX="700.0" layoutY="80.0" prefHeight="30.0" prefWidth="211.0" promptText="Nom">
          <font>
             <Font size="14.0" />
          </font>
       </TextField>
-      <TextField fx:id="lastNameTextField" layoutX="441.0" layoutY="226.0" prefHeight="30.0" prefWidth="211.0" promptText="Prenom">
+      <TextField fx:id="lastNameTextField" layoutX="441.0" layoutY="160.0" prefHeight="30.0" prefWidth="211.0" promptText="Prenom">
          <font>
             <Font size="14.0" />
          </font>
       </TextField>
-      <TextField fx:id="phoneTextField" layoutX="700.0" layoutY="226.0" prefHeight="30.0" prefWidth="211.0" promptText="Numéro Tél">
+      <TextField fx:id="phoneTextField" layoutX="700.0" layoutY="160.0" prefHeight="30.0" prefWidth="211.0" promptText="Numéro Tél">
          <font>
             <Font size="14.0" />
          </font>
       </TextField>
-      <TextField fx:id="emailTextField" layoutX="441.0" layoutY="310.0" prefHeight="25.0" prefWidth="211.0" promptText="email">
+      <TextField fx:id="emailTextField" layoutX="441.0" layoutY="244.0" prefHeight="25.0" prefWidth="211.0" promptText="email">
          <font>
             <Font size="14.0" />
          </font>
       </TextField>
-      <PasswordField fx:id="passwordTextField" layoutX="700.0" layoutY="310.0" prefHeight="25.0" prefWidth="211.0" promptText="Mot de pass">
+      <PasswordField fx:id="passwordTextField" layoutX="700.0" layoutY="244.0" prefHeight="25.0" prefWidth="211.0" promptText="Mot de pass">
          <font>
             <Font size="14.0" />
          </font>
       </PasswordField>
-      <Label layoutX="441.0" layoutY="42.0" prefHeight="38.0" prefWidth="468.0" text="Entrer vos données et attendez l'activation des administrateurs">
+      <Label layoutX="441.0" layoutY="21.0" prefHeight="38.0" prefWidth="468.0" text="Entrer vos données et attendez l'activation des administrateurs">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <RadioButton layoutX="441.0" layoutY="392.0" mnemonicParsing="false" text="Client">
+      <RadioButton fx:id="clientRadioButton" layoutX="441.0" layoutY="326.0" mnemonicParsing="false" selected="true" text="client">
          <font>
             <Font size="14.0" />
          </font>
@@ -60,10 +61,26 @@
             <ToggleGroup fx:id="clientORrest" />
          </toggleGroup>
       </RadioButton>
-      <RadioButton layoutX="547.0" layoutY="392.0" mnemonicParsing="false" text="Restaurant" toggleGroup="$clientORrest">
+      <RadioButton fx:id="restaurantRadioButton" layoutX="547.0" layoutY="326.0" mnemonicParsing="false" text="restaurant" toggleGroup="$clientORrest">
          <font>
             <Font size="14.0" />
          </font>
       </RadioButton>
+      <Label fx:id="inscriptionMessageLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="441.0" layoutY="436.0" prefHeight="95.0" prefWidth="468.0">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="441.0" layoutY="383.0" prefHeight="25.0" prefWidth="173.0" text="Vous avez un compte ?">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Button layoutX="621.0" layoutY="383.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="108.0" text="Connectez-vous" />
+      <ImageView fitHeight="540.0" fitWidth="420.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@inscription.jpg" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

@@ -1,4 +1,4 @@
-package controllers;
+package models;
 
 public class User {
     private String cin;
@@ -7,14 +7,16 @@ public class User {
     private String phone;
     private String email;
     private String password;
+    private String typeOfUser;
 
-    public User(String cin, String firstName, String lastName, String phone, String email, String password) {
+    public User(String cin, String firstName, String lastName, String phone, String email, String password, String typeOfUser) {
         this.cin = cin;
         this.firstName = firstName;
         this.lastName = lastName;
         this.phone = phone;
         this.email = email;
         this.password = password;
+        this.typeOfUser = typeOfUser;
     }
 
     public String getCin() {
@@ -65,12 +67,18 @@ public class User {
         this.password = password;
     }
 
+    public String getTypeOfUser() {
+        return typeOfUser;
+    }
+
+    public void setTypeOfUser(String typeOfUser) {
+        this.typeOfUser = typeOfUser;
+    }
+
     @Override
     public String toString() {
         return "User [cin=" + cin + ", email=" + email + ", firstName=" + firstName + ", lastName=" + lastName
-                + ", password=" + password + ", phone=" + phone + "]";
+                + ", password=" + password + ", phone=" + phone + ", typeOfUser=" + typeOfUser + "]";
     }
-
-    
 
 }

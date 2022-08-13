@@ -13,10 +13,11 @@
         `photo_url` VARCHAR(900) NULL,
         `isAuthorized` TINYINT NOT NULL DEFAULT 0,
         PRIMARY KEY (`id`));
-        -- les comptes des admins sont pré inséré dans 
-        -- la base de données elife dans le table users
+
+        -- les comptes des admins sont pré inséré dans la base de données elife dans le table users
         INSERT INTO users VALUES (null,'14253647', 'asma', 'chebbi', '71130172', 
         'asma.chebbi@fondation-tunisie.org', 'rXe0cxER@KS6l00XEbA%48^', 'admin', null, 1);
+
         INSERT INTO users VALUES (null,'14253648', 'mariem', 'm.', '71130172', 
         'mariem@fondation-tunisie.org', 'sg@%0x$Q696VrWk$sk', 'admin', null, 1);
     ```
@@ -24,14 +25,14 @@
 ### [Télécharger mysql-connector-java-5.1.49](http://ftp.iij.ad.jp/pub/db/mysql/Downloads/Connector-J/mysql-connector-java-5.1.49.zip)
 
 ### les étapes a suivi pour utiliser `JDBC`
-- importer la Bibliothèque `mysql-connector-java` 
+- ajouter `mysql-connector-java-5.1.49.jar` à `Referenced Libraries` et importer la Bibliothèque
     ```java 
-        import java.sql.*; 
+    import java.sql.*;
     ```
 - Registrer le driveur
 - etablire la connection
 - créé une statement
-- executer la requete sql
+- executer la requête sql
 - analyse du resultat
 - fermer la connexion
 ## :warning: Respecter le modèle MVC :warning:
