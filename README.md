@@ -1,4 +1,7 @@
 ### `elife` est le nom de notre base de données mysql.
+```sql
+CREATE DATABASE elife;
+```
 - table `users`
     ```sql
     CREATE TABLE `elife`.`users` (
