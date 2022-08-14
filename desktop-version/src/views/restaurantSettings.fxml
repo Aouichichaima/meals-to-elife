@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ScrollPane layoutX="480.0" prefHeight="540.0" prefWidth="483.0">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1000.0" prefWidth="485.0" />
+        </content>
+      </ScrollPane>
+      <TextField layoutX="176.0" layoutY="47.0" prefHeight="35.0" prefWidth="286.0" promptText="nom du restaurant">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </TextField>
+      <Label layoutX="20.0" layoutY="51.0" prefHeight="25.0" prefWidth="142.0" text="Nom du restaurant">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="20.0" layoutY="106.0" text="Address du restaurant">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TextField layoutX="176.0" layoutY="101.0" prefHeight="35.0" prefWidth="286.0" promptText="Address du restaurant">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </TextField>
+      <Button layoutX="344.0" layoutY="167.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="118.0" text="Enregistrer">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <Label layoutX="20.0" layoutY="292.0" prefHeight="25.0" prefWidth="103.0" text="Nom du repas">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="20.0" layoutY="429.0" prefHeight="25.0" prefWidth="32.0" text="Prix">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Spinner layoutX="137.0" layoutY="419.0" prefHeight="35.0" prefWidth="92.0" />
+      <TextField layoutX="137.0" layoutY="292.0" prefHeight="35.0" prefWidth="327.0" promptText="nom du repas">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </TextField>
+      <Button layoutX="390.0" layoutY="416.0" mnemonicParsing="false" text="Ajouter">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <Label layoutX="20.0" layoutY="356.0" prefHeight="25.0" prefWidth="85.0" text="Description">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <TextField layoutX="137.0" layoutY="351.0" prefHeight="35.0" prefWidth="327.0" promptText="description du repas">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </TextField>
+      <Line endX="289.0" layoutX="191.0" layoutY="255.0" startX="47.0" />
+      <Text layoutX="22.0" layoutY="258.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ajouter ou modifier un repas" wrappingWidth="209.0">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <Button disable="true" layoutX="285.0" layoutY="416.0" mnemonicParsing="false" text="Modifier">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <Button layoutX="285.0" layoutY="475.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="177.0" text="Vider les champs" />
+   </children>
+</AnchorPane>
