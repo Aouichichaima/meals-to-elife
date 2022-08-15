@@ -37,7 +37,7 @@ public class SignupController {
         String phone = phoneTextField.getText();
         String email = emailTextField.getText();
         String password = passwordTextField.getText();
-        String typeOfUser = restaurantRadioButton.isSelected() ? restaurantRadioButton.getText() : clientRadioButton.getText();
+        String typeOfUser = restaurantRadioButton.isSelected() ? "restaurant" : "client";
 
         // vérification des champ...
         if(cin.length() != 8 || firstName.length() < 3 || lastName.length() < 2 || phone.length() < 8 || email.length() < 12 || password.length() < 5 || typeOfUser.isEmpty()) {

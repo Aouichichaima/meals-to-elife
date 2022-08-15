@@ -10,81 +10,104 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.RestaurantSettingsController">
    <children>
       <ScrollPane layoutX="480.0" prefHeight="540.0" prefWidth="483.0">
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1000.0" prefWidth="485.0" />
         </content>
       </ScrollPane>
-      <TextField layoutX="176.0" layoutY="47.0" prefHeight="35.0" prefWidth="286.0" promptText="nom du restaurant">
+      <TextField fx:id="restaurantNameTextField" layoutX="176.0" layoutY="110.0" prefHeight="35.0" prefWidth="286.0" promptText="nom du restaurant">
          <font>
             <Font size="16.0" />
          </font>
       </TextField>
-      <Label layoutX="20.0" layoutY="51.0" prefHeight="25.0" prefWidth="142.0" text="Nom du restaurant">
+      <Label layoutX="20.0" layoutY="114.0" prefHeight="25.0" prefWidth="142.0" text="Nom du restaurant">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Label layoutX="20.0" layoutY="106.0" text="Address du restaurant">
+      <Label layoutX="20.0" layoutY="169.0" text="Address du restaurant">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <TextField layoutX="176.0" layoutY="101.0" prefHeight="35.0" prefWidth="286.0" promptText="Address du restaurant">
+      <TextField fx:id="restaurantAddressTextField" layoutX="176.0" layoutY="164.0" prefHeight="35.0" prefWidth="286.0" promptText="Address du restaurant">
          <font>
             <Font size="16.0" />
          </font>
       </TextField>
-      <Button layoutX="344.0" layoutY="167.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="118.0" text="Enregistrer">
+      <Button layoutX="344.0" layoutY="218.0" mnemonicParsing="false" onAction="#saveRestaurantNameAddressHandler" prefHeight="35.0" prefWidth="118.0" text="Enregistrer">
          <font>
             <Font size="16.0" />
          </font>
       </Button>
-      <Label layoutX="20.0" layoutY="292.0" prefHeight="25.0" prefWidth="103.0" text="Nom du repas">
+      <Label layoutX="20.0" layoutY="313.0" prefHeight="25.0" prefWidth="103.0" text="Nom du repas">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Label layoutX="20.0" layoutY="429.0" prefHeight="25.0" prefWidth="32.0" text="Prix">
+      <Label layoutX="20.0" layoutY="450.0" prefHeight="25.0" prefWidth="32.0" text="Prix">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Spinner layoutX="137.0" layoutY="419.0" prefHeight="35.0" prefWidth="92.0" />
-      <TextField layoutX="137.0" layoutY="292.0" prefHeight="35.0" prefWidth="327.0" promptText="nom du repas">
+      <Spinner fx:id="priceSpinner" editable="true" layoutX="137.0" layoutY="440.0" prefHeight="35.0" prefWidth="92.0" />
+      <TextField fx:id="mealsNameTextField" layoutX="137.0" layoutY="313.0" prefHeight="35.0" prefWidth="327.0" promptText="nom du repas">
          <font>
             <Font size="16.0" />
          </font>
       </TextField>
-      <Button layoutX="390.0" layoutY="416.0" mnemonicParsing="false" text="Ajouter">
+      <Button layoutX="390.0" layoutY="437.0" mnemonicParsing="false" onAction="#addMealsHandler" prefHeight="35.0" prefWidth="76.0" text="Ajouter">
          <font>
             <Font size="16.0" />
          </font>
       </Button>
-      <Label layoutX="20.0" layoutY="356.0" prefHeight="25.0" prefWidth="85.0" text="Description">
+      <Label layoutX="20.0" layoutY="377.0" prefHeight="25.0" prefWidth="85.0" text="Description">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <TextField layoutX="137.0" layoutY="351.0" prefHeight="35.0" prefWidth="327.0" promptText="description du repas">
+      <TextField fx:id="mealsDescripTextField" layoutX="137.0" layoutY="372.0" prefHeight="35.0" prefWidth="327.0" promptText="description du repas">
          <font>
             <Font size="16.0" />
          </font>
       </TextField>
-      <Line endX="289.0" layoutX="191.0" layoutY="255.0" startX="47.0" />
-      <Text layoutX="22.0" layoutY="258.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ajouter ou modifier un repas" wrappingWidth="209.0">
+      <Line endX="289.0" layoutX="191.0" layoutY="276.0" startX="47.0" />
+      <Text layoutX="22.0" layoutY="279.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ajouter ou modifier un repas" wrappingWidth="209.0">
          <font>
             <Font size="16.0" />
          </font>
       </Text>
-      <Button disable="true" layoutX="285.0" layoutY="416.0" mnemonicParsing="false" text="Modifier">
+      <Button disable="true" layoutX="285.0" layoutY="437.0" mnemonicParsing="false" text="Modifier">
          <font>
             <Font size="16.0" />
          </font>
       </Button>
-      <Button layoutX="285.0" layoutY="475.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="177.0" text="Vider les champs" />
+      <Button layoutX="374.0" layoutY="492.0" mnemonicParsing="false" onAction="#fieldResetHandler" prefHeight="30.0" prefWidth="92.0" text="Réinitialiser" textFill="RED">
+         <font>
+            <Font size="14.0" />
+         </font></Button>
+      <Button layoutX="20.0" layoutY="11.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="446.0" text="Retourner à la liste des commandes des clients">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <Line endX="289.0" layoutX="191.0" layoutY="84.0" startX="35.0" />
+      <Text layoutX="22.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Coordonnées du restaurant" wrappingWidth="197.0">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <Label fx:id="saveMessageLabel" layoutX="15.0" layoutY="218.0" prefHeight="35.0" prefWidth="304.0">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="addMealMessageLabel" layoutX="20.0" layoutY="491.0" prefHeight="35.0" prefWidth="320.0">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

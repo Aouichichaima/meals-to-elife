@@ -61,7 +61,7 @@
             <ToggleGroup fx:id="clientORrest" />
          </toggleGroup>
       </RadioButton>
-      <RadioButton fx:id="restaurantRadioButton" layoutX="547.0" layoutY="326.0" mnemonicParsing="false" text="restaurant" toggleGroup="$clientORrest">
+      <RadioButton fx:id="restaurantRadioButton" layoutX="518.0" layoutY="326.0" mnemonicParsing="false" text="gérant d'un restaurant" toggleGroup="$clientORrest">
          <font>
             <Font size="14.0" />
          </font>
