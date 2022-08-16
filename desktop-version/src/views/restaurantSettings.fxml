@@ -6,16 +6,17 @@
 <?import javafx.scene.control.Spinner?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.RestaurantSettingsController">
    <children>
-      <ScrollPane layoutX="480.0" prefHeight="540.0" prefWidth="483.0">
-        <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1000.0" prefWidth="485.0" />
-        </content>
+      <ScrollPane layoutX="480.0" layoutY="45.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="495.0" prefWidth="479.0">
+         <content>
+            <VBox fx:id="menuVBox" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="503.0" prefWidth="461.0" />
+         </content>
       </ScrollPane>
       <TextField fx:id="restaurantNameTextField" layoutX="176.0" layoutY="110.0" prefHeight="35.0" prefWidth="286.0" promptText="nom du restaurant">
          <font>
@@ -58,7 +59,7 @@
             <Font size="16.0" />
          </font>
       </TextField>
-      <Button layoutX="390.0" layoutY="437.0" mnemonicParsing="false" onAction="#addMealsHandler" prefHeight="35.0" prefWidth="76.0" text="Ajouter">
+      <Button fx:id="addMealButton" layoutX="390.0" layoutY="437.0" mnemonicParsing="false" onAction="#addMealsHandler" prefHeight="35.0" prefWidth="76.0" text="Ajouter">
          <font>
             <Font size="16.0" />
          </font>
@@ -73,13 +74,13 @@
             <Font size="16.0" />
          </font>
       </TextField>
-      <Line endX="289.0" layoutX="191.0" layoutY="276.0" startX="47.0" />
-      <Text layoutX="22.0" layoutY="279.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ajouter ou modifier un repas" wrappingWidth="209.0">
+      <Line endX="269.0" layoutX="191.0" layoutY="276.0" startX="47.0" />
+      <Text layoutX="20.0" layoutY="276.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ajouter ou modifier un repas" wrappingWidth="209.0">
          <font>
             <Font size="16.0" />
          </font>
       </Text>
-      <Button disable="true" layoutX="285.0" layoutY="437.0" mnemonicParsing="false" text="Modifier">
+      <Button fx:id="modifyMealButton" disable="true" layoutX="285.0" layoutY="437.0" mnemonicParsing="false" onAction="#updateMeal" text="Modifier">
          <font>
             <Font size="16.0" />
          </font>
@@ -88,12 +89,12 @@
          <font>
             <Font size="14.0" />
          </font></Button>
-      <Button layoutX="20.0" layoutY="11.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="446.0" text="Retourner à la liste des commandes des clients">
+      <Button fx:id="returnToCustomerOrderBtn" layoutX="22.0" layoutY="10.0" mnemonicParsing="false" onAction="#returnToCustomerOrderHandler" prefHeight="35.0" prefWidth="441.0" text="Retourner à la liste des commandes des clients">
          <font>
             <Font size="16.0" />
          </font>
       </Button>
-      <Line endX="289.0" layoutX="191.0" layoutY="84.0" startX="35.0" />
+      <Line endX="270.0" layoutX="191.0" layoutY="84.0" startX="35.0" />
       <Text layoutX="22.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Coordonnées du restaurant" wrappingWidth="197.0">
          <font>
             <Font size="16.0" />
@@ -109,5 +110,11 @@
             <Font size="16.0" />
          </font>
       </Label>
+      <Label layoutX="481.0" layoutY="6.0" prefHeight="25.0" prefWidth="109.0" text="Menu Principal">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Line endX="266.0" layoutX="684.0" layoutY="22.0" startX="-94.0" />
    </children>
 </AnchorPane>

@@ -13,37 +13,37 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.SignupController">
    <children>
-      <Button layoutX="700.0" layoutY="319.0" mnemonicParsing="false" onAction="#signupHandler" prefHeight="30.0" prefWidth="211.0" text="S'inscrire">
+      <Button layoutX="700.0" layoutY="336.0" mnemonicParsing="false" onAction="#signupHandler" prefHeight="30.0" prefWidth="211.0" text="S'inscrire">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <TextField fx:id="cinTextField" layoutX="441.0" layoutY="80.0" prefHeight="30.0" prefWidth="211.0" promptText="CIN">
+      <TextField fx:id="cinTextField" layoutX="441.0" layoutY="117.0" prefHeight="30.0" prefWidth="211.0" promptText="CIN">
          <font>
             <Font size="14.0" />
          </font>
       </TextField>
-      <TextField fx:id="firstNameTextField" layoutX="700.0" layoutY="80.0" prefHeight="30.0" prefWidth="211.0" promptText="Nom">
+      <TextField fx:id="firstNameTextField" layoutX="700.0" layoutY="117.0" prefHeight="30.0" prefWidth="211.0" promptText="Nom">
          <font>
             <Font size="14.0" />
          </font>
       </TextField>
-      <TextField fx:id="lastNameTextField" layoutX="441.0" layoutY="160.0" prefHeight="30.0" prefWidth="211.0" promptText="Prenom">
+      <TextField fx:id="lastNameTextField" layoutX="441.0" layoutY="196.0" prefHeight="30.0" prefWidth="211.0" promptText="Prenom">
          <font>
             <Font size="14.0" />
          </font>
       </TextField>
-      <TextField fx:id="phoneTextField" layoutX="700.0" layoutY="160.0" prefHeight="30.0" prefWidth="211.0" promptText="Numéro Tél">
+      <TextField fx:id="phoneTextField" layoutX="700.0" layoutY="196.0" prefHeight="30.0" prefWidth="211.0" promptText="Numéro Tél">
          <font>
             <Font size="14.0" />
          </font>
       </TextField>
-      <TextField fx:id="emailTextField" layoutX="441.0" layoutY="244.0" prefHeight="25.0" prefWidth="211.0" promptText="email">
+      <TextField fx:id="emailTextField" layoutX="441.0" layoutY="272.0" prefHeight="25.0" prefWidth="211.0" promptText="email">
          <font>
             <Font size="14.0" />
          </font>
       </TextField>
-      <PasswordField fx:id="passwordTextField" layoutX="700.0" layoutY="244.0" prefHeight="25.0" prefWidth="211.0" promptText="Mot de pass">
+      <PasswordField fx:id="passwordTextField" layoutX="700.0" layoutY="272.0" prefHeight="25.0" prefWidth="211.0" promptText="Mot de pass">
          <font>
             <Font size="14.0" />
          </font>
@@ -53,7 +53,7 @@
             <Font size="16.0" />
          </font>
       </Label>
-      <RadioButton fx:id="clientRadioButton" layoutX="441.0" layoutY="326.0" mnemonicParsing="false" selected="true" text="client">
+      <RadioButton fx:id="clientRadioButton" layoutX="441.0" layoutY="343.0" mnemonicParsing="false" selected="true" text="client">
          <font>
             <Font size="14.0" />
          </font>
@@ -61,7 +61,7 @@
             <ToggleGroup fx:id="clientORrest" />
          </toggleGroup>
       </RadioButton>
-      <RadioButton fx:id="restaurantRadioButton" layoutX="518.0" layoutY="326.0" mnemonicParsing="false" text="gérant d'un restaurant" toggleGroup="$clientORrest">
+      <RadioButton fx:id="restaurantRadioButton" layoutX="518.0" layoutY="343.0" mnemonicParsing="false" text="gérant d'un restaurant" toggleGroup="$clientORrest">
          <font>
             <Font size="14.0" />
          </font>
@@ -71,16 +71,46 @@
             <Font size="16.0" />
          </font>
       </Label>
-      <Label layoutX="441.0" layoutY="383.0" prefHeight="25.0" prefWidth="173.0" text="Vous avez un compte ?">
+      <Label layoutX="441.0" layoutY="396.0" prefHeight="25.0" prefWidth="173.0" text="Vous avez un compte ?">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Button layoutX="621.0" layoutY="383.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="108.0" text="Connectez-vous" />
+      <Button layoutX="621.0" layoutY="396.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="108.0" text="Connectez-vous" />
       <ImageView fitHeight="540.0" fitWidth="420.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@inscription.jpg" />
          </image>
       </ImageView>
+      <Label layoutX="441.0" layoutY="243.0" prefHeight="20.0" prefWidth="49.0" text="Email">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="700.0" layoutY="243.0" prefHeight="20.0" prefWidth="99.0" text="Mot de pass">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="441.0" layoutY="167.0" prefHeight="20.0" prefWidth="59.0" text="Prénom">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="700.0" layoutY="167.0" prefHeight="20.0" prefWidth="151.0" text="Numéro de téléphone">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="442.0" layoutY="87.0" prefHeight="20.0" prefWidth="173.0" text="Carte d'identité nationale">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="701.0" layoutY="87.0" prefHeight="20.0" prefWidth="49.0" text="Nom">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
