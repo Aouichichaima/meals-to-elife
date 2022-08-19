@@ -9,6 +9,15 @@ public class User {
     private String password;
     private String typeOfUser;
 
+    
+
+    public User(String firstName, String lastName, String phone, String email) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.phone = phone;
+        this.email = email;
+    }
+
     public User(String cin, String firstName, String lastName, String phone, String email, String password, String typeOfUser) {
         this.cin = cin;
         this.firstName = firstName;

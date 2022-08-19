@@ -1,10 +1,15 @@
 package controllers;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Separator;
@@ -13,17 +18,36 @@ import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
-import javafx.scene.shape.Line;
 import javafx.scene.text.Font;
+import javafx.stage.Stage;
 import models.Meal;
 import models.Restaurant;
 import models.ServiceRestaurant;
 
 public class RestaurantSettingsController {
 
+    private Stage stage;
+    private Scene scene;
+    private Parent root;
+    
     private Restaurant restaurant = null;
-    private int restaurantManagerId = 1; // this value of the logged in restaurant manager will come later from the login form
+    public int restaurantManagerId;
     private int mealIdToBeUpdated;
+
+    
+
+
+    public int getRestaurantManagerId() {
+        return restaurantManagerId;
+    }
+
+    public void setRestaurantManagerId(int restaurantManagerId) {
+        if(restaurantManagerId > 0) this.restaurantManagerId = restaurantManagerId;
+        
+        // on doit rafraîchir notre interface avec la nouvelle valeur du restaurantManagerId
+        this.renderRestaurantMenu(); 
+    }
+
 
     @FXML
     private TextField restaurantNameTextField;
@@ -53,10 +77,10 @@ public class RestaurantSettingsController {
 
 
     public void initialize() {
+        
         try {
             this.valueFactory.setValue(0.5);
             this.priceSpinner.setValueFactory(valueFactory);
-            this.renderRestaurantMenu();
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -94,8 +118,6 @@ public class RestaurantSettingsController {
             this.addMealMessageLabel.setText("échec lors de l'ajout de repas");
             System.out.println(e.getMessage());
         }
-        
-
     }
 
 
@@ -162,6 +184,8 @@ public class RestaurantSettingsController {
         this.priceSpinner.setValueFactory(this.valueFactory);
     }
 
+
+    
     public void updateMeal() {
         try {
             boolean updateResult = this.serviceRestaurant.updateMeal(this.restaurant.getId(), this.mealIdToBeUpdated, this.mealsNameTextField.getText(), this.mealsDescripTextField.getText(), this.priceSpinner.getValue());
@@ -192,8 +216,12 @@ public class RestaurantSettingsController {
     }
 
 
-    public void returnToCustomerOrderHandler(ActionEvent event) {
-        System.out.println("Return To Customer Order Button Clicked");
+    public void returnToCustomerOrderHandler(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("../views/customerOrdersList.fxml"));
+        scene = new Scene(root);
+        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
     }
     
 

@@ -28,6 +28,7 @@ public class IndexController {
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         stage.setScene(scene);
         stage.show();
+
     }
 
 }

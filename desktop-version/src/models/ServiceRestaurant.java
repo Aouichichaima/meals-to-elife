@@ -102,9 +102,6 @@ public class ServiceRestaurant implements IService<Restaurant> {
 * SET @json_column_value = (SELECT <column_name> FROM <table_name> WHERE <condition>);
 * UPDATE <table_name> SET <column_name> = (SELECT JSON_ARRAY_APPEND(@json_column_value, '$',  CAST('<your_value>' AS JSON))) WHERE <condition>;
 * 
-* in our exemple : 
-* SET @json_column_value = (SELECT meals_json FROM persons WHERE id = 1);
-* UPDATE persons SET meals_json = (SELECT JSON_ARRAY_APPEND(@json_column_value, '$', CAST('<your_value>' AS JSON))) WHERE id = 1;
 */
 
 /*
