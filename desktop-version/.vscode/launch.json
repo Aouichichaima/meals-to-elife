@@ -9,7 +9,7 @@
             "name": "Launch App",
             "request": "launch",
             "mainClass": "Main",
-            "vmArgs": "--module-path c:\\Users\\djebb\\Downloads\\javafx-sdk-18.0.2\\lib --add-modules javafx.controls,javafx.fxml"
+            "vmArgs": "--module-path C:\\Users\\Utilisateur\\Downloads\\javafx-sdk-18.0.2\\lib --add-modules javafx.controls,javafx.fxml"
         }
     ]
 }
