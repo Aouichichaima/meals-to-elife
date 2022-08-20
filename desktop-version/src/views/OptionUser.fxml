@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="741.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="275.0" layoutY="43.0" opacity="0.75" prefHeight="19.0" prefWidth="364.0" text="Passer Commande">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="125.0" fitWidth="200.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
+      <Button layoutX="397.0" layoutY="434.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="98.0" text="Confirmer" />
+      <Button layoutX="541.0" layoutY="434.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="98.0" text="Annuler" />
+   </children>
+</AnchorPane>
