@@ -79,7 +79,7 @@ CREATE DATABASE elife;
         }
     ]
     ```
-- Table `customer_orders`
+- Table `customer_orders` ( contient les livraisons qui sont en cours du traitement )
     ```sql
     CREATE TABLE `elife`.`customer_orders` (
         `id` INT PRIMARY KEY AUTO_INCREMENT,
@@ -109,6 +109,18 @@ CREATE DATABASE elife;
             "quantity": 1
         }
     ]
+    ```
+- Table `customer_orders_archive` ( les commande qui sont livrée ou annuler par le chef du resto seront déplacer du tableau customer_orders vers le tableau customer_orders_archive )
+    ```sql
+        CREATE TABLE `elife`.`customer_orders_archive` (
+        `id` BIGINT,
+        `meals` JSON NULL DEFAULT (JSON_ARRAY()),
+        `client_id` INT NULL,
+        `restaurant_id` INT NULL,
+        `isDelivered` BOOLEAN NOT NULL,
+        CONSTRAINT `fk_orders_arch_client_id` FOREIGN KEY (`client_id`) REFERENCES `elife`.`users`(`id`),
+        CONSTRAINT `fk_orders_arch_restaurant_id` FOREIGN KEY (`restaurant_id`) REFERENCES `elife`.`restaurants`(`id`)
+    );
     ```
 
 

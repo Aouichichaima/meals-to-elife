@@ -10,6 +10,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Separator;
 import javafx.scene.layout.VBox;
@@ -29,7 +30,7 @@ public class CustomerOrdersController {
     private Parent root;
 
     private Restaurant restaurant = null;
-    private int restaurantManagerId = 1; // this value of the logged in restaurant manager will set later from the login view
+    private int restaurantManagerId;
 
     
     private ServiceRestaurant serviceRestaurant = new ServiceRestaurant();
@@ -41,14 +42,18 @@ public class CustomerOrdersController {
     
     public void setRestaurantManagerId(int restaurantManagerId) {
         if(restaurantManagerId > 0) this.restaurantManagerId = restaurantManagerId;
+        this.render();
     }
 
 
     public void initialize() {
         System.out.println("CustomerOrdersController initialize...");
+        setRestaurantManagerId(1); // this setter should later called from the login controller
+    }
 
+
+    public void render() {
         try {
-
             this.restaurant = serviceRestaurant.findByManagerId(this.restaurantManagerId);
             ArrayList<Order> orderList =  orderService.getAllOrders(restaurant.getId());
 
@@ -57,32 +62,39 @@ public class CustomerOrdersController {
                 
             
                 VBox innerVBox = new VBox();
-
                 for (int i = 0; i < order.getMeals().length; i++) {
                     
                     OrderedMeal orderedMeal = order.getMeals()[i];
-                    Label mealLabel = new Label("Repas : " + orderedMeal.getTitre() + " Quantity : " + orderedMeal.getQuantity());
+                    String mealLabelText = "    Repas : " + orderedMeal.getTitre() + " | Quantity : " + orderedMeal.getQuantity() + " | Prix :  "+ orderedMeal.getUnitPrice() + " * " 
+                                            + orderedMeal.getQuantity() + " ............ "  + orderedMeal.getUnitPrice() * orderedMeal.getQuantity();
+                    Label mealLabel = new Label(mealLabelText); mealLabel.setFont(new Font("Arial", 14));
                     innerVBox.getChildren().add(mealLabel);
                     totalOrderPrice += order.getMeals()[i].getQuantity() * order.getMeals()[i].getUnitPrice();
                 }
 
-                String orderDescribe = "order id -> " + order.getId() + "    client info -> " + order.getClient().getFirstName() + " " 
-                + order.getClient().getLastName() + "  " +order.getClient().getPhone() + "  prix-total -> " + totalOrderPrice;
+
+                String orderDescribe = "Commande " + order.getId() + "  Prix Total " + totalOrderPrice + "\nClient " + order.getClient().getFirstName() 
+                                        + " " + order.getClient().getLastName() + "  " +order.getClient().getPhone() + " " + order.getClient().getEmail();
                 
+
                 Label orderDescLabel = new Label(orderDescribe); orderDescLabel.setFont(new Font("Arial", 16));
+                Button deliveredOrderButton = new Button("Commande livré");
+                deliveredOrderButton.setOnAction(event -> { System.out.println(order.getId() + "delevered order button clicked...");});
+                Button canceledOrderButton = new Button("Annuler la Commande");
+                canceledOrderButton.setOnAction(event -> { System.out.println(order.getId() + "canceled order button clicked..."); });
+
                 Separator separator = new Separator();
 
-                this.ordersVBox.getChildren().addAll(orderDescLabel, innerVBox, separator);
+                this.ordersVBox.getChildren().addAll(orderDescLabel, innerVBox, deliveredOrderButton, canceledOrderButton, separator);
             }
 
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-
     }
-
-
     
+
+
 
     public void goToRestaurantSettingsHandler(ActionEvent event) throws IOException {
 
@@ -93,7 +105,6 @@ public class CustomerOrdersController {
         RestaurantSettingsController restaurantSettingsController = loader.getController();
         restaurantSettingsController.setRestaurantManagerId(this.restaurantManagerId);
         
-        // root = FXMLLoader.load(getClass().getResource("../views/restaurantSettings.fxml"));
         scene = new Scene(root);
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         stage.setScene(scene);
