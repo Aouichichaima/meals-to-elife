@@ -112,7 +112,7 @@ CREATE DATABASE elife;
     ```
 - Table `customer_orders_archive` ( les commande qui sont livrée ou annuler par le chef du resto seront déplacer du tableau customer_orders vers le tableau customer_orders_archive )
     ```sql
-        CREATE TABLE `elife`.`customer_orders_archive` (
+    CREATE TABLE `elife`.`customer_orders_archive` (
         `id` BIGINT,
         `meals` JSON NULL DEFAULT (JSON_ARRAY()),
         `client_id` INT NULL,

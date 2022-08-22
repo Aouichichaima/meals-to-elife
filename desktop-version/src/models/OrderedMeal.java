@@ -2,7 +2,7 @@ package models;
 
 public class OrderedMeal {
 
-    private String titre;
+    private String name;
     private double unitPrice;
     private int quantity;
 
@@ -10,17 +10,17 @@ public class OrderedMeal {
     }
 
     public OrderedMeal(String titre, double unitPrice, int quantity) {
-        this.titre = titre;
+        this.name = titre;
         this.unitPrice = unitPrice;
         this.quantity = quantity;
     
     }
 
-    public String getTitre() {
-        return titre;
+    public String getName() {
+        return name;
     }
-    public void setTitre(String titre) {
-        this.titre = titre;
+    public void setName(String name) {
+        this.name = name;
     }
     public double getUnitPrice() {
         return unitPrice;
@@ -37,7 +37,7 @@ public class OrderedMeal {
 
     @Override
     public String toString() {
-        return "OrderedMeal {quantity:" + quantity + ", titre:" + titre + ", unitPrice:" + unitPrice + "}";
+        return "OrderedMeal {quantity:" + quantity + ", name:" + name + ", unitPrice:" + unitPrice + "}";
     }
 
     
