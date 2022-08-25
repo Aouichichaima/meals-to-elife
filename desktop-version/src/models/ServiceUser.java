@@ -72,5 +72,18 @@ public class ServiceUser implements IService<User> {
 
         return result.getString(1);
     }
+
+
+    public boolean isAuthorized (String email) throws SQLException {
+        
+        this.statement = connection.createStatement();
+        String query = "SELECT isAuthorized FROM users WHERE email = '"+email+"'";
+        ResultSet result = this.statement.executeQuery(query);
+        result.next();
+        if(result.getInt(1) != 0) return true;
+        return false;
+
+
+    }
     
 }
