@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="350.0" prefWidth="632.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AutorisationController">
+    <children>
+        <Label layoutX="131.0" layoutY="26.0" prefHeight="42.0" prefWidth="588.0" text="AUTORISATION D'UN UTILISATEUR">
+            <font>
+                <Font name="Calibri Bold Italic" size="30.0" />
+            </font></Label>
+      <TextField fx:id="txtCin" layoutX="297.0" layoutY="118.0" prefHeight="25.0" prefWidth="239.0" promptText="Entrer CIN" />
+      <Label layoutX="183.0" layoutY="119.0" prefHeight="27.0" prefWidth="76.0" text="Numéro CIN">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+        <Label layoutX="183.0" layoutY="179.0" prefHeight="27.0" prefWidth="90.0" text="Autorisation">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+        <TextField fx:id="txtAuto" layoutX="297.0" layoutY="180.0" prefHeight="26.0" prefWidth="239.0" promptText="Entrer 1 si l'utilisateur est autorisé sinon 0" />
+
+        <Button layoutX="297.0" layoutY="273.0" mnemonicParsing="false" onAction="#updateEtat" prefHeight="38.0" prefWidth="122.0" style="-fx-background-color: #006300;" text="VALIDER" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font></Button>
+    </children>
+</AnchorPane>

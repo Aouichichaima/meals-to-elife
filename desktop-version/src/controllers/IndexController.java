@@ -31,4 +31,14 @@ public class IndexController {
 
     }
 
+    public void goToConnexion(ActionEvent event) throws IOException {
+        
+        root = FXMLLoader.load(getClass().getResource("../views/signin.fxml"));
+        scene = new Scene(root);
+        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+
+    }
+
 }

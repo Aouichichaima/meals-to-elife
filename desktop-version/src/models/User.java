@@ -8,8 +8,17 @@ public class User {
     private String email;
     private String password;
     private String typeOfUser;
+    private int id;
+    private int isAuthorized;
 
     
+
+    public int getIsAuthorized() {
+        return isAuthorized;
+    }
+    public void setIsAuthorized(int isAuthorized) {
+        this.isAuthorized = isAuthorized;
+    }
 
     public User(String firstName, String lastName, String phone, String email) {
         this.firstName = firstName;
@@ -17,16 +26,53 @@ public class User {
         this.phone = phone;
         this.email = email;
     }
+    public User(String cin,String firstName, String lastName, String phone, String email, String pwd, String type) {
+        this.cin=cin;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.phone = phone;
+        this.email = email;
+        this.password=pwd;
+        this.typeOfUser=type;
+    }
+    public User(String cin, String firstName, String lastName, String phone, String email, String typeOfUser, int isAutho) {
+        this.cin = cin;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.phone = phone;
+        this.isAuthorized=isAutho;
+        this.email = email;
+        this.typeOfUser = typeOfUser;
+    }
 
-    public User(String cin, String firstName, String lastName, String phone, String email, String password, String typeOfUser) {
+
+    public User(int id, String firstName, String lastName, String phone, String email, String typeOfUser) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.phone = phone;
+        this.email = email;
+        this.typeOfUser = typeOfUser;
+    }
+
+
+    public User(String cin, String lastName, String firstName, String email, String phone, String typeOfUser) {
         this.cin = cin;
         this.firstName = firstName;
         this.lastName = lastName;
         this.phone = phone;
         this.email = email;
-        this.password = password;
         this.typeOfUser = typeOfUser;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
 
     public String getCin() {
         return cin;
