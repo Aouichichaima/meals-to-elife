@@ -31,7 +31,21 @@ public class ServiceRestaurant implements IService<Restaurant> {
 
     @Override
     public List<Restaurant> readAll() throws SQLException {
-        return null;
+
+        this.statement = this.connection.createStatement();
+        String query = "SELECT * FROM restaurants";
+        
+        ArrayList<Restaurant> restaurants = new ArrayList<>();
+
+        ResultSet resultSet = this.statement.executeQuery(query);
+
+        while(resultSet.next()){
+            Restaurant restaurant = new Restaurant(resultSet.getInt(1), resultSet.getString(2), resultSet.getString(3), resultSet.getString(4), resultSet.getDouble(5), resultSet.getInt(6));
+            restaurants.add(restaurant);
+        }
+
+
+        return restaurants;
     }
 
     public Restaurant findByManagerId(int managerId) throws SQLException {
