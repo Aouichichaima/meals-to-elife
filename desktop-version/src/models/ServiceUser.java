@@ -28,21 +28,39 @@ public class ServiceUser implements IService<User> {
     }
 
     @Override
-    public void update(User t) throws SQLException {
-        // TODO Auto-generated method stub
+    public void update(User user) throws SQLException {
         
+        this.statement = connection.createStatement();
+        String updateRequest = "UPDATE users SET cin = '" + user.getCin() + "', first_name = '" + user.getFirstName() + "', last_name = '" + user.getLastName() 
+                                + "', phone = '" + user.getPhone() + "', email = '" + user.getEmail() + "', password = '"+user.getPassword()+"' WHERE id = " + user.getId();
+    
+
+        int updateResult = this.statement.executeUpdate(updateRequest);
+
+        if(updateResult == 1) System.out.println("user updated successfully...");
+        else throw new SQLException();
+
     }
 
     @Override
     public boolean delete(User t) throws SQLException {
-        // TODO Auto-generated method stub
         return false;
     }
 
     @Override
     public User findById(int id) throws SQLException {
-        // TODO Auto-generated method stub
-        return null;
+        
+        this.statement = connection.createStatement();
+        String query = "SELECT * FROM users WHERE id = " + id;
+
+        ResultSet result = this.statement.executeQuery(query);
+        result.next();
+
+        User user = new User(result.getString(2), result.getString(3), result.getString(4), result.getString(6), result.getString(5));
+
+        System.out.println(user.toString());
+
+        return user;
     }
 
     @Override
