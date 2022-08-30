@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -47,7 +46,6 @@ public class CustomerOrdersController {
     }
 
     public void initialize() {
-        setRestaurantManagerId(1); // this setter should later called from the login controller
     }
 
     public void render() {

@@ -8,7 +8,7 @@ public class DataSource {
     private Connection connection = null;
     private String url = "jdbc:mysql://localhost:3306/elife";
     private String login = "root";
-    private String pwd = "";
+    private String pwd = "toor";
 
     private DataSource() {
         try {

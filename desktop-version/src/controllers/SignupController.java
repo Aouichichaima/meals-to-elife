@@ -1,12 +1,19 @@
 package controllers;
 
+import java.io.IOException;
 import java.sql.SQLException;
 
+import javafx.event.Event;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import models.ServiceUser;
 import models.User;
 
@@ -28,6 +35,8 @@ public class SignupController {
     private RadioButton clientRadioButton, restaurantRadioButton;
     @FXML
     private Label inscriptionMessageLabel;
+
+
     
 
     public void signupHandler() {
@@ -71,6 +80,17 @@ public class SignupController {
             System.out.println(e);
         }
 
+    }
+
+    public void goToLoginInterface(Event event) throws IOException {
+        Stage stage;
+        Scene scene;
+        Parent root;
+        root = FXMLLoader.load(getClass().getResource("../views/signin.fxml"));
+        scene = new Scene(root);
+        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
     }
 
 
