@@ -1,15 +1,18 @@
 package controllers;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import org.codehaus.jackson.map.ObjectMapper;
 
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
 import models.Meal;
+import models.OrderedMeal;
 import models.Restaurant;
 import models.ServiceRestaurant;
 
@@ -19,19 +22,31 @@ public class ClientspaceController {
     private VBox restoListVBox;
     @FXML
     private VBox menuListVBox;
+    @FXML
+    private VBox cartVBox;
+
+    private int clientId;
+    private int restaurantId;
+    private ArrayList<OrderedMeal> orderedMeals = new ArrayList<>();
 
     private ServiceRestaurant serviceRestaurant = new ServiceRestaurant();
 
-    public void initialize() {
+    
+
+    public void setClientId(int clientId) {
+        this.clientId = clientId;
+        this.render();
+    }
+
+
+    public void render() {
         try {
             List<Restaurant> restaurants = serviceRestaurant.readAll();
 
             for (Restaurant restaurant : restaurants) {
                 Button button = new Button(restaurant.getName());
 
-                button.setOnAction(e -> {
-                    this.renderRestaurantMenu(restaurant);
-                });
+                button.setOnAction(e -> { this.renderRestaurantMenu(restaurant); });
 
                 this.restoListVBox.getChildren().add(button);
             }
@@ -43,7 +58,10 @@ public class ClientspaceController {
 
 
     public void renderRestaurantMenu(Restaurant resto) {
+        this.restaurantId = resto.getId();
         this.menuListVBox.getChildren().clear();
+        this.orderedMeals.clear();
+        this.renderCart();
 
         // deserialization du menu...
         ObjectMapper mapper = new ObjectMapper();
@@ -58,9 +76,7 @@ public class ClientspaceController {
                 Label mealLabel = new Label(meal.getName() + " prix : " + meal.getPrice() + "    ");
                 Button addToCartBtn = new Button("ajouter");
 
-                addToCartBtn.setOnAction(e -> {
-                    System.out.println("ajouter dans le panier name" + meal.getName() + "unitPrice" + meal.getPrice() );
-                });
+                addToCartBtn.setOnAction(e -> { this.addToOrderedMeals(meal.getName(), meal.getPrice(), 1); });
 
                 FlowPane flowPane = new FlowPane(mealLabel, addToCartBtn);
                 
@@ -72,5 +88,36 @@ public class ClientspaceController {
             System.out.println(e.getMessage());
         }
     }
-    
+
+    public void addToOrderedMeals(String name, double unitPrice, int quantity) {
+        this.orderedMeals.add(new OrderedMeal(name, unitPrice, quantity));
+        this.renderCart();
+    }
+
+    public void removeFromOrderdMeals(int index) {
+        this.orderedMeals.remove(index);
+        System.out.println("remove meal of index : " + index);
+        this.renderCart();
+    }
+
+    public void renderCart() {
+        this.cartVBox.getChildren().clear();
+
+        for (int i = 0; i < this.orderedMeals.size(); i++) {
+            OrderedMeal orderedMeal = this.orderedMeals.get(i);
+            Label mealLabel = new Label(orderedMeal.getName() + "  prix  " + orderedMeal.getUnitPrice());
+            Button removeMealBtn = new Button("supprimer");
+            int index = i;
+            removeMealBtn.setOnAction(e -> {
+                this.removeFromOrderdMeals(index);
+            });
+            FlowPane flowPane = new FlowPane(mealLabel, removeMealBtn);
+            this.cartVBox.getChildren().add(flowPane);
+        }
+    }
+
+    public void sendOrder(Event event) {
+        System.out.println(" <row_id> | " + this.orderedMeals + " | " + this.clientId + " | " + this.restaurantId);
+    }
+
 }

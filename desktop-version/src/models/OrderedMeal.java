@@ -9,8 +9,8 @@ public class OrderedMeal {
     public OrderedMeal() {
     }
 
-    public OrderedMeal(String titre, double unitPrice, int quantity) {
-        this.name = titre;
+    public OrderedMeal(String name, double unitPrice, int quantity) {
+        this.name = name;
         this.unitPrice = unitPrice;
         this.quantity = quantity;
     
@@ -37,8 +37,11 @@ public class OrderedMeal {
 
     @Override
     public String toString() {
-        return "OrderedMeal {quantity:" + quantity + ", name:" + name + ", unitPrice:" + unitPrice + "}";
+        // return "{\"quantity\":" + quantity + ", \"name\":" + name + ", \"unitPrice\":" + unitPrice + "}";
+        return "{\"name\": \"" + name + "\", \"unitPrice\": " + unitPrice + ", \"quantity\":" + quantity + "}";
     }
+
+
 
     
     

@@ -36,7 +36,7 @@ public class updateUserDataController {
     }
 
     public void initialize() {
-        this.setUserId(3);
+        this.setUserId(4);
     }
 
 
