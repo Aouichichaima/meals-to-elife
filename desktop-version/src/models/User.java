@@ -65,6 +65,26 @@ public class User {
         this.typeOfUser = typeOfUser;
     }
 
+    
+
+    public User(String cin, int id, String firstName, String lastName, String phone, String email, String password) {
+        this.cin = cin;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.phone = phone;
+        this.email = email;
+        this.id = id;
+        this.password = password;
+    }
+    
+    public User(String cin, String firstName, String lastName, String email, String phone) {
+        this.cin = cin;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.phone = phone;
+        this.email = email;
+    }
+
     public int getId() {
         return id;
     }
