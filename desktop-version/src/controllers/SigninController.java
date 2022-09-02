@@ -80,6 +80,8 @@ public class SigninController {
                     case "client" :
                         loader = new FXMLLoader(getClass().getResource("../views/Clientspace.fxml"));
                         root = loader.load();
+                        ClientspaceController clientspaceController = loader.getController();
+                        clientspaceController.setClientId(id);
                     break;
                 }
 
