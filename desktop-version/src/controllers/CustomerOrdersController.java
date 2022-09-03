@@ -39,6 +39,7 @@ public class CustomerOrdersController {
     @FXML
     private VBox ordersVBox;
 
+    // c'est pour l'assignement de l'id du l'utilisateur à partir d'un autre controlleur
     public void setRestaurantManagerId(int restaurantManagerId) {
         if (restaurantManagerId > 0)
             this.restaurantManagerId = restaurantManagerId;
@@ -48,6 +49,7 @@ public class CustomerOrdersController {
     public void initialize() {
     }
 
+    // c'est pour l'actualisation du l'interface aprés tout operation 'CRUD'
     public void render() {
         this.ordersVBox.getChildren().clear();
         try {
@@ -103,6 +105,7 @@ public class CustomerOrdersController {
         }
     }
 
+    // method à executer lorsque on clique sur le bouton "Modifier les cordonnée de resto"
     public void goToRestaurantSettingsHandler(ActionEvent event) throws IOException {
 
         // communication entre les controlleur...
@@ -119,8 +122,23 @@ public class CustomerOrdersController {
         stage.show();
     }
 
+    // method à executer lorsque on clique sur le bouton "Modifier les cordonnée du chef"
+    public void goToChefSettingsInterfaceHandler(ActionEvent event) throws IOException {
+        System.out.println("goTochefSettingsHandler");
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../views/updateUserData.fxml"));
+        root = loader.load();
+        updateUserDataController updateUser = loader.getController();
+        updateUser.setUserId(this.restaurantManagerId);
+
+        scene = new Scene(root);
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+
+    }
 
 
+    // method à executer lorsque on clique sur le bouton "Commande livré" ou "Annuler la Commande"
     public void archiveOrder(int id, boolean isDelivered) {
         try {
             orderService.moveOrderToArchive(id, isDelivered);
@@ -131,12 +149,3 @@ public class CustomerOrdersController {
     }
 
 }
-
-
-
-/*
- * FXMLLoader loader = new FXMLLoader(getClass().getResource("./scene02.fxml"));
- * root = loader.load();
- * Scene02 scene2Controller = loader.getController();
- * scene2Controller.displayData(data);
- */

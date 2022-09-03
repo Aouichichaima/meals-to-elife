@@ -76,8 +76,8 @@ public class RestaurantSettingsController {
     private SpinnerValueFactory<Double> valueFactory = new SpinnerValueFactory.DoubleSpinnerValueFactory(0, 999.9);
 
 
+    // intialization du "priceSpinner" le champ du prix...
     public void initialize() {
-        
         try {
             this.valueFactory.setValue(0.5);
             this.priceSpinner.setValueFactory(valueFactory);
@@ -88,7 +88,7 @@ public class RestaurantSettingsController {
     }
 
 
-
+    // sauvgardement des nouvelles valeurs (nom et address)
     public void saveRestaurantNameAddressHandler(ActionEvent event) {
         try {
             
@@ -101,7 +101,7 @@ public class RestaurantSettingsController {
         }
     }
 
-
+    // l'ajout d'un nouveau repas
     public void addMealsHandler(ActionEvent event) {
 
         Meal meal = new Meal(mealsNameTextField.getText(), priceSpinner.getValue(), mealsDescripTextField.getText());
@@ -120,7 +120,7 @@ public class RestaurantSettingsController {
         }
     }
 
-
+    // pour vider les champs du l'interface
     public void fieldResetHandler() {
         this.emptyAddMealField();
         this.addMealMessageLabel.setText("");
@@ -137,7 +137,7 @@ public class RestaurantSettingsController {
         this.priceSpinner.setValueFactory(this.valueFactory);
     }
 
-
+    // la method responsable a l'affichage et la mise a jour des valeurs dans les champs
     public void renderRestaurantMenu() {
         this.menuVBox.getChildren().clear();
         
@@ -173,6 +173,7 @@ public class RestaurantSettingsController {
         }
     }
 
+    // la method responsable a l'envoi des valeur d'un repas dans les champs du modification 
     public void sendMealToModification(int index, Meal meal) {
         this.addMealButton.setDisable(true);
         this.modifyMealButton.setDisable(false);
@@ -185,7 +186,7 @@ public class RestaurantSettingsController {
     }
 
 
-    
+    // la method resposable au modification des valeurs d'un repas
     public void updateMeal() {
         try {
             boolean updateResult = this.serviceRestaurant.updateMeal(this.restaurant.getId(), this.mealIdToBeUpdated, this.mealsNameTextField.getText(), this.mealsDescripTextField.getText(), this.priceSpinner.getValue());
@@ -205,7 +206,7 @@ public class RestaurantSettingsController {
         this.renderRestaurantMenu();
     }
 
-
+    // suppression d'un repas de la menu du restaurant
     public void deleteMealHandler(int mealIndex) {
         try {
             this.serviceRestaurant.deleteMeal(this.restaurant.getId(), mealIndex);
@@ -215,7 +216,7 @@ public class RestaurantSettingsController {
         }
     }
 
-
+    // bouton de retour a l'interface du gestion des commandes d'utilisateur
     public void returnToCustomerOrderHandler(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("../views/customerOrdersList.fxml"));
         scene = new Scene(root);

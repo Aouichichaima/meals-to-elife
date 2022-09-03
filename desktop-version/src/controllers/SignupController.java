@@ -38,7 +38,7 @@ public class SignupController {
 
 
     
-
+    // la method responsable a l'inscription du l'utilisateur
     public void signupHandler() {
         String cin = cinTextField.getText();
         String firstName = firstNameTextField.getText();
@@ -72,9 +72,8 @@ public class SignupController {
         
 
         try {
-            if(serviceUser.add(user)) {
+            if(serviceUser.add(user))
                 this.inscriptionMessageLabel.setText("Votre demande de création d'un compte finit par succés \n en attendant l'acceptation des administrateurs");
-            }
         } catch (SQLException e) {
             this.inscriptionMessageLabel.setText("désole un problème dans le système");
             System.out.println(e);
@@ -82,6 +81,7 @@ public class SignupController {
 
     }
 
+    // changement vers l'interface de connexion
     public void goToLoginInterface(Event event) throws IOException {
         Stage stage;
         Scene scene;

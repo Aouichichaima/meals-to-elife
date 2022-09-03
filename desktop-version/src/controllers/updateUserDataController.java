@@ -36,7 +36,7 @@ public class updateUserDataController {
     }
 
     public void initialize() {
-        this.setUserId(4);
+        // this.setUserId(4); just pour tester l'interface sans connexion...
     }
 
 

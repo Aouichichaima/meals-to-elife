@@ -9,7 +9,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.CustomerOrdersController">
    <children>
-      <Button layoutX="760.0" layoutY="14.0" mnemonicParsing="false" onAction="#goToRestaurantSettingsHandler" text="Modifier les cordonnée de resto" />
+      <Button layoutX="722.0" layoutY="46.0" mnemonicParsing="false" onAction="#goToRestaurantSettingsHandler" text="Modifier les cordonnée de resto" />
       <ScrollPane layoutX="7.0" layoutY="46.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="494.0" prefWidth="673.0">
          <content>
             <VBox fx:id="ordersVBox" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="501.0" prefWidth="657.0" />
@@ -20,5 +20,6 @@
             <Font size="16.0" />
          </font>
       </Label>
+      <Button layoutX="722.0" layoutY="100.0" mnemonicParsing="false" onAction="#goToChefSettingsInterfaceHandler" prefHeight="25.0" prefWidth="186.0" text="Modifier les cordonnée du chef" />
    </children>
 </AnchorPane>
