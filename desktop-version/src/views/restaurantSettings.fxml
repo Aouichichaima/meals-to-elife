@@ -85,10 +85,7 @@
             <Font size="16.0" />
          </font>
       </Button>
-      <Button layoutX="374.0" layoutY="492.0" mnemonicParsing="false" onAction="#fieldResetHandler" prefHeight="30.0" prefWidth="92.0" text="Réinitialiser" textFill="RED">
-         <font>
-            <Font size="14.0" />
-         </font></Button>
+      <Button layoutX="285.0" layoutY="500.0" mnemonicParsing="false" onAction="#fieldResetHandler" prefHeight="25.0" prefWidth="181.0" text="vider les champs" textFill="RED" />
       <Button fx:id="returnToCustomerOrderBtn" layoutX="22.0" layoutY="10.0" mnemonicParsing="false" onAction="#returnToCustomerOrderHandler" prefHeight="35.0" prefWidth="441.0" text="Retourner à la liste des commandes des clients">
          <font>
             <Font size="16.0" />

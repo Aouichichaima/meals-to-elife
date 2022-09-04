@@ -10,12 +10,14 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Separator;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
@@ -44,8 +46,8 @@ public class RestaurantSettingsController {
     public void setRestaurantManagerId(int restaurantManagerId) {
         if(restaurantManagerId > 0) this.restaurantManagerId = restaurantManagerId;
         
-        // on doit rafraîchir notre interface avec la nouvelle valeur du restaurantManagerId
-        this.renderRestaurantMenu(); 
+        // on doit Actualiser notre interface avec la nouvelle valeur du restaurantManagerId
+        this.renderRestaurantMenu();
     }
 
 
@@ -76,6 +78,7 @@ public class RestaurantSettingsController {
     private SpinnerValueFactory<Double> valueFactory = new SpinnerValueFactory.DoubleSpinnerValueFactory(0, 999.9);
 
 
+
     // intialization du "priceSpinner" le champ du prix...
     public void initialize() {
         try {
@@ -90,34 +93,55 @@ public class RestaurantSettingsController {
 
     // sauvgardement des nouvelles valeurs (nom et address)
     public void saveRestaurantNameAddressHandler(ActionEvent event) {
-        try {
-            
-            if(this.serviceRestaurant.updateNameAddress(this.restaurant.getId(), this.restaurantNameTextField.getText(), this.restaurantAddressTextField.getText()) == true)
-                this.saveMessageLabel.setText("Enregistré avec succés");
 
-        } catch (SQLException e) {
-            this.saveMessageLabel.setText("échec de l'enregistrement");
-            System.out.println(e.getMessage());
+        String restoName = this.restaurantNameTextField.getText();
+        String restoAddress = this.restaurantAddressTextField.getText();
+
+        if(restoName.length() < 3 || restoAddress.length() < 6) {
+            Alert alert = new Alert(AlertType.WARNING);
+            alert.setContentText("merci de vérifier vos coordonnées");
+            alert.show();
+        } else {
+            try {
+                if(this.serviceRestaurant.updateNameAddress(this.restaurant.getId(), restoName, restoAddress) == true)
+                    this.saveMessageLabel.setText("Enregistré avec succés");
+    
+            } catch (SQLException e) {
+                this.saveMessageLabel.setText("échec de l'enregistrement");
+                System.out.println(e.getMessage());
+            }
         }
+
     }
 
     // l'ajout d'un nouveau repas
     public void addMealsHandler(ActionEvent event) {
 
-        Meal meal = new Meal(mealsNameTextField.getText(), priceSpinner.getValue(), mealsDescripTextField.getText());
+        String mealName = this.mealsNameTextField.getText();
+        String mealDescription = this.mealsDescripTextField.getText();
+        Double mealSpinner = this.priceSpinner.getValue();
+        Alert alert = new Alert(AlertType.WARNING);
+        alert.setContentText("merci de vérifier vos coordonnées");
 
-        try {
-            if(serviceRestaurant.addMealToMenu(this.restaurant.getId(), meal)) {
-                this.addMealMessageLabel.setText("Repas ajouter avec succés");
-                this.emptyAddMealField();
-                this.renderRestaurantMenu();
+
+        if(mealName.length() < 3 || mealDescription.length() < 6 || mealSpinner <= 0) {
+            alert.show();
+        } else {
+            try {
+                Meal meal = new Meal(mealName, mealSpinner, mealDescription);
+                if(serviceRestaurant.addMealToMenu(this.restaurant.getId(), meal)) {
+                    this.addMealMessageLabel.setText("Repas ajouter avec succés");
+                    this.emptyAddMealField();
+                    this.renderRestaurantMenu();
+                }
+                else this.addMealMessageLabel.setText("échec lors de l'ajout de repas");
+                    
+            } catch (Exception e) {
+                this.addMealMessageLabel.setText("échec lors de l'ajout de repas");
+                System.out.println(e.getMessage());
             }
-            else this.addMealMessageLabel.setText("échec lors de l'ajout de repas");
-                
-        } catch (SQLException e) {
-            this.addMealMessageLabel.setText("échec lors de l'ajout de repas");
-            System.out.println(e.getMessage());
         }
+
     }
 
     // pour vider les champs du l'interface
@@ -137,10 +161,10 @@ public class RestaurantSettingsController {
         this.priceSpinner.setValueFactory(this.valueFactory);
     }
 
-    // la method responsable a l'affichage et la mise a jour des valeurs dans les champs
+
+    // la méthode d'actualisation de l'interface et l'affichage initiale des valeurs dans les champs
     public void renderRestaurantMenu() {
         this.menuVBox.getChildren().clear();
-        
         
         try {
             
@@ -173,7 +197,7 @@ public class RestaurantSettingsController {
         }
     }
 
-    // la method responsable a l'envoi des valeur d'un repas dans les champs du modification 
+    // la method responsable a l'envoi des valeurs d'un repas dans les champs du modification 
     public void sendMealToModification(int index, Meal meal) {
         this.addMealButton.setDisable(true);
         this.modifyMealButton.setDisable(false);
@@ -186,7 +210,7 @@ public class RestaurantSettingsController {
     }
 
 
-    // la method resposable au modification des valeurs d'un repas
+    // la méthode responsable au modification des valeurs d'un repas
     public void updateMeal() {
         try {
             boolean updateResult = this.serviceRestaurant.updateMeal(this.restaurant.getId(), this.mealIdToBeUpdated, this.mealsNameTextField.getText(), this.mealsDescripTextField.getText(), this.priceSpinner.getValue());
@@ -218,7 +242,10 @@ public class RestaurantSettingsController {
 
     // bouton de retour a l'interface du gestion des commandes d'utilisateur
     public void returnToCustomerOrderHandler(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("../views/customerOrdersList.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../views/customerOrdersList.fxml"));
+        root = loader.load();
+        CustomerOrdersController ordersController = loader.getController();
+        ordersController.setRestaurantManagerId(this.restaurantManagerId);
         scene = new Scene(root);
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         stage.setScene(scene);
