@@ -2,6 +2,7 @@ package controllers;
 
 import java.sql.SQLException;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import models.ServiceUser;
@@ -67,6 +68,17 @@ public class updateUserDataController {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
+    }
+
+    public void retour(ActionEvent event) {
+
+        System.out.println("retour à la page");
+        
+
+    }
+
+    public void returnInfo(int userId, String interfaceName) {
+        
     }
 
 }
