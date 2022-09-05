@@ -100,8 +100,13 @@ public class ServiceUser implements IService<User> {
         result.next();
         if(result.getInt(1) != 0) return true;
         return false;
+    }
 
-
+    // pour ajouter une commande 
+    public void addOrder(String meals, int clientId, int restaurantId) throws SQLException {
+        this.statement = this.connection.createStatement();
+        String request = "INSERT INTO customer_orders VALUES(null, CAST('"+meals+"' AS JSON), "+clientId+", "+restaurantId+")";
+        this.statement.executeUpdate(request);
     }
     
 }

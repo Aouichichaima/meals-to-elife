@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.codehaus.jackson.map.ObjectMapper;
 
+import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -15,6 +16,7 @@ import models.Meal;
 import models.OrderedMeal;
 import models.Restaurant;
 import models.ServiceRestaurant;
+import models.ServiceUser;
 
 public class ClientspaceController {
 
@@ -30,6 +32,7 @@ public class ClientspaceController {
     private ArrayList<OrderedMeal> orderedMeals = new ArrayList<>();
 
     private ServiceRestaurant serviceRestaurant = new ServiceRestaurant();
+    private ServiceUser serviceUser  = new ServiceUser();
 
     
 
@@ -117,7 +120,25 @@ public class ClientspaceController {
     }
 
     public void sendOrder(Event event) {
-        System.out.println(" <row_id> | " + this.orderedMeals + " | " + this.clientId + " | " + this.restaurantId);
+        try {
+            serviceUser.addOrder(this.orderedMeals.toString(), this.clientId, this.restaurantId);
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public void parametreClient (ActionEvent event) {
+     
+
+        System.out.println("ParametreClient");
+
+
+
+    }
+    public void logout(ActionEvent event){
+
+System.out.println("Deconnexion de la page ");
+
     }
 
 }
