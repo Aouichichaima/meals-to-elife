@@ -124,7 +124,6 @@ public class CustomerOrdersController {
 
     // method à executer lorsque on clique sur le bouton "Modifier les cordonnée du chef"
     public void goToChefSettingsInterfaceHandler(ActionEvent event) throws IOException {
-        System.out.println("goTochefSettingsHandler");
         FXMLLoader loader = new FXMLLoader(getClass().getResource("../views/updateUserData.fxml"));
         root = loader.load();
         updateUserDataController updateUser = loader.getController();
@@ -147,5 +146,15 @@ public class CustomerOrdersController {
             System.out.println(e.getMessage());
         }
     }
+
+    // méthode de déconnexion
+    public void logout(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("../views/index.fxml"));
+        scene = new Scene(root);
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+    }
+
 
 }
