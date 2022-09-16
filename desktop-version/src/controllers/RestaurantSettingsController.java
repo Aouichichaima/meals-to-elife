@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -20,6 +21,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import models.Meal;
@@ -50,7 +52,8 @@ public class RestaurantSettingsController {
         this.renderRestaurantMenu();
     }
 
-
+    @FXML
+    private Label restaurantNameLabel;
     @FXML
     private TextField restaurantNameTextField;
     @FXML
@@ -169,6 +172,7 @@ public class RestaurantSettingsController {
         try {
             
             restaurant = serviceRestaurant.findByManagerId(this.restaurantManagerId);
+            this.restaurantNameLabel.setText(restaurant.getName());
             this.restaurantNameTextField.setText(restaurant.getName());
             this.restaurantAddressTextField.setText(restaurant.getAddress());
             ArrayList<Meal> menu = serviceRestaurant.deserializeJSONMenu(restaurant.getMenu());
@@ -179,10 +183,17 @@ public class RestaurantSettingsController {
                 String mealRow = " " + meal.getName() + "    " + meal.getPrice() + " TND";
 
                
-                Label label01 = new Label(mealRow); label01.setFont(new Font("Arial", 16));
+                Label label01 = new Label(mealRow);
+                label01.setFont(new Font("Arial", 16));
+                label01.setTextFill(Color.WHITE);
+                label01.setStyle("-fx-background-color: #212529");
+                label01.setPadding(new Insets(3));
+                
                 Button modifyMealBtn = new Button(" MODIFIER ");
+                modifyMealBtn.setStyle("-fx-color: #0dcaf0");
                 modifyMealBtn.setOnAction(event -> this.sendMealToModification(index, menu.get(index)));
                 Button deleteMealBtn = new Button(" SUPRIMER ");
+                deleteMealBtn.setStyle("-fx-color: #dc3545");
                 deleteMealBtn.setOnAction(event -> { this.deleteMealHandler(index); });
                 FlowPane flowPane = new FlowPane( label01, modifyMealBtn, deleteMealBtn);
                 flowPane.setHgap(10);

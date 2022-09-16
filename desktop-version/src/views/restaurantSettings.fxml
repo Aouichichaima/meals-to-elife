@@ -5,6 +5,8 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Spinner?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Line?>
@@ -38,7 +40,7 @@
             <Font size="16.0" />
          </font>
       </TextField>
-      <Button layoutX="344.0" layoutY="218.0" mnemonicParsing="false" onAction="#saveRestaurantNameAddressHandler" prefHeight="35.0" prefWidth="118.0" text="Enregistrer">
+      <Button layoutX="344.0" layoutY="218.0" mnemonicParsing="false" onAction="#saveRestaurantNameAddressHandler" prefHeight="35.0" prefWidth="118.0" style="-fx-background-color: #0d6efd;" text="Enregistrer" textFill="WHITE">
          <font>
             <Font size="16.0" />
          </font>
@@ -59,7 +61,7 @@
             <Font size="16.0" />
          </font>
       </TextField>
-      <Button fx:id="addMealButton" layoutX="390.0" layoutY="437.0" mnemonicParsing="false" onAction="#addMealsHandler" prefHeight="35.0" prefWidth="76.0" text="Ajouter">
+      <Button fx:id="addMealButton" layoutX="390.0" layoutY="437.0" mnemonicParsing="false" onAction="#addMealsHandler" prefHeight="35.0" prefWidth="76.0" style="-fx-background-color: #0d6efd;" text="Ajouter" textFill="WHITE">
          <font>
             <Font size="16.0" />
          </font>
@@ -80,13 +82,16 @@
             <Font size="16.0" />
          </font>
       </Text>
-      <Button fx:id="modifyMealButton" disable="true" layoutX="285.0" layoutY="437.0" mnemonicParsing="false" onAction="#updateMeal" text="Modifier">
+      <Button fx:id="modifyMealButton" disable="true" layoutX="285.0" layoutY="437.0" mnemonicParsing="false" onAction="#updateMeal" style="-fx-background-color: #212529;" text="Modifier" textFill="WHITE">
          <font>
             <Font size="16.0" />
          </font>
       </Button>
-      <Button layoutX="285.0" layoutY="500.0" mnemonicParsing="false" onAction="#fieldResetHandler" prefHeight="25.0" prefWidth="181.0" text="vider les champs" textFill="RED" />
-      <Button fx:id="returnToCustomerOrderBtn" layoutX="22.0" layoutY="10.0" mnemonicParsing="false" onAction="#returnToCustomerOrderHandler" prefHeight="35.0" prefWidth="441.0" text="Retourner à la liste des commandes des clients">
+      <Button layoutX="285.0" layoutY="500.0" mnemonicParsing="false" onAction="#fieldResetHandler" prefHeight="25.0" prefWidth="181.0" style="-fx-background-color: #dc3545;" text="Vider les champs" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+      <Button fx:id="returnToCustomerOrderBtn" layoutX="360.0" layoutY="10.0" mnemonicParsing="false" onAction="#returnToCustomerOrderHandler" prefHeight="35.0" prefWidth="103.0" style="-fx-background-color: #ffc107;" text="Retourner">
          <font>
             <Font size="16.0" />
          </font>
@@ -113,5 +118,15 @@
          </font>
       </Label>
       <Line endX="266.0" layoutX="684.0" layoutY="22.0" startX="-94.0" />
+      <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="21.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/restaurant_icon.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="restaurantNameLabel" layoutX="75.0" layoutY="23.0" prefHeight="17.0" prefWidth="118.0">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

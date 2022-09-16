@@ -79,7 +79,7 @@ public class ServiceRestaurant implements IService<Restaurant> {
     }
 
 
-    public ArrayList<Meal> deserializeJSONMenu(String JSONMenu) throws Exception{
+    public ArrayList<Meal> deserializeJSONMenu(String JSONMenu) throws Exception {
         ArrayList<Meal> menu = new ArrayList<>();
         ObjectMapper mapper = new ObjectMapper();
         Meal[] meals = mapper.readValue(JSONMenu, Meal[].class);
@@ -87,7 +87,7 @@ public class ServiceRestaurant implements IService<Restaurant> {
         return menu;
     }
 
-
+    // ************ méthode à modifer ( selon une remarque de la part de mme sana benfadhel)
     public boolean updateMeal(int idRestaurant, int mealIndex, String newName, String newDescription, double newPrice) throws SQLException {
         this.statement = this.connection.createStatement();
         String request1 = "SET @json_column_value = ( SELECT menu FROM restaurants WHERE id = "+idRestaurant+")";
@@ -110,14 +110,13 @@ public class ServiceRestaurant implements IService<Restaurant> {
     
 }
 
-
+/* ----------------------------------------------------- MYSQL JSON GUIDE ----------------------------------------------------- */
 /*
 * to add item in a json array column in table first fetch the old json state then update
 * SET @json_column_value = (SELECT <column_name> FROM <table_name> WHERE <condition>);
 * UPDATE <table_name> SET <column_name> = (SELECT JSON_ARRAY_APPEND(@json_column_value, '$',  CAST('<your_value>' AS JSON))) WHERE <condition>;
 * 
 */
-
 /*
  *
  * to update item in json array column in table ==>>> 
@@ -125,7 +124,6 @@ public class ServiceRestaurant implements IService<Restaurant> {
  * UPDATE <table_name> SET <column_name> = (SELECT JSON_SET(@json_column_value, '$[index]', CAST('<your_new_value>' AS JSON))) WHERE <condition>;
  * 
  */
-
 /*
  * to delete item in json array column in a table ==>>>
  * SET @json_column_value = ( SELECT <column_name> FROM <table_name> WHERE <condition> );

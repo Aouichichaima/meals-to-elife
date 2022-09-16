@@ -16,6 +16,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Separator;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import models.Order;
@@ -23,6 +24,8 @@ import models.OrderService;
 import models.OrderedMeal;
 import models.Restaurant;
 import models.ServiceRestaurant;
+import models.ServiceUser;
+import models.User;
 
 public class CustomerOrdersController {
 
@@ -31,13 +34,21 @@ public class CustomerOrdersController {
     private Parent root;
 
     private Restaurant restaurant = null;
+    private User restaurantManager;
     private int restaurantManagerId;
 
     private ServiceRestaurant serviceRestaurant = new ServiceRestaurant();
+    private ServiceUser serviceUser = new ServiceUser();
     private OrderService orderService = new OrderService();
 
     @FXML
     private VBox ordersVBox;
+
+    @FXML
+    private Label restaurantLabel;
+
+    @FXML
+    private Label chefLabel;
 
     // c'est pour l'assignement de l'id du l'utilisateur à partir d'un autre controlleur
     public void setRestaurantManagerId(int restaurantManagerId) {
@@ -55,10 +66,14 @@ public class CustomerOrdersController {
         try {
             this.restaurant = serviceRestaurant.findByManagerId(this.restaurantManagerId);
             ArrayList<Order> orderList = orderService.getAllOrders(restaurant.getId());
+            restaurantLabel.setText(this.restaurant.getName());
+            this.restaurantManager = serviceUser.findById(this.restaurantManagerId);
+            String restaurantManagerFullName = this.restaurantManager.getFirstName() + " " + this.restaurantManager.getLastName();
+            this.chefLabel.setText(restaurantManagerFullName);
 
             for (Order order : orderList) {
                 double totalOrderPrice = 0;
-
+                ArrayList<String> orderMeals = new ArrayList<>();
                 VBox innerVBox = new VBox();
                 for (int i = 0; i < order.getMeals().length; i++) {
 
@@ -67,38 +82,64 @@ public class CustomerOrdersController {
                             + orderedMeal.getQuantity() + " | Prix :  " + orderedMeal.getUnitPrice() + " * "
                             + orderedMeal.getQuantity() + " ............ "
                             + orderedMeal.getUnitPrice() * orderedMeal.getQuantity();
+                    orderMeals.add(mealLabelText);
                     Label mealLabel = new Label(mealLabelText);
+                    mealLabel.setPadding(new Insets(5, 0, 5, 0));
+                    if(i % 2 == 0) mealLabel.setStyle("-fx-background-color: #cff4fc;");
+                    else mealLabel.setStyle("-fx-background-color: #cfe2ff;");
                     mealLabel.setFont(new Font("Arial", 14));
                     innerVBox.getChildren().add(mealLabel);
                     totalOrderPrice += order.getMeals()[i].getQuantity() * order.getMeals()[i].getUnitPrice();
                 }
+                
 
-                String orderDescribe = "Commande " + order.getId() + "  Prix Total " + totalOrderPrice + "\nClient "
-                        + order.getClient().getFirstName()
-                        + " " + order.getClient().getLastName() + "  " + order.getClient().getPhone() + " "
-                        + order.getClient().getEmail();
+                String commandDescribe = "Commande N° " + order.getId() + " ---------- Prix Total = " + totalOrderPrice + " TND";
+                        
 
-                Label orderDescLabel = new Label(orderDescribe);
+                String clientDescribe = "Client: " + order.getClient().getFirstName()
+                + " " + order.getClient().getLastName() + "  " + order.getClient().getPhone() + " "
+                + order.getClient().getEmail();;
+
+                Label orderDescLabel = new Label(commandDescribe);
+                orderDescLabel.setStyle("-fx-background-color:  #212529");
+                orderDescLabel.setTextFill(Color.WHITE);
+                orderDescLabel.setPadding(new Insets(3));
+                Label clientDescribeLabel = new Label(clientDescribe);
+                clientDescribeLabel.setStyle("-fx-background-color:  #212529");
+                clientDescribeLabel.setTextFill(Color.WHITE);
+                clientDescribeLabel.setPadding(new Insets(3));
+
                 orderDescLabel.setFont(new Font("Arial", 16));
+                clientDescribeLabel.setFont(new Font("Arial", 15));
 
                 Button deliveredOrderButton = new Button("Commande livré");
+                deliveredOrderButton.setStyle("-fx-color: #198754");
                 deliveredOrderButton.setOnAction(event -> {
                     this.archiveOrder(order.getId(), true);
                 });
 
+                Button printOrderButton = new Button("Imprimer");
+                printOrderButton.setStyle("-fx-color: #0d6efd");
+                printOrderButton.setOnAction(event -> {
+                    this.printOrder(commandDescribe, clientDescribe, orderMeals);
+                });
+
                 Button canceledOrderButton = new Button("Annuler la Commande");
+                canceledOrderButton.setStyle("-fx-color: #dc3545");
                 canceledOrderButton.setOnAction(event -> {
                     this.archiveOrder(order.getId(), false);
                 });
 
-                FlowPane buttonsFlowPane = new FlowPane(deliveredOrderButton, canceledOrderButton);
+                FlowPane buttonsFlowPane = new FlowPane(deliveredOrderButton, printOrderButton, canceledOrderButton);
                 buttonsFlowPane.setHgap(10);
-                buttonsFlowPane.setPadding(new Insets(10, 10, 10, 390));
+                buttonsFlowPane.setPadding(new Insets(10, 10, 10, 315));
 
                 Separator separator = new Separator();
 
-                this.ordersVBox.getChildren().addAll(orderDescLabel, innerVBox, buttonsFlowPane, separator);
+                this.ordersVBox.getChildren().addAll(orderDescLabel,clientDescribeLabel, innerVBox, buttonsFlowPane, separator);
             }
+    
+
 
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -145,6 +186,14 @@ public class CustomerOrdersController {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
+    }
+
+    // méthode pour génére la facture d'une commande en format pdf...
+    public void printOrder(String commandDescribe, String clientDescribe, ArrayList<String> orderMeals) {
+        System.out.println(commandDescribe);
+        System.out.println(clientDescribe);
+        System.out.println(orderMeals);
+
     }
 
     // méthode de déconnexion

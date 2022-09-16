@@ -18,3 +18,8 @@ public class Main extends Application {
         primaryStage.show();
     }
 }
+
+// a ajouter :
+// plus de UI...
+// sesion... l'utilisateur qui est connecté ?
+// générer des pdf pour chaque commande...
