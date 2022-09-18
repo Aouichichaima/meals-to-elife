@@ -9,10 +9,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
+import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 import models.ServiceUser;
 import models.User;
@@ -33,12 +34,11 @@ public class SignupController {
     private PasswordField passwordTextField;
     @FXML
     private RadioButton clientRadioButton, restaurantRadioButton;
-    @FXML
-    private Label inscriptionMessageLabel;
+
 
 
     
-    // la method responsable a l'inscription du l'utilisateur
+    // la méthode responsable a l'inscription du l'utilisateur
     public void signupHandler() {
         String cin = cinTextField.getText();
         String firstName = firstNameTextField.getText();
@@ -48,22 +48,27 @@ public class SignupController {
         String password = passwordTextField.getText();
         String typeOfUser = restaurantRadioButton.isSelected() ? "restaurant" : "client";
 
-        // vérification des champ...
+        // vérification des champ... (controle saisie)
         if(cin.length() != 8 || firstName.length() < 3 || lastName.length() < 2 || phone.length() < 8 || email.length() < 12 || password.length() < 5 || typeOfUser.isEmpty()) {
-            this.inscriptionMessageLabel.setText("Merci de vérifier vos informations");
+            Alert alert = new Alert(AlertType.WARNING);
+            alert.setContentText("merci de vérifier vos coordonnées");
+            alert.show();
             return;
         }
 
         ServiceUser serviceUser = new ServiceUser();
         
         // vérification de l'éxictance de la cin ou de l'email dans la base de données
+        Alert alert = new Alert(AlertType.WARNING);
         try {
             if(serviceUser.isCinOrEmailExist(cin, email)) {
-                this.inscriptionMessageLabel.setText("un compte avec la cin: "+cin+"\nou email: "+email+" existe déja");
+                alert.setContentText("un compte avec la cin: "+cin+"\nou email: "+email+" existe déja");
+                alert.show();
                 return;
             }
         } catch (SQLException e) {
-            this.inscriptionMessageLabel.setText("désole un problème dans le système");
+            alert.setContentText("désole un problème dans le système");
+            alert.show();
         }
 
 
@@ -72,11 +77,20 @@ public class SignupController {
         
 
         try {
-            if(serviceUser.add(user))
-                this.inscriptionMessageLabel.setText("Votre demande de création d'un compte finit par succés \n en attendant l'acceptation des administrateurs");
+            alert = new Alert(AlertType.CONFIRMATION);
+            if(serviceUser.add(user)) {
+                alert.setContentText("Votre demande de création d'un compte finit par succés \n en attendant l'acceptation des administrateurs");
+                alert.show();
+                this.cinTextField.setText("");
+                this.firstNameTextField.setText("");
+                this.lastNameTextField.setText("");
+                this.phoneTextField.setText("");
+                this.emailTextField.setText("");
+                this.passwordTextField.setText("");
+            }
         } catch (SQLException e) {
-            this.inscriptionMessageLabel.setText("désole un problème dans le système");
-            System.out.println(e);
+            alert.setContentText("désole un problème dans le système");
+            alert.show();
         }
 
     }
