@@ -1,7 +1,7 @@
 package models;
 
 public class OrderedMeal {
-
+    private int id;
     private String name;
     private double unitPrice;
     private int quantity;
@@ -9,11 +9,20 @@ public class OrderedMeal {
     public OrderedMeal() {
     }
 
-    public OrderedMeal(String name, double unitPrice, int quantity) {
+    public OrderedMeal(int id, String name, double unitPrice, int quantity) {
+        this.id = id;
         this.name = name;
         this.unitPrice = unitPrice;
         this.quantity = quantity;
     
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
