@@ -2,13 +2,9 @@ package controllers;
 
 import java.sql.SQLException;
 
-import javax.swing.JOptionPane;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
-import javafx.scene.control.Alert.AlertType;
 import models.ServiceUser;
 import models.User;
 
