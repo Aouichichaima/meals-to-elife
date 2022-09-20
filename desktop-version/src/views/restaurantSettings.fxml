@@ -5,6 +5,7 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Spinner?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -13,93 +14,114 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.RestaurantSettingsController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="960.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.RestaurantSettingsController">
    <children>
       <ScrollPane layoutX="480.0" layoutY="45.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="495.0" prefWidth="479.0">
          <content>
             <VBox fx:id="menuVBox" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="503.0" prefWidth="461.0" />
          </content>
       </ScrollPane>
-      <TextField fx:id="restaurantNameTextField" layoutX="176.0" layoutY="110.0" prefHeight="35.0" prefWidth="286.0" promptText="nom du restaurant">
+      <TextField fx:id="restaurantNameTextField" layoutX="176.0" layoutY="110.0" prefHeight="26.0" prefWidth="275.0" promptText="nom du restaurant">
          <font>
             <Font size="16.0" />
          </font>
+         <effect>
+            <DropShadow />
+         </effect>
       </TextField>
       <Label layoutX="20.0" layoutY="114.0" prefHeight="25.0" prefWidth="142.0" text="Nom du restaurant">
          <font>
-            <Font size="16.0" />
+            <Font name="System Bold Italic" size="14.0" />
          </font>
       </Label>
-      <Label layoutX="20.0" layoutY="169.0" text="Address du restaurant">
+      <Label layoutX="18.0" layoutY="172.0" text="Addresse du restaurant">
          <font>
-            <Font size="14.0" />
+            <Font name="System Bold Italic" size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="restaurantAddressTextField" layoutX="176.0" layoutY="164.0" prefHeight="35.0" prefWidth="286.0" promptText="Address du restaurant">
+      <TextField fx:id="restaurantAddressTextField" layoutX="176.0" layoutY="164.0" prefHeight="14.0" prefWidth="275.0" promptText="Address du restaurant">
          <font>
             <Font size="16.0" />
          </font>
+         <effect>
+            <DropShadow />
+         </effect>
       </TextField>
-      <Button layoutX="344.0" layoutY="218.0" mnemonicParsing="false" onAction="#saveRestaurantNameAddressHandler" prefHeight="35.0" prefWidth="118.0" style="-fx-background-color: #0d6efd;" text="Enregistrer" textFill="WHITE">
+      <Button layoutX="349.0" layoutY="214.0" mnemonicParsing="false" onAction="#saveRestaurantNameAddressHandler" prefHeight="35.0" prefWidth="103.0" style="-fx-background-color: #0d6efd;" text="Enregistrer" textFill="WHITE">
          <font>
-            <Font size="16.0" />
+            <Font name="System Bold" size="15.0" />
          </font>
       </Button>
-      <Label layoutX="20.0" layoutY="313.0" prefHeight="25.0" prefWidth="103.0" text="Nom du repas">
+      <Label layoutX="20.0" layoutY="321.0" prefHeight="25.0" prefWidth="103.0" text="Nom du repas">
          <font>
-            <Font size="16.0" />
+            <Font name="System Bold Italic" size="14.0" />
          </font>
       </Label>
-      <Label layoutX="20.0" layoutY="450.0" prefHeight="25.0" prefWidth="32.0" text="Prix">
+      <Label layoutX="20.0" layoutY="428.0" prefHeight="25.0" prefWidth="32.0" text="Prix">
          <font>
-            <Font size="16.0" />
+            <Font name="System Bold Italic" size="14.0" />
          </font>
       </Label>
-      <Spinner fx:id="priceSpinner" editable="true" layoutX="137.0" layoutY="440.0" prefHeight="35.0" prefWidth="92.0" />
-      <TextField fx:id="mealsNameTextField" layoutX="137.0" layoutY="313.0" prefHeight="35.0" prefWidth="327.0" promptText="nom du repas">
+      <Spinner fx:id="priceSpinner" editable="true" layoutX="176.0" layoutY="422.0" prefHeight="35.0" prefWidth="92.0">
+         <effect>
+            <DropShadow />
+         </effect></Spinner>
+      <TextField fx:id="mealsNameTextField" layoutX="172.0" layoutY="316.0" prefHeight="38.0" prefWidth="275.0" promptText="nom du repas">
          <font>
             <Font size="16.0" />
          </font>
+         <effect>
+            <DropShadow />
+         </effect>
       </TextField>
-      <Button fx:id="addMealButton" layoutX="390.0" layoutY="437.0" mnemonicParsing="false" onAction="#addMealsHandler" prefHeight="35.0" prefWidth="76.0" style="-fx-background-color: #0d6efd;" text="Ajouter" textFill="WHITE">
+      <Button fx:id="addMealButton" layoutX="371.0" layoutY="424.0" mnemonicParsing="false" onAction="#addMealsHandler" prefHeight="20.0" prefWidth="76.0" style="-fx-background-color: #0d6efd;" text="Ajouter" textFill="WHITE">
          <font>
-            <Font size="16.0" />
+            <Font name="System Bold" size="15.0" />
          </font>
       </Button>
-      <Label layoutX="20.0" layoutY="377.0" prefHeight="25.0" prefWidth="85.0" text="Description">
+      <Label layoutX="20.0" layoutY="374.0" prefHeight="25.0" prefWidth="85.0" text="Description">
          <font>
-            <Font size="16.0" />
+            <Font name="System Bold Italic" size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="mealsDescripTextField" layoutX="137.0" layoutY="372.0" prefHeight="35.0" prefWidth="327.0" promptText="description du repas">
+      <TextField fx:id="mealsDescripTextField" layoutX="172.0" layoutY="368.0" prefHeight="38.0" prefWidth="275.0" promptText="description du repas">
          <font>
             <Font size="16.0" />
          </font>
+         <effect>
+            <DropShadow />
+         </effect>
       </TextField>
-      <Line endX="269.0" layoutX="191.0" layoutY="276.0" startX="47.0" />
-      <Text layoutX="20.0" layoutY="276.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ajouter ou modifier un repas" wrappingWidth="209.0">
+      <Line endX="269.0" layoutX="191.0" layoutY="287.0" startX="47.0" />
+      <Text layoutX="9.0" layoutY="290.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ajouter ou modifier un repas" wrappingWidth="223.0">
          <font>
-            <Font size="16.0" />
+            <Font name="System Bold" size="16.0" />
          </font>
       </Text>
-      <Button fx:id="modifyMealButton" disable="true" layoutX="285.0" layoutY="437.0" mnemonicParsing="false" onAction="#updateMeal" style="-fx-background-color: #212529;" text="Modifier" textFill="WHITE">
+      <Button fx:id="modifyMealButton" disable="true" layoutX="278.0" layoutY="425.0" mnemonicParsing="false" onAction="#updateMeal" style="-fx-background-color: #212529;" text="Modifier" textFill="WHITE">
          <font>
-            <Font size="16.0" />
+            <Font name="System Bold" size="15.0" />
          </font>
       </Button>
-      <Button layoutX="285.0" layoutY="500.0" mnemonicParsing="false" onAction="#fieldResetHandler" prefHeight="25.0" prefWidth="181.0" style="-fx-background-color: #dc3545;" text="Vider les champs" textFill="WHITE">
+      <Button layoutX="281.0" layoutY="479.0" mnemonicParsing="false" onAction="#fieldResetHandler" prefHeight="37.0" prefWidth="167.0" style="-fx-background-color: black;" text="Vider les champs" textFill="WHITE">
          <font>
-            <Font name="System Bold" size="12.0" />
-         </font></Button>
-      <Button fx:id="returnToCustomerOrderBtn" layoutX="360.0" layoutY="10.0" mnemonicParsing="false" onAction="#returnToCustomerOrderHandler" prefHeight="35.0" prefWidth="103.0" style="-fx-background-color: #ffc107;" text="Retourner">
-         <font>
-            <Font size="16.0" />
+            <Font name="System Bold" size="16.0" />
          </font>
-      </Button>
-      <Line endX="270.0" layoutX="191.0" layoutY="84.0" startX="35.0" />
-      <Text layoutX="22.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Coordonnées du restaurant" wrappingWidth="197.0">
+         <effect>
+            <DropShadow />
+         </effect></Button>
+      <Button fx:id="returnToCustomerOrderBtn" layoutX="362.0" layoutY="8.0" mnemonicParsing="false" onAction="#returnToCustomerOrderHandler" prefHeight="21.0" prefWidth="86.0" style="-fx-background-color: black;" text="RETOUR" textFill="WHITE">
          <font>
-            <Font size="16.0" />
+            <Font name="System Bold Italic" size="16.0" />
+         </font>
+         <effect>
+            <DropShadow />
+         </effect>
+      </Button>
+      <Line endX="270.0" layoutX="194.0" layoutY="77.0" startX="35.0" />
+      <Text layoutX="9.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Coordonnées du restaurant" wrappingWidth="223.0">
+         <font>
+            <Font name="System Bold" size="16.0" />
          </font>
       </Text>
       <Label fx:id="saveMessageLabel" layoutX="15.0" layoutY="218.0" prefHeight="35.0" prefWidth="304.0">
@@ -107,23 +129,23 @@
             <Font size="16.0" />
          </font>
       </Label>
-      <Label fx:id="addMealMessageLabel" layoutX="20.0" layoutY="491.0" prefHeight="35.0" prefWidth="320.0">
+      <Label fx:id="addMealMessageLabel" layoutX="11.0" layoutY="478.0" prefHeight="35.0" prefWidth="263.0">
          <font>
-            <Font size="16.0" />
+            <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <Label layoutX="481.0" layoutY="6.0" prefHeight="25.0" prefWidth="109.0" text="Menu Principal">
+      <Label layoutX="481.0" layoutY="6.0" prefHeight="27.0" prefWidth="137.0" text="Menu Principal">
          <font>
-            <Font size="16.0" />
+            <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <Line endX="266.0" layoutX="684.0" layoutY="22.0" startX="-94.0" />
-      <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="21.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+      <Line endX="266.0" layoutX="684.0" layoutY="22.0" startX="-72.0" startY="5.7220458984375E-6" />
+      <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="21.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/restaurant_icon.png" />
          </image>
       </ImageView>
-      <Label fx:id="restaurantNameLabel" layoutX="75.0" layoutY="23.0" prefHeight="17.0" prefWidth="118.0">
+      <Label fx:id="restaurantNameLabel" layoutX="75.0" layoutY="17.0" prefHeight="26.0" prefWidth="149.0">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
