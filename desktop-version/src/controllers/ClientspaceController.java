@@ -10,12 +10,14 @@ import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.print.PrinterJob;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
@@ -36,6 +38,9 @@ public class ClientspaceController {
     private VBox cartVBox;
     @FXML
     private Label userNameLabel;
+    
+    @FXML
+    private Pane imprimPane;
 
     private Stage stage;
     private Scene scene;
@@ -55,6 +60,8 @@ public class ClientspaceController {
         this.clientId = clientId;
         this.render();
     }
+   
+
 
 
     public void render() {
@@ -182,6 +189,27 @@ public class ClientspaceController {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
+        PrinterJob printerJob = PrinterJob.createPrinterJob();
+        if (null != printerJob) 
+            {
+                boolean proceed = printerJob.showPageSetupDialog(null);
+                if (proceed) 
+                    {
+                        boolean printed = printerJob.printPage(imprimPane);
+                        if (printed) 
+                            {
+                                printerJob.endJob();
+                            }
+                        else   
+                            {
+                                System.out.println("Printing failed.");
+                            }
+                    }
+
+            } else 
+                {
+                    System.out.println("Could not create a printer job.");
+                }
     }
 
     public void parametreClient (ActionEvent event) throws IOException{
