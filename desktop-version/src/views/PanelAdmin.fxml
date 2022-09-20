@@ -2,46 +2,85 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="540.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.PanelAdminController">
+<AnchorPane prefHeight="540.0" prefWidth="960.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.PanelAdminController">
    <children>
-      <Button layoutX="604.0" layoutY="227.0" mnemonicParsing="false" onAction="#create" prefHeight="40.0" prefWidth="130.0" style="-fx-background-color: black;" text="AJOUTER" textFill="WHITE">
+      <Button layoutX="558.0" layoutY="255.0" mnemonicParsing="false" onAction="#goToPanel" prefHeight="40.0" prefWidth="180.0" style="-fx-background-color: black;" text="GESTION" textFill="WHITE">
          <font>
             <Font name="Gill Sans Nova Cond XBd Italic" size="18.0" />
          </font>
+         <effect>
+            <DropShadow />
+         </effect>
       </Button>
-      <Button layoutX="604.0" layoutY="297.0" mnemonicParsing="false" onAction="#read" prefHeight="40.0" prefWidth="130.0" style="-fx-background-color: black;" text="AFFICHER" textFill="WHITE">
+      <Button fx:id="btnStat" layoutX="559.0" layoutY="312.0" mnemonicParsing="false" onAction="#goToStatistique" prefHeight="40.0" prefWidth="180.0" style="-fx-background-color: black;" text="STATISTIQUES" textAlignment="CENTER" textFill="#fcfcfc">
          <font>
             <Font name="Gill Sans Nova Cond XBd Italic" size="18.0" />
          </font>
+         <effect>
+            <DropShadow />
+         </effect>
       </Button>
-      <Button layoutX="604.0" layoutY="368.0" mnemonicParsing="false" onAction="#update" prefHeight="40.0" prefWidth="130.0" style="-fx-background-color: black;" text="MODIFIER" textFill="WHITE">
-         <font>
-            <Font name="Gill Sans Nova Cond XBd Italic" size="18.0" />
-         </font>
-      </Button>
-      <Button layoutX="604.0" layoutY="436.0" mnemonicParsing="false" onAction="#delete" prefHeight="40.0" prefWidth="130.0" style="-fx-background-color: #0F8BD;" text="SUPPRIMER" textFill="#1d6fb7">
-         <font>
-            <Font name="Gill Sans Nova Cond XBd Italic" size="18.0" />
-         </font>
-      </Button>
-      <ImageView fitHeight="541.0" fitWidth="555.0" layoutX="-192.0" layoutY="-3.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="541.0" fitWidth="555.0" layoutX="-219.0" layoutY="-3.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@elife.jpg" />
          </image>
       </ImageView>
-      <Label layoutX="418.0" layoutY="42.0" text="Panel d'administration">
+      <Button fx:id="deconnexion" layoutX="558.0" layoutY="468.0" mnemonicParsing="false" onAction="#goToIndex" prefHeight="34.0" prefWidth="180.0" style="-fx-background-color: #d40000;" text="DECONNEXION" textFill="WHITE">
+         <font>
+            <Font name="Gill Sans Nova Cond XBd Italic" size="18.0" />
+         </font>
+         <effect>
+            <DropShadow height="25.5" radius="13.375" width="30.0" />
+         </effect>
+      </Button>
+      <Label layoutX="428.0" layoutY="36.0" text="Panel d'administration">
          <font>
             <Font name="Bernard MT Condensed" size="42.0" />
          </font>
       </Label>
-      <Label layoutX="558.0" layoutY="107.0" text="Gestion des comptes des utilisateurs" textFill="#1d6fb7">
+      <Label layoutX="474.0" layoutY="92.0" text="Gestion des comptes des utilisateurs" textFill="#1d6fb7">
          <font>
-            <Font name="Bernard MT Condensed" size="26.0" />
+            <Font name="Bernard MT Condensed" size="30.0" />
+         </font>
+      </Label>
+      <Pane layoutX="816.0" layoutY="6.0" prefHeight="103.0" prefWidth="158.0">
+         <children>
+            <ImageView fitHeight="51.0" fitWidth="52.0" layoutX="86.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@account.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="84.0" layoutY="47.0" prefHeight="34.0" prefWidth="138.0" text="ADMIN" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="162.0" layoutY="-114.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="123.0" fitWidth="109.0" layoutX="314.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@control.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="btnContact" layoutX="560.0" layoutY="368.0" mnemonicParsing="false" onAction="#goToContact" prefHeight="40.0" prefWidth="180.0" style="-fx-background-color: black;" text="CONTACT" textFill="#fcfcfc">
+         <font>
+            <Font name="Gill Sans Nova Cond XBd Italic" size="18.0" />
+         </font>
+         <effect>
+            <DropShadow />
+         </effect>
+      </Button>
+      <Label fx:id="text" layoutX="452.0" layoutY="180.0" prefHeight="46.0" prefWidth="412.0" textAlignment="CENTER" textFill="#003461">
+         <font>
+            <Font name="System Bold" size="35.0" />
          </font>
       </Label>
    </children>

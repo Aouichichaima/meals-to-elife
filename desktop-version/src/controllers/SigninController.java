@@ -67,8 +67,11 @@ public class SigninController {
 
                 switch(typeOfUser) {
                     case "admin" :
+                        String prenom= resultSet.getString("first_name");
                         loader = new FXMLLoader(getClass().getResource("../views/PanelAdmin.fxml"));
                         root = loader.load();
+                        PanelAdminController p = loader.getController();
+                        p.displayName(prenom);
                     break;
                     case "restaurant" :
                         loader = new FXMLLoader(getClass().getResource("../views/customerOrdersList.fxml"));
