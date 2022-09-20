@@ -12,7 +12,7 @@ public class User {
     private int isAuthorized;
 
     
-
+    public User(){}
     public int getIsAuthorized() {
         return isAuthorized;
     }

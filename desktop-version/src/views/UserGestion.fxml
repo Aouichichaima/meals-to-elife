@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="960.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.UserGestion">
+   <children>
+      <Pane layoutX="1.0" prefHeight="540.0" prefWidth="300.0" style="-fx-background-color: black;">
+         <children>
+            <TextField fx:id="txtCin" layoutX="124.0" layoutY="24.0" prefHeight="25.0" prefWidth="159.0">
+               <effect>
+                  <DropShadow />
+               </effect></TextField>
+            <TextField fx:id="txtNom" layoutX="124.0" layoutY="63.0" prefHeight="25.0" prefWidth="159.0">
+               <effect>
+                  <DropShadow />
+               </effect></TextField>
+            <TextField fx:id="txtPrenom" layoutX="125.0" layoutY="102.0" prefHeight="25.0" prefWidth="159.0">
+               <effect>
+                  <DropShadow />
+               </effect></TextField>
+            <TextField fx:id="txtEmail" layoutX="124.0" layoutY="143.0" prefHeight="25.0" prefWidth="159.0">
+               <effect>
+                  <DropShadow />
+               </effect></TextField>
+            <TextField fx:id="txtPwd" layoutX="124.0" layoutY="181.0" prefHeight="25.0" prefWidth="159.0">
+               <effect>
+                  <DropShadow />
+               </effect></TextField>
+            <TextField fx:id="txtTel" layoutX="124.0" layoutY="220.0" prefHeight="25.0" prefWidth="159.0">
+               <effect>
+                  <DropShadow />
+               </effect></TextField>
+            <TextField fx:id="txtRole" layoutX="124.0" layoutY="260.0" prefHeight="25.0" prefWidth="159.0">
+               <effect>
+                  <DropShadow />
+               </effect></TextField>
+            <TextField fx:id="txtAuto" layoutX="124.0" layoutY="300.0" prefHeight="25.0" prefWidth="159.0">
+               <effect>
+                  <DropShadow />
+               </effect></TextField>
+            <Label layoutX="9.0" layoutY="28.0" text="N° CIN" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="12.0" layoutY="303.0" text="AUTORISATION" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="11.0" layoutY="184.0" text="MOT DE PASSE" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="11.0" layoutY="146.0" text="EMAIL" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="9.0" layoutY="66.0" text="NOM" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="9.0" layoutY="105.0" text="PRENOM" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="12.0" layoutY="223.0" text="N° TEL" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="13.0" layoutY="263.0" text="ROLE" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Button fx:id="addBtn" layoutX="2.0" layoutY="388.0" mnemonicParsing="false" onAction="#Add" style="-fx-background-color: #039900;" text="AJOUTER" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Button>
+            <Button fx:id="modBtn" layoutX="95.0" layoutY="388.0" mnemonicParsing="false" onAction="#Update" style="-fx-background-color: #797979;" text="MODIFIER" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Button>
+            <Button fx:id="deleteBtn" layoutX="192.0" layoutY="388.0" mnemonicParsing="false" onAction="#Delete" style="-fx-background-color: #890707;" text="SUPPRIMER" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Button>
+         </children>
+      </Pane>
+      <TableView fx:id="tabUser" layoutX="306.0" layoutY="157.0" prefHeight="314.0" prefWidth="650.0">
+        <columns>
+          <TableColumn fx:id="cinCol" prefWidth="68.79998779296875" text="N° CIN" />
+          <TableColumn fx:id="nomCol" prefWidth="75.99993896484375" text="NOM" />
+            <TableColumn fx:id="prenomCol" prefWidth="81.60003662109375" text="PRENOM" />
+            <TableColumn fx:id="emailCol" prefWidth="99.20001220703125" text="EMAIL" />
+            <TableColumn fx:id="pwdCol" prefWidth="90.39996337890625" text="M.D PASSE" />
+            <TableColumn fx:id="telCol" prefWidth="79.20001220703125" text="N° TEL" />
+            <TableColumn fx:id="roleCol" prefWidth="66.4000244140625" text="ROLE" />
+            <TableColumn fx:id="autoCol" prefWidth="92.800048828125" text="AUTORISAT°" />
+        </columns>
+      </TableView>
+      <Label layoutX="422.0" layoutY="14.0" text="GESTION DES UTILISATEURS" underline="true">
+         <font>
+            <Font name="Bernard MT Condensed" size="40.0" />
+         </font>
+      </Label>
+      <TextField fx:id="filterTxt" layoutX="317.0" layoutY="102.0" prefHeight="30.0" prefWidth="215.0" promptText="Rechercher" />
+      <Button fx:id="Search" layoutX="549.0" layoutY="104.0" mnemonicParsing="false" onAction="#search" style="-fx-background-color: #008fdc;" text="Rechercher" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+         <effect>
+            <DropShadow />
+         </effect></Button>
+      <Button fx:id="actualiser" layoutX="648.0" layoutY="104.0" mnemonicParsing="false" onAction="#table" style="-fx-background-color: #008fdc;" text="Actualiser" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+         <effect>
+            <DropShadow />
+         </effect></Button>
+      <Button fx:id="retour" layoutX="489.0" layoutY="491.0" mnemonicParsing="false" onAction="#goToHome" prefHeight="34.0" prefWidth="99.0" style="-fx-background-color: #0F8BD;" text="RETOUR" textFill="#1d6fb7">
+         <font>
+            <Font name="Gill Sans Nova Cond XBd Italic" size="14.0" />
+         </font>
+         <effect>
+            <DropShadow />
+         </effect>
+      </Button>
+      <Button fx:id="stat" layoutX="703.0" layoutY="491.0" mnemonicParsing="false" onAction="#goToStatistique" prefHeight="34.0" prefWidth="127.0" style="-fx-background-color: #0F8BD;" text="STATISTIQUES" textFill="#1d6fb7">
+         <font>
+            <Font name="Gill Sans Nova Cond XBd Italic" size="14.0" />
+         </font>
+         <effect>
+            <DropShadow />
+         </effect>
+      </Button>
+      <Button fx:id="deconnexion" layoutX="838.0" layoutY="491.0" mnemonicParsing="false" onAction="#goToIndex" prefHeight="34.0" prefWidth="116.0" style="-fx-background-color: #6e0000;" text="DECONNEXION" textFill="WHITE">
+         <font>
+            <Font name="Gill Sans Nova Cond XBd Italic" size="14.0" />
+         </font>
+         <effect>
+            <DropShadow />
+         </effect>
+      </Button>
+      <Button fx:id="btnContact" layoutX="596.0" layoutY="491.0" mnemonicParsing="false" onAction="#goToContact" prefHeight="34.0" prefWidth="99.0" style="-fx-background-color: #0F8BD;" text="CONTACT" textFill="#1d6fb7">
+         <font>
+            <Font name="Gill Sans Nova Cond XBd Italic" size="14.0" />
+         </font>
+         <effect>
+            <DropShadow />
+         </effect>
+      </Button>
+      <Pane layoutX="829.0" layoutY="5.0" prefHeight="103.0" prefWidth="127.0">
+         <children>
+            <ImageView fitHeight="50.0" fitWidth="51.0" layoutX="58.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@account.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="57.0" layoutY="47.0" prefHeight="34.0" prefWidth="127.0" text="ADMIN" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+       </children>
+</AnchorPane>
