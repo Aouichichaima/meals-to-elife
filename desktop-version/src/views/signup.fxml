@@ -6,54 +6,76 @@
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.SignupController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="960.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.SignupController">
    <children>
-      <Button layoutX="700.0" layoutY="336.0" mnemonicParsing="false" onAction="#signupHandler" prefHeight="30.0" prefWidth="211.0" style="-fx-background-color: #0d6efd;" text="S'inscrire" textFill="WHITE">
+      <Button layoutX="713.0" layoutY="347.0" mnemonicParsing="false" onAction="#signupHandler" prefHeight="30.0" prefWidth="211.0" style="-fx-background-color: #0d6efd;" text="S'inscrire" textFill="WHITE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
+         <effect>
+            <DropShadow height="5.0" radius="2.0" width="5.0" />
+         </effect>
       </Button>
-      <TextField fx:id="cinTextField" layoutX="441.0" layoutY="117.0" prefHeight="30.0" prefWidth="211.0" promptText="CIN">
+      <TextField fx:id="cinTextField" layoutX="418.0" layoutY="117.0" prefHeight="30.0" prefWidth="211.0" promptText="CIN">
          <font>
             <Font size="14.0" />
          </font>
+         <effect>
+            <DropShadow height="3.0" radius="1.0" width="3.0" />
+         </effect>
       </TextField>
-      <TextField fx:id="firstNameTextField" layoutX="700.0" layoutY="117.0" prefHeight="30.0" prefWidth="211.0" promptText="Nom">
+      <TextField fx:id="firstNameTextField" layoutX="712.0" layoutY="117.0" prefHeight="30.0" prefWidth="211.0" promptText="Nom">
          <font>
             <Font size="14.0" />
          </font>
+         <effect>
+            <DropShadow height="3.0" radius="1.0" width="3.0" />
+         </effect>
       </TextField>
-      <TextField fx:id="lastNameTextField" layoutX="441.0" layoutY="196.0" prefHeight="30.0" prefWidth="211.0" promptText="Prenom">
+      <TextField fx:id="lastNameTextField" layoutX="418.0" layoutY="196.0" prefHeight="30.0" prefWidth="211.0" promptText="Prenom">
          <font>
             <Font size="14.0" />
          </font>
+         <effect>
+            <DropShadow height="3.0" radius="1.0" width="3.0" />
+         </effect>
       </TextField>
-      <TextField fx:id="phoneTextField" layoutX="700.0" layoutY="196.0" prefHeight="30.0" prefWidth="211.0" promptText="Numéro Tél">
+      <TextField fx:id="phoneTextField" layoutX="714.0" layoutY="196.0" prefHeight="30.0" prefWidth="211.0" promptText="Numéro Tél">
          <font>
             <Font size="14.0" />
          </font>
+         <effect>
+            <DropShadow height="3.0" radius="1.0" width="3.0" />
+         </effect>
       </TextField>
-      <TextField fx:id="emailTextField" layoutX="441.0" layoutY="272.0" prefHeight="25.0" prefWidth="211.0" promptText="email">
+      <TextField fx:id="emailTextField" layoutX="418.0" layoutY="278.0" prefHeight="25.0" prefWidth="211.0" promptText="email">
          <font>
             <Font size="14.0" />
          </font>
+         <effect>
+            <DropShadow height="3.0" radius="1.0" width="3.0" />
+         </effect>
       </TextField>
-      <PasswordField fx:id="passwordTextField" layoutX="700.0" layoutY="272.0" prefHeight="25.0" prefWidth="211.0" promptText="Mot de pass">
+      <PasswordField fx:id="passwordTextField" layoutX="716.0" layoutY="277.0" prefHeight="25.0" prefWidth="211.0" promptText="Mot de passe">
          <font>
             <Font size="14.0" />
          </font>
+         <effect>
+            <DropShadow height="3.0" radius="1.0" width="3.0" />
+         </effect>
       </PasswordField>
-      <Label layoutX="441.0" layoutY="21.0" prefHeight="38.0" prefWidth="468.0" text="Entrer vos données et attendez l'activation des administrateurs">
+      <Label layoutX="396.0" layoutY="13.0" prefHeight="38.0" prefWidth="549.0" text="Entrer vos données et attendez l'activation des administrateurs" textFill="#0d6efd">
          <font>
-            <Font size="16.0" />
+            <Font name="System Bold Italic" size="18.0" />
          </font>
       </Label>
-      <RadioButton fx:id="clientRadioButton" layoutX="441.0" layoutY="343.0" mnemonicParsing="false" selected="true" text="client">
+      <RadioButton fx:id="clientRadioButton" layoutX="418.0" layoutY="353.0" mnemonicParsing="false" selected="true" text="client">
          <font>
             <Font size="14.0" />
          </font>
@@ -61,53 +83,56 @@
             <ToggleGroup fx:id="clientORrest" />
          </toggleGroup>
       </RadioButton>
-      <RadioButton fx:id="restaurantRadioButton" layoutX="518.0" layoutY="343.0" mnemonicParsing="false" text="gérant d'un restaurant" toggleGroup="$clientORrest">
+      <RadioButton fx:id="restaurantRadioButton" layoutX="510.0" layoutY="354.0" mnemonicParsing="false" text="gérant d'un restaurant" toggleGroup="$clientORrest">
          <font>
             <Font size="14.0" />
          </font>
       </RadioButton>
-      <Label layoutX="441.0" layoutY="396.0" prefHeight="25.0" prefWidth="173.0" text="Vous avez un compte ?">
+      <Label layoutX="419.0" layoutY="458.0" prefHeight="25.0" prefWidth="173.0" text="Vous avez un compte ?">
          <font>
-            <Font size="16.0" />
+            <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Button layoutX="621.0" layoutY="396.0" mnemonicParsing="false" onAction="#goToLoginInterface" prefHeight="25.0" prefWidth="108.0" style="-fx-background-color: #198754;" text="Connectez-vous" textFill="WHITE">
+      <Button layoutX="623.0" layoutY="455.0" mnemonicParsing="false" onAction="#goToLoginInterface" prefHeight="30.0" prefWidth="138.0" style="-fx-background-color: black;" text="Connectez-vous" textFill="WHITE">
          <font>
-            <Font name="System Bold Italic" size="12.0" />
-         </font></Button>
+            <Font name="System Bold Italic" size="14.0" />
+         </font>
+         <effect>
+            <DropShadow />
+         </effect></Button>
       <ImageView fitHeight="540.0" fitWidth="420.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@inscription.jpg" />
+            <Image url="@Repas%20Vers%20ELIFE.jpg" />
          </image>
       </ImageView>
-      <Label layoutX="441.0" layoutY="243.0" prefHeight="20.0" prefWidth="38.0" style="-fx-background-color: #212529;" text="Email" textFill="WHITE">
+      <Label layoutX="419.0" layoutY="255.0" prefHeight="20.0" prefWidth="38.0" text="Email">
          <font>
-            <Font size="14.0" />
+            <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="700.0" layoutY="243.0" prefHeight="20.0" prefWidth="85.0" style="-fx-background-color: #212529;" text="Mot de pass" textFill="WHITE">
+      <Label layoutX="719.0" layoutY="252.0" prefHeight="22.0" prefWidth="132.0" text="Mot de passe">
          <font>
-            <Font size="14.0" />
+            <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="441.0" layoutY="167.0" prefHeight="20.0" prefWidth="49.0" style="-fx-background-color: #212529;" text="Prénom" textFill="WHITE">
+      <Label layoutX="419.0" layoutY="171.0" prefHeight="22.0" prefWidth="86.0" text="Prénom">
          <font>
-            <Font size="14.0" />
+            <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="700.0" layoutY="167.0" prefHeight="20.0" prefWidth="144.0" style="-fx-background-color: #212529;" text="Numéro de téléphone" textFill="WHITE">
+      <Label layoutX="718.0" layoutY="169.0" prefHeight="22.0" prefWidth="196.0" text="Numéro de téléphone">
          <font>
-            <Font size="14.0" />
+            <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="442.0" layoutY="87.0" prefHeight="20.0" prefWidth="173.0" style="-fx-background-color: #212529;" text="Carte d'identité nationale" textFill="WHITE">
+      <Label layoutX="420.0" layoutY="86.0" prefHeight="22.0" prefWidth="211.0" text="Carte d'identité nationale">
          <font>
-            <Font size="14.0" />
+            <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="701.0" layoutY="87.0" prefHeight="20.0" prefWidth="38.0" style="-fx-background-color: #212529;" text="Nom" textFill="WHITE">
+      <Label layoutX="711.0" layoutY="87.0" prefHeight="20.0" prefWidth="38.0" text="Nom">
          <font>
-            <Font size="14.0" />
+            <Font name="System Bold" size="15.0" />
          </font>
       </Label>
    </children>
