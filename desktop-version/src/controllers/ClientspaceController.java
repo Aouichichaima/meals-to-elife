@@ -162,11 +162,19 @@ public class ClientspaceController {
 
     public void renderCart() {
         this.cartVBox.getChildren().clear();
+        this.cartVBox.setSpacing(7);
+        double prixTotal = 0;
+        Label prixTotalLabel = new Label("Prix Total : " + prixTotal);
+        prixTotalLabel.setFont(new Font("Arial", 16));
+        prixTotalLabel.setStyle("-fx-background-color: #ffc107");
 
+        this.cartVBox.getChildren().add(prixTotalLabel);
         for (int i = 0; i < this.orderedMeals.size(); i++) {
             OrderedMeal orderedMeal = this.orderedMeals.get(i);
             Label mealLabel = new Label(orderedMeal.getName() + " Prix :" + orderedMeal.getUnitPrice() * orderedMeal.getQuantity());
             mealLabel.setFont(new Font("Arial", 16));
+
+            prixTotal += orderedMeal.getUnitPrice() * orderedMeal.getQuantity();
             
             Label productQuantity = new Label(" Quantity : " + orderedMeal.getQuantity());
             productQuantity.setFont(new Font("Arial", 16));
@@ -181,6 +189,8 @@ public class ClientspaceController {
             FlowPane flowPane = new FlowPane(mealLabel, productQuantity, removeMealBtn);
             this.cartVBox.getChildren().add(flowPane);
         }
+
+        prixTotalLabel.setText("Prix Total : " + prixTotal);
     }
 
     public void sendOrder(Event event) {
@@ -189,30 +199,30 @@ public class ClientspaceController {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-        PrinterJob printerJob = PrinterJob.createPrinterJob();
-        if (null != printerJob) 
-            {
-                boolean proceed = printerJob.showPageSetupDialog(null);
-                if (proceed) 
-                    {
-                        boolean printed = printerJob.printPage(imprimPane);
-                        if (printed) 
-                            {
-                                printerJob.endJob();
-                            }
-                        else   
-                            {
-                                System.out.println("Printing failed.");
-                            }
-                    }
 
-            } else 
-                {
-                    System.out.println("Could not create a printer job.");
-                }
+        PrinterJob printerJob = PrinterJob.createPrinterJob();
+        if (null != printerJob) {
+            boolean proceed = printerJob.showPageSetupDialog(null);
+            if (proceed) {
+                Label userNameLabel = new Label(this.user.getFirstName() + " " + this.user.getLastName());
+                userNameLabel.setFont(new Font("Arial", 18));
+                this.cartVBox.getChildren().add(userNameLabel);
+
+                Label userEmailLabel = new Label(this.user.getEmail());
+                userEmailLabel.setFont(new Font("Arial", 18));
+                this.cartVBox.getChildren().add(userEmailLabel);
+                
+                boolean printed = printerJob.printPage(this.cartVBox);
+                if (printed) printerJob.endJob();
+                else System.out.println("Printing failed.");
+            }
+
+        } 
+        else System.out.println("Could not create a printer job.");
+                
     }
 
-    public void parametreClient (ActionEvent event) throws IOException{
+    public void parametreClient (ActionEvent event) throws IOException {
      
 
         System.out.println("ParametreClient");
