@@ -108,5 +108,19 @@ public class ServiceUser implements IService<User> {
         String request = "INSERT INTO customer_orders VALUES(null, CAST('"+meals+"' AS JSON), "+clientId+", "+restaurantId+")";
         this.statement.executeUpdate(request);
     }
+
+
+
+
+    public boolean isEmailExist( String email) throws SQLException {
+
+        this.statement = connection.createStatement();
+        String query = "SELECT count(*) FROM users WHERE email = '"+email+"'";
+        ResultSet result = this.statement.executeQuery(query);
+        result.next();
+        if(result.getInt(1) != 0) return true;
+        return false;
+
+    }
     
 }
