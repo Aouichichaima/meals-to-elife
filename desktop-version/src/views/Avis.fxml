@@ -5,27 +5,69 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Spinner?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AvisController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="960.0" style="-fx-background-color: #969191;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AvisController">
    <children>
-      <TextField fx:id="noticeTextField" layoutX="311.0" layoutY="182.0" prefHeight="176.0" prefWidth="339.0" />
-      <Spinner fx:id="noteRestoSpinner" layoutX="468.0" layoutY="133.0" prefHeight="25.0" prefWidth="182.0" />
-      <Button layoutX="523.0" layoutY="403.0" mnemonicParsing="false" onAction="#sendNotice" prefHeight="31.0" prefWidth="127.0" text="Envoyer">
+      <TextField fx:id="noticeTextField" layoutX="532.0" layoutY="245.0" prefHeight="176.0" prefWidth="339.0">
+         <effect>
+            <DropShadow />
+         </effect></TextField>
+      <Spinner fx:id="noteRestoSpinner" layoutX="532.0" layoutY="174.0" prefHeight="25.0" prefWidth="182.0">
+         <effect>
+            <DropShadow />
+         </effect></Spinner>
+      <Button layoutX="559.0" layoutY="441.0" mnemonicParsing="false" onAction="#sendNotice" prefHeight="31.0" prefWidth="127.0" style="-fx-background-color: #009416;" text="ENVOYER" textFill="WHITE">
          <font>
             <Font name="System Bold" size="16.0" />
-         </font></Button>
-      <Label layoutX="311.0" layoutY="133.0" prefHeight="25.0" prefWidth="127.0" text="Note de 0 à 5">
+         </font>
+         <effect>
+            <DropShadow />
+         </effect></Button>
+      <Label layoutX="383.0" layoutY="174.0" prefHeight="25.0" prefWidth="127.0" text="Note de 0 à 5" textFill="WHITE">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <ChoiceBox fx:id="restaurantChoiceBox" layoutX="468.0" layoutY="85.0" prefHeight="25.0" prefWidth="182.0" />
-      <Label layoutX="311.0" layoutY="85.0" prefHeight="25.0" prefWidth="139.0" text="Restaurant">
+      <ChoiceBox fx:id="restaurantChoiceBox" layoutX="532.0" layoutY="111.0" prefHeight="25.0" prefWidth="182.0">
+         <effect>
+            <DropShadow />
+         </effect></ChoiceBox>
+      <Label layoutX="383.0" layoutY="111.0" prefHeight="25.0" prefWidth="139.0" text="Restaurant" textFill="WHITE">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
+      <Pane layoutX="-5.0" layoutY="-2.0" prefHeight="550.0" prefWidth="301.0" style="-fx-background-color: #F7F7F7;">
+         <children>
+            <ImageView fitHeight="301.0" fitWidth="287.0" layoutX="12.0" layoutY="311.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/42-420782_bad-review-png-transparent-png.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Text fill="WHITE" layoutX="480.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DONNER VOTRE AVIE">
+         <font>
+            <Font name="Bodoni MT Condensed Bold" size="50.0" />
+         </font>
+         <effect>
+            <DropShadow />
+         </effect>
+      </Text>
+      <Button layoutX="702.0" layoutY="441.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="127.0" style="-fx-background-color: BLACK;" text="RETOUR" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+         <effect>
+            <DropShadow />
+         </effect>
+      </Button>
    </children>
 </AnchorPane>
