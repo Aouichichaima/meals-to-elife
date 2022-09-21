@@ -122,6 +122,18 @@ CREATE DATABASE elife;
         CONSTRAINT `fk_orders_arch_restaurant_id` FOREIGN KEY (`restaurant_id`) REFERENCES `elife`.`restaurants`(`id`)
     );
     ```
+- Table `avis` ( les avis des client )
+    ```sql
+        CREATE TABLE `elife`.`avis` (
+        `id` INT PRIMARY KEY AUTO_INCREMENT,
+        `rating` INT,
+        `notice` VARCHAR(1000),
+        `client_id` INT NULL,
+        `restaurant_id` INT NULL,
+        CONSTRAINT `fk2_client_id` FOREIGN KEY (`client_id`) REFERENCES `elife`.`users`(`id`),
+        CONSTRAINT `fk2_restaurant_id` FOREIGN KEY (`restaurant_id`) REFERENCES `elife`.`restaurants`(`id`)
+    );
+    ```
 
 
 ### [Configuré JavaFX dans Visual Studio Code](https://openjfx.io/openjfx-docs/#IDE-VSCode)
