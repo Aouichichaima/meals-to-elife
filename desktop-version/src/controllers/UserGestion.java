@@ -499,7 +499,7 @@ public class UserGestion implements Initializable {
             
             try
                 {
-                    pst = con.prepareStatement("select * from users where cin ="+filterTxt.getText());  
+                    pst = con.prepareStatement("select * from users where cin LIKE '%"+filterTxt.getText()+"%'");  
                     ResultSet rs = pst.executeQuery();
                         {
                         while (rs.next())

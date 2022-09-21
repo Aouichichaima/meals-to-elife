@@ -28,6 +28,12 @@ public class SigninController {
     @FXML
     private PasswordField textPassword;
     
+
+    private FXMLLoader fxmlLoader = null;
+    private Parent root1=null;
+    private Stage stage=null;
+
+
     Stage dialogStage = new Stage();
     Scene scene;
     Parent root;
@@ -121,5 +127,20 @@ public class SigninController {
         stage.setScene(scene);
         stage.show();
     }
+
+
+    @FXML
+        private void forgotPwd() throws IOException{
+            try {
+                fxmlLoader = new FXMLLoader(getClass().getResource("../views/ForgotPasswordView.fxml"));
+                root1 = (Parent) fxmlLoader.load();
+                stage = new Stage();
+                stage.setTitle("Récuperer votre mot de passe");
+                stage.setScene(new Scene(root1));
+                stage.show();
+            }catch (Exception e){
+                System.err.print(e);
+            }
+        }
     
 }
