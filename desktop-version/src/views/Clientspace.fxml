@@ -55,15 +55,20 @@
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="377.0" layoutY="504.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="330.0" layoutY="504.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/user.png" />
          </image>
       </ImageView>
-      <Label fx:id="userNameLabel" layoutX="413.0" layoutY="504.0" prefHeight="30.0" prefWidth="173.0">
+      <Label fx:id="userNameLabel" layoutX="366.0" layoutY="504.0" prefHeight="30.0" prefWidth="173.0">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
+      <Button layoutX="565.0" layoutY="505.0" mnemonicParsing="false" onAction="#goToAvis" prefHeight="25.0" prefWidth="69.0" style="-fx-background-color: #ffc107;" text="Avis">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

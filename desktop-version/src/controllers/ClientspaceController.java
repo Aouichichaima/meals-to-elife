@@ -223,9 +223,6 @@ public class ClientspaceController {
     }
 
     public void parametreClient (ActionEvent event) throws IOException {
-     
-
-        System.out.println("ParametreClient");
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("../views/updateUserData.fxml"));
         root = loader.load();
@@ -244,6 +241,19 @@ public class ClientspaceController {
     public void logout(ActionEvent event) throws IOException {
 
         root = FXMLLoader.load(getClass().getResource("../views/index.fxml"));
+        scene = new Scene(root);
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+
+    }
+
+    public void goToAvis(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../views/Avis.fxml"));
+        root = loader.load();
+        AvisController avisController = loader.getController();
+        avisController.setIdClient(this.clientId);
+
         scene = new Scene(root);
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(scene);

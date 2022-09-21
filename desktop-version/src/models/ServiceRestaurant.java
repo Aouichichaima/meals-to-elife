@@ -29,6 +29,17 @@ public class ServiceRestaurant implements IService<Restaurant> {
         return null;
     }
 
+    public int findByName(String restaurantName) throws SQLException {
+        this.statement = this.connection.createStatement();
+        String query = "SELECT id FROM restaurants WHERE name = " + restaurantName;
+
+        ResultSet resultSet = this.statement.executeQuery(query);
+        resultSet.next();
+        resultSet.getInt(1);
+
+        return 0;
+    }
+
     @Override
     public List<Restaurant> readAll() throws SQLException {
 

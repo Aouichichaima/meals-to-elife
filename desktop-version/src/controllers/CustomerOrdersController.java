@@ -8,6 +8,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
+import javafx.print.PrinterJob;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -120,10 +121,7 @@ public class CustomerOrdersController {
 
                 Button printOrderButton = new Button("Imprimer");
                 printOrderButton.setStyle("-fx-color: #0d6efd");
-                printOrderButton.setOnAction(event -> {
-                    this.printOrder(commandDescribe, clientDescribe, orderMeals);
-                });
-
+                
                 Button canceledOrderButton = new Button("Annuler la Commande");
                 canceledOrderButton.setStyle("-fx-color: #dc3545");
                 canceledOrderButton.setOnAction(event -> {
@@ -135,6 +133,12 @@ public class CustomerOrdersController {
                 buttonsFlowPane.setPadding(new Insets(10, 10, 10, 315));
 
                 Separator separator = new Separator();
+
+                printOrderButton.setOnAction(event -> {
+                    VBox printedVBox = new VBox();
+                    printedVBox.getChildren().addAll(orderDescLabel, clientDescribeLabel, innerVBox);
+                    this.printOrder(printedVBox);
+                });
 
                 this.ordersVBox.getChildren().addAll(orderDescLabel,clientDescribeLabel, innerVBox, buttonsFlowPane, separator);
             }
@@ -189,11 +193,17 @@ public class CustomerOrdersController {
     }
 
     // méthode pour génére la facture d'une commande en format pdf...
-    public void printOrder(String commandDescribe, String clientDescribe, ArrayList<String> orderMeals) {
-        System.out.println(commandDescribe);
-        System.out.println(clientDescribe);
-        System.out.println(orderMeals);
-
+    public void printOrder(VBox innerVBox) {
+        PrinterJob printerJob = PrinterJob.createPrinterJob();
+        if (null != printerJob) {
+            boolean proceed = printerJob.showPageSetupDialog(null);
+            if (proceed) {
+                boolean printed = printerJob.printPage(innerVBox);
+                if (printed) printerJob.endJob();
+                else System.out.println("Printing failed.");
+            }
+        } 
+        else System.out.println("Could not create a printer job.");
     }
 
     // méthode de déconnexion
