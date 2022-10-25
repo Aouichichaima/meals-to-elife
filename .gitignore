@@ -1,2 +1,30 @@
 desktop-version/bin/
 desktop-version/.vscode/
+
+# Node
+web-version/frontend/node_modules
+web-version/frontend/npm-debug.log
+web-version/frontend/yarn-error.log
+
+# Visual Studio Code
+web-version/frontend/.vscode/*
+web-version/frontend/!.vscode/settings.json
+web-version/frontend/!.vscode/tasks.json
+web-version/frontend/!.vscode/launch.json
+web-version/frontend/!.vscode/extensions.json
+web-version/frontend/.history/*
+
+# Compiled output
+web-version/frontend/dist
+web-version/frontend/tmp
+web-version/frontend/out-tsc
+web-version/frontend/bazel-out
+
+# Miscellaneous
+web-version/frontend/.angular/cache
+web-version/frontend/.sass-cache/
+web-version/frontend/connect.lock
+web-version/frontend/coverage
+web-version/frontend/libpeerconnection.log
+web-version/frontend/testem.log
+web-version/frontend/typings
