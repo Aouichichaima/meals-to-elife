@@ -11,6 +11,9 @@ import { ClientComponent } from './client/client.component';
 import { AdminComponent } from './admin/admin.component';
 import { RestaurantComponent } from './restaurant/restaurant.component';
 import { GestionRestaurantComponent } from './gestion-restaurant/gestion-restaurant.component';
+import { FooterComponent } from './footer/footer.component';
+import { UpdateComponent } from './shared/update/update.component';
+import { FormsModule } from '@angular/forms';
 import { ListRestaurantsComponent } from './client/list-restaurants/list-restaurants.component';
 import { ListMenuComponent } from './client/list-menu/list-menu.component';
 
@@ -25,11 +28,14 @@ import { ListMenuComponent } from './client/list-menu/list-menu.component';
     AdminComponent,
     RestaurantComponent,
     GestionRestaurantComponent,
+    FooterComponent,
+    UpdateComponent
     ListRestaurantsComponent,
     ListMenuComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule
   ],
   providers: [],
