@@ -14,6 +14,8 @@ import { GestionRestaurantComponent } from './gestion-restaurant/gestion-restaur
 import { FooterComponent } from './footer/footer.component';
 import { UpdateComponent } from './shared/update/update.component';
 import { FormsModule } from '@angular/forms';
+import { ListRestaurantsComponent } from './client/list-restaurants/list-restaurants.component';
+import { ListMenuComponent } from './client/list-menu/list-menu.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,8 @@ import { FormsModule } from '@angular/forms';
     GestionRestaurantComponent,
     FooterComponent,
     UpdateComponent
+    ListRestaurantsComponent,
+    ListMenuComponent
   ],
   imports: [
     BrowserModule,
