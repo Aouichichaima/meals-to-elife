@@ -11,6 +11,9 @@ import { ClientComponent } from './client/client.component';
 import { AdminComponent } from './admin/admin.component';
 import { RestaurantComponent } from './restaurant/restaurant.component';
 import { GestionRestaurantComponent } from './gestion-restaurant/gestion-restaurant.component';
+import { FooterComponent } from './footer/footer.component';
+import { UpdateComponent } from './shared/update/update.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,10 +25,13 @@ import { GestionRestaurantComponent } from './gestion-restaurant/gestion-restaur
     ClientComponent,
     AdminComponent,
     RestaurantComponent,
-    GestionRestaurantComponent
+    GestionRestaurantComponent,
+    FooterComponent,
+    UpdateComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule
   ],
   providers: [],

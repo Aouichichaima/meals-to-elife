@@ -1,0 +1,64 @@
+<form name="form" #form="ngForm" (ngSubmit)="onSubmit()">
+
+
+  <div class="mb-3">
+    <label for="exampleInputFirst_Name1" class="form-label">Nom</label>
+    <input name="firstName" ngModel class="form-control" #firstName="ngModel" />
+    <div *ngIf="firstName.touched && firstName.value?.length !== 3"
+  class="alert alert-warning my-3" role="alert">
+    merci d'entrer un nom valid
+  </div>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Prenom</label>
+    <input name="lastName" ngModel class="form-control" #lastName="ngModel" />
+    <div *ngIf="lastName.touched && lastName.value?.length !== 3"
+    class="alert alert-warning my-3" role="alert">
+      merci d'entrer un prenom valid
+    </div>
+  </div>
+
+
+  <div class="mb-3">
+    <label for="exampleInputCin1" class="form-label">Cin</label>
+    <input type="text" name="cin" ngModel class="form-control" #cin="ngModel" />
+    
+    <div *ngIf="cin.touched && cin.value?.length !== 8"
+    class="alert alert-warning my-3" role="alert">
+      merci d'entrer une cin valid
+    </div>
+  </div>
+  
+
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Email</label>
+    <input name="email" ngModel email class="form-control" #email="ngModel" />
+
+    <div *ngIf="(!email.valid && email.touched) || (!email.value && email.touched)"
+    class="alert alert-warning my-3" role="alert">
+      merci d'entrer un email valid
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label for="exampleInputNewPassword1" class="form-label">Nouvelle mot de passe</label>
+    <input name="password" ngModel class="form-control" #password="ngModel" />
+
+    <div *ngIf="password.touched && password.value?.length !== 3"
+    class="alert alert-warning my-3" role="alert">
+      merci d'entrer une mot de passe  valid
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label for="exampleInputphone1" class="form-label">phone number</label>
+    <input name="phoneNumber" ngModel class="form-control" #phoneNumber="ngModel" />
+    <div *ngIf="phoneNumber.touched && phoneNumber.value?.length !== 8"
+    class="alert alert-warning my-3" role="alert">
+      merci d'entrer un phone number valid
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
