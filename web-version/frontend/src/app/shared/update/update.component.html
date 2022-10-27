@@ -4,7 +4,7 @@
   <div class="mb-3">
     <label for="exampleInputFirst_Name1" class="form-label">Nom</label>
     <input name="firstName" ngModel class="form-control" #firstName="ngModel" />
-    <div *ngIf="firstName.touched && firstName.value?.length !== 3"
+    <div *ngIf="firstName.touched && firstName.value?.length < 3"
   class="alert alert-warning my-3" role="alert">
     merci d'entrer un nom valid
   </div>
@@ -13,7 +13,7 @@
   <div class="mb-3">
     <label class="form-label">Prenom</label>
     <input name="lastName" ngModel class="form-control" #lastName="ngModel" />
-    <div *ngIf="lastName.touched && lastName.value?.length !== 3"
+    <div *ngIf="lastName.touched && lastName.value?.length < 3"
     class="alert alert-warning my-3" role="alert">
       merci d'entrer un prenom valid
     </div>
@@ -45,7 +45,7 @@
     <label for="exampleInputNewPassword1" class="form-label">Nouvelle mot de passe</label>
     <input name="password" ngModel class="form-control" #password="ngModel" />
 
-    <div *ngIf="password.touched && password.value?.length !== 3"
+    <div *ngIf="password.touched && password.value?.length < 3"
     class="alert alert-warning my-3" role="alert">
       merci d'entrer une mot de passe  valid
     </div>
