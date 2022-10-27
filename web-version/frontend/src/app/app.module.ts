@@ -29,7 +29,7 @@ import { ListMenuComponent } from './client/list-menu/list-menu.component';
     RestaurantComponent,
     GestionRestaurantComponent,
     FooterComponent,
-    UpdateComponent
+    UpdateComponent,
     ListRestaurantsComponent,
     ListMenuComponent
   ],
