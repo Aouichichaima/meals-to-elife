@@ -4,7 +4,7 @@ CREATE DATABASE elife;
 ```
 ### [Les tables et la relation entre elles](https://drawsql.app/teams/ada-lovelace/diagrams/meals-to-elife)
 
-<iframe width="100%" height="700px" style="box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); border-radius:15px;" allowtransparency="true" allowfullscreen="true" scrolling="no" title="Embedded DrawSQL IFrame" frameborder="0" src="https://drawsql.app/teams/ada-lovelace/diagrams/meals-to-elife/embed"></iframe>
+![](./data-definition/meals-to-elife-database-diagram.png)
 
 - Table `users`
     ```sql
