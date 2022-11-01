@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+
+    <body>
+        <div class="main">
+          <app-nav-home></app-nav-home>
+          <br> <br>
+        
+          <section>
+              <div class="container-fluid h-custom">
+                <div class="row d-flex justify-content-center align-items-center h-100">
+                  <h3> CREATION DU COMPTE</h3>
+
+                  <div class="col-md-9 col-lg-6 col-xl-5">
+                    <img src="../../assets/images/insc.png" alt="Sample image">
+                  </div>
+
+                <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+                  
+                  <form>                
+                    <div class="form-outline mb-4">
+                        <div class="form-outline flex-fill mb-0">
+                          <input type="number" id="form3Example1c" class="form-control" ngModel name="cin"  #cin="ngModel" required minlength="8" placeholder="Numéro de Cin" />
+                          <label class="form-label" for="form3Example1c">CIN</label>
+                        </div>
+                    </div>
+
+                    <div *ngIf="cin.touched && cin.invalid" class="alert alert-danger">
+                        <div *ngIf="cin.errors?.['required']">Le champ est obligatoire</div>
+                        <div *ngIf="cin.errors?.['minlength']"> 8 chiffres </div>
+                    </div>
+                    <br>
+    
+
+                    <div class="form-outline mb-4">
+                        <div class="form-outline flex-fill mb-0">
+                          <input type="text" id="form3Example3c" class="form-control" ngModel name="nom" #nom="ngModel" required minlength="3" placeholder="Votre nom" />
+                          <label class="form-label" for="form3Example3c">Nom</label>
+                        </div>
+                     </div>
+
+                    <div *ngIf="nom.touched && nom.invalid" class="alert alert-danger">
+                      <div *ngIf="nom.errors?.['required']">Le champ est obligatoire</div>
+                      <div *ngIf="nom.errors?.['minlength']">Au moins 3 caractères</div>
+                    </div>
+                  <br>     
+
+                    <div class="form-outline mb-4">
+                      <div class="form-outline flex-fill mb-0">
+                          <input type="text" id="form3Example3c" class="form-control" ngModel name="prenom" #prenom="ngModel" required minlength="3" placeholder="Votre prénom" />
+                          <label class="form-label" for="form3Example3c">Prenom</label>
+                      </div>
+                    </div>
+    
+                    <div *ngIf="prenom.touched && prenom.invalid" class="alert alert-danger">
+                        <div *ngIf="prenom.errors?.['required']">Le champ est obligatoire</div>
+                        <div *ngIf="prenom.errors?.['minlength']">Au moins 3 caractères</div>
+                    </div>                    
+                    <br>
+
+                    <div class="form-outline mb-4">
+                        <div class="form-outline flex-fill mb-0">
+                            <input type="email" id="form3Example3c" class="form-control" ngModel name="email" #email="ngModel" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required placeholder="Votre adresse Email" />
+                            <label class="form-label" for="form3Example3c">Adresse Email</label>
+                        </div>
+                    </div>
+
+                    <div *ngIf="email.touched && email.invalid" class="alert alert-danger">
+                          <div *ngIf="email.errors?.['required']">Le champ est obligatoire</div>
+                          <div *ngIf="email.errors?.['pattern']">Adresse Email invalide</div>
+                    </div>
+                    <br>
+
+                    <div class="form-outline mb-4">
+                        <div class="form-outline flex-fill mb-0">
+                            <input type="tel" id="form3Example3c" class="form-control"  ngModel name="tel" #tel="ngModel"  minlength="8" required placeholder="Votre numéro de tel"/>
+                            <label class="form-label" for="form3Example3c">Mobile</label>
+                        </div>
+                    </div>
+
+                    <div *ngIf="tel.touched && tel.invalid" class="alert alert-danger">
+                          <div *ngIf="tel.errors?.['required']">Le champ est obligatoire</div>
+                          <div *ngIf="tel.errors?.['minlength']"> 8 chiffres</div>
+                    </div>
+                    <br>
+
+                    <div class="form-outline mb-4">
+                        <div class="form-outline flex-fill mb-0">
+                          <input type="password" id="form3Example4c" class="form-control"   ngModel name="pwd" #pwd="ngModel" required minlength="8"  placeholder="Mot de passe"/>
+                          <label class="form-label" for="form3Example4c">Mot de passe</label>
+                        </div>
+                    </div>
+    
+                    <div *ngIf="pwd.touched && pwd.invalid" class="alert alert-danger">
+                          <div *ngIf="pwd.errors?.['required']">Le champ est obligatoire</div>
+                          <div *ngIf="pwd.errors?.['minlength']">Au moins 8 caractères</div>
+                    </div>
+ 
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                          Gérant de restaurant
+                        </label>
+                    </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                        <label class="form-check-label" for="flexRadioDefault2">
+                          Client
+                        </label>
+                    </div>
+        
+                    <div class="form-outline mb-4">
+                      <div class="text-center text-lg-start mt-4 pt-2">
+                          <button type="button" class="btn btn-primary btn-lg" [disabled]="(cin.invalid||nom.invalid||prenom.invalid||email.invalid||tel.invalid||pwd.invalid)">Inscrire</button>
+                          <p class="small fw-bold mt-2 pt-1 mb-0">Vous n’avez pas de compte ? 
+                            <button class="insc" (click)="goToConnexion()">Connexion</button>
+                          </p>
+                      </div>
+
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div> 
+
+      <app-footer-home></app-footer-home>
+      <router-outlet></router-outlet>                     
+    </body>
+</html>

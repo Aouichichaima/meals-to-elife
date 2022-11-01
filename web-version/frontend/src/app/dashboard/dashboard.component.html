@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.3.1/css/all.min.css" rel="stylesheet">       
+  </head>
+
+  <body>
+      <app-nav-admin></app-nav-admin>
+      <br> 
+
+      <div class="divtable">       
+            <div class="bg-default">
+              <div class="main-content">
+                <div class="header bg-gradient-primary pb-8 pt-5 pt-md-8">
+                  <div class="container-fluid">
+                    <h1 class="stat"> <b> DASHBOARD</b></h1>
+                    <h2 class="title">Statistiques des utilisateurs de site</h2>
+                    <button type="button" class="btn btn-dark" (click)="goToGestion()">  Afficher la liste des utilisateurs</button> <br> <br>
+                    
+                    <div class="header-body">
+                      <div class="row">
+                        <div class="col-xl-3 col-lg-6">
+                          <div class="card card-stats mb-4 mb-xl-0">
+                            <div class="card-body">
+                              <div class="row">
+                                <div class="col">
+                                  <h5 class="card-title text-uppercase text-muted mb-0">Utilisateurs</h5>
+                                  <span class="h2 font-weight-bold mb-0">80</span>
+                                </div>
+
+                                <div class="col-auto">
+                                  <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
+                                    <i class="fas fa-users"></i>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="col-xl-3 col-lg-6">
+                          <div class="card card-stats mb-4 mb-xl-0">
+                            <div class="card-body">
+                              <div class="row">
+                                <div class="col">
+                                  <h5 class="card-title text-uppercase text-muted mb-0">Administrateurs</h5>
+                                  <span class="h2 font-weight-bold mb-0">6</span>
+                                </div>
+
+                                <div class="col-auto">
+                                  <div class="icon icon-shape bg-warning text-white rounded-circle shadow">
+                                    <i class="fa fa-user-circle"></i>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="col-xl-3 col-lg-6">
+                          <div class="card card-stats mb-4 mb-xl-0">
+                            <div class="card-body">
+                              <div class="row">
+                                <div class="col">
+                                  <h5 class="card-title text-uppercase text-muted mb-0">Restaurants</h5>
+                                  <span class="h2 font-weight-bold mb-0">16</span>
+                                </div>
+
+                                <div class="col-auto">
+                                  <div class="icon icon-shape bg-yellow text-white rounded-circle shadow">
+                                    <i class=" fa fa-server"></i>
+                                </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="col-xl-3 col-lg-6">
+                          <div class="card card-stats mb-4 mb-xl-0">
+                            <div class="card-body">
+                              <div class="row">
+                                <div class="col">
+                                  <h5 class="card-title text-uppercase text-muted mb-0">Clients</h5>
+                                  <span class="h2 font-weight-bold mb-0">58</span>
+                                </div>
+
+                                <div class="col-auto">
+                                  <div class="icon icon-shape bg-info text-white rounded-circle shadow">
+                                    <i class="fa fa-male"></i>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+
+                <div class="flex-wrapper">
+                  <div class="single-chart">
+                    <svg viewBox="0 0 36 36" class="circular-chart orange">
+                      <path class="circle-bg"
+                        d="M18 2.0845
+                        a 15.9155 15.9155 0 0 1 0 31.831
+                        a 15.9155 15.9155 0 0 1 0 -31.831"
+                      />
+                      <path class="circle"
+                        stroke-dasharray="72.5, 100"
+                        d="M18 2.0845
+                        a 15.9155 15.9155 0 0 1 0 31.831
+                        a 15.9155 15.9155 0 0 1 0 -31.831"
+                      />
+                      <text x="18" y="20.35" class="percentage">72.5%</text>
+                    </svg>
+                  <h4> Clients</h4>
+                </div>
+                
+                <div class="single-chart">
+                  <svg viewBox="0 0 36 36" class="circular-chart green">
+                    <path class="circle-bg"
+                      d="M18 2.0845
+                      a 15.9155 15.9155 0 0 1 0 31.831
+                      a 15.9155 15.9155 0 0 1 0 -31.831"
+                    />
+                    <path class="circle"
+                      stroke-dasharray="20, 100"
+                      d="M18 2.0845
+                      a 15.9155 15.9155 0 0 1 0 31.831
+                      a 15.9155 15.9155 0 0 1 0 -31.831"
+                    />
+                    <text x="18" y="20.35" class="percentage">20%</text>
+                  </svg>
+                  <h4> Restaurants</h4>
+                </div>
+              
+                <div class="single-chart">
+                  <svg viewBox="0 0 36 36" class="circular-chart blue">
+                    <path class="circle-bg"
+                      d="M18 2.0845
+                      a 15.9155 15.9155 0 0 1 0 31.831
+                      a 15.9155 15.9155 0 0 1 0 -31.831"
+                    />
+                    <path class="circle"
+                      stroke-dasharray="7.5, 100"
+                      d="M18 2.0845
+                      a 15.9155 15.9155 0 0 1 0 31.831
+                      a 15.9155 15.9155 0 0 1 0 -31.831"
+                    />
+                    <text x="18" y="20.35" class="percentage">7.5%</text>
+                  </svg>
+                  <h4> Administrateurs</h4>
+                </div>
+              </div>
+              <br> <br>
+
+
+
+              <div class="barchart">
+                <div class="date1" style="width:75%"> <b>Clients 72.5%</b></div>
+                <div class="date2" style="width:25%"><b> Administrateurs 7.5%</b></div>
+                <div class="date3" style="width:45%"> <b>Restaurants 20%</b></div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </body>
+  </html>

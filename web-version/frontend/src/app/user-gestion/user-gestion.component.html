@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <app-nav-admin></app-nav-admin>
+    <br>
+
+    <div class="divtable">
+        <h2> Gestion des utilisateurs</h2>
+        <br>
+
+        <div class="formulaire">
+            <h3> Ajouter / Modifier Un utilisateur </h3>
+
+            <form>
+              <div class="form-group">
+                  <label> CIN :</label>
+                  <input type="number" class="form-control" placeholder="Numéro CIN">
+              </div>
+                  
+              <div class="form-group">
+                  <label>Nom </label>
+                  <input type="text" class="form-control"  placeholder="Nom">
+              </div>
+                  
+              <div class="form-group">
+                  <label>Prénom</label>
+                  <input type="text" class="form-control" placeholder="Prénom">
+              </div>
+
+              <div class="form-group">
+                  <label>Email </label>
+                  <input type="email" class="form-control" placeholder="Adresse Email">
+              </div>
+                  
+              <div class="form-group">
+                  <label >Mot de passe</label>
+                  <input type="password" class="form-control" placeholder="Mot de passe">
+              </div>
+
+              <div class="form-group">
+                  <label>Mobile</label>
+                  <input type="tel" class="form-control"  placeholder="Numéro de tel">
+              </div>
+
+              <div class="form-group">
+                  <label for="">Autorisation</label>
+                  <input type="number" class="form-control" i aria-describedby="auto" placeholder="Choisir le role">
+                  <small id="auto" class="form-text text-muted">0 : Non autorisé // 1: Autorisé.</small>
+              </div>
+                  
+              <button type="submit" class="btn btn-primary">Valider</button>
+            </form>
+          </div>
+          <br><br><br>
+
+          <div class="input-group">
+              <input class="form-control border rounded-pill" type="text" placeholder="search" id="example-search-input">
+              <span class="input-group-append">
+                <button class="btn btn-outline-secondary bg-white border-start-0 border rounded-pill ms-n3" type="button">
+                  <i class="fa fa-search"></i>
+                </button>
+              </span>
+          </div>
+          <br><br> <br>
+
+          <table class="table">
+              <thead>
+                <tr class="titleTab" >
+                    <th scope="col">CIN</th>
+                    <th scope="col">Nom</th>
+                    <th scope="col">Prénom</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Mobile</th>
+                    <th scope="col">Mot de passe</th>
+                    <th scope="col">Role</th>
+                    <th scope="col">Autorisation</th>
+                    <th scope="col">Opération</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                    <td>14267989</td>
+                    <td>Sakhria</td>
+                    <td>Oumayma</td>
+                    <td>sakhria.oumayma@esprit.tn</td>
+                    <td>50112068</td>
+                    <td>123456</td>
+                    <td>Admin</td>
+                    <td>1</td>
+                    <td>
+                        <button type="button" class="btn btn-dark">Modifier</button> &nbsp;
+                        <button type="button" class="btn btn-danger">Supprimer</button> &nbsp;
+                        <button type="button" class="btn btn-info">Autoriser</button>
+
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>9987845</td>
+                    <td>Ahmed</td>
+                    <td>Melki</td>
+                    <td>ahmed_Melki@gmail.com</td>
+                    <td>50112068</td>
+                    <td>123456</td>
+                    <td>Client</td>
+                    <td>0</td>
+                    <td>
+                        <button type="button" class="btn btn-dark">Modifier</button>&nbsp;
+                        <button type="button" class="btn btn-danger">Supprimer</button> &nbsp;
+                        <button type="button" class="btn btn-info">Autoriser</button>
+
+                    </td>
+                </tr>
+                  
+                <tr>
+                    <td>45557889</td>
+                    <td>Amine</td>
+                    <td>Tounsi</td>
+                    <td>Tounsi.Amine@esprit.tn</td>
+                    <td>99700000</td>
+                    <td>123456</td>
+                    <td>Client</td>
+                    <td>0</td>
+                    <td>
+                        <button type="button" class="btn btn-dark">Modifier</button>&nbsp;
+                        <button type="button" class="btn btn-danger">Supprimer</button>&nbsp;
+                        <button type="button" class="btn btn-info">Autoriser</button>
+                    </td>
+                </tr>
+                  
+                <tr>
+                    <td>14267989</td>
+                    <td>Sana</td>
+                    <td>Mejri</td>
+                    <td>sana.mejri@esprit.tn</td>
+                    <td>97008888</td>
+                    <td>123456</td>
+                    <td>Gérant</td>
+                    <td>1</td>
+                    <td>
+                        <button type="button" class="btn btn-dark">Modifier</button>&nbsp;
+                        <button type="button" class="btn btn-danger">Supprimer</button> &nbsp;
+                        <button type="button" class="btn btn-info">Autoriser</button>
+
+                    </td>
+                </tr>
+              </tbody>
+            </table><br>
+        </div><br>
+    </body>
+</html>

@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Carter+One&family=Lobster&family=Righteous&display=swap');
+
+.divtable {
+    margin-left: 260px;
+    width: 1100px;
+    margin-right: 150px;
+}
+
+
+body{
+    background: url(../../assets/images/bgUser.jpg);
+    height: auto;
+    width:100%
+}
+
+
+.table{
+    box-shadow: 10px 15px 10px 10px rgba(0,0,0,0.3);
+}
+
+
+h2{
+    text-align: center;
+    font-size:40px;
+    color:black;
+    text-shadow: 1px 0 #ff7200, -1px 0 #ff7200, 0 1px #ff7200, 0 -1px #ff7200,
+    0px 2px #ff7200, 0px -1px #ff7200, 0px -1px #ff7200, 0px 1px #ff7200;    font-family: 'Carter One', cursive;
+}
+
+
+.titleTab{
+    background-color: black;
+    color: white;
+    font-weight: bold;
+}
+
+
+td{
+    text-align : center;
+    vertical-align:middle;
+    background-color: white ;
+    font-size:13px;
+    font-weight: bold;
+}
+
+
+button{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-weight:bold;
+    font-size:13px;
+}
+
+
+th{
+    text-align:center;
+}
+
+
+.input-group{
+    width:400px;
+    float:left;
+    margin-left: -100px;
+}
+
+
+.input-group .form-control{
+    box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.3);
+}
+
+
+.input-group .btn{
+    color:black;
+}
+
+
+.formulaire{
+    box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.3);
+    width: 65%;
+    background-color:white;
+    border-radius: 20px;
+    padding: 20px;
+    margin-left: 200px;
+}
+
+
+ h3{
+    text-align: center;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+
+label{
+    font-weight: bold;
+    color: #000;
+}
+
+
+form{
+    margin-left: 100px;
+}
+
+
+input{
+    margin-left: 125px;
+    width: 350px;
+}
+
+
+.form form button{
+    text-align: center;
+    margin-left: 500px;
+    font-size: 15px;
+    font-style: italic;
+}
+

@@ -1,1 +1,30 @@
-<p>home works!</p>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+
+    <body>
+    <app-nav-home></app-nav-home>
+    <br>
+
+        <div class="main">
+        <br>
+
+            <div class="content">
+                <h1>REPAS <span class="titre">vers Elife</span> </h1> <br>
+                <p class="par"> Vous appartenez a la famille de ELIFE ? <br>
+                    Commandez votre repas en UN CLIC et gagnez de temps <br> <br><em> SIMPLE - FACILE - RAPIDE </em>
+                </p>
+                <br> <br>
+
+                <button class="custom-btn btn-1" (click)="goToRegister()"><span>CLICK</span><span>INSCRIPTION</span></button>
+            </div>
+        </div>
+        
+        <div class="apropos"></div>
+
+        <app-footer-home></app-footer-home>
+        <router-outlet></router-outlet>                
+    </body>
+</html>
