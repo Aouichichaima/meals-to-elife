@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+
+    <body>
+        <div class="wrapper">
+            <div class="sidebar">
+                <div class="logo"> </div>
+                <br> 
+
+                <ul>
+                    <li><button (click)="goToHome()"><i class="fa fa-home fa-fw" aria-hidden="true"></i>&nbsp;Accueil</button></li> <br>
+                    <li><button (click)="goToDashboard()"><i class="fa fa-bar-chart" aria-hidden="true"></i>&nbsp;Dashboard</button></li> <br>
+                    <li><button (click)="goToGestion()"><i class="fa fa-user fa-fw" aria-hidden="true"></i>&nbsp; Gestion</button></li> <br>
+                    <li><button (click)="goToContact()"><i class="fa fa-address-book fa-fw"aria-hidden="true"></i>&nbsp;Contact</button></li> <br>
+                    <li><button (click)="goToSettings()"><i class="fa fa-cog fa-fw"aria-hidden="true"></i>&nbsp;Paramètres</button></li>
+
+                </ul>
+
+                <div class="droits">
+                    <p> Copyright 2022 © <br>"ADA LoveLace Team" </p>
+                </div>
+            </div>
+
+            <div class="main_content">
+                <div class="header">
+                    <p>PANEL D'ADMINISTRATION <em>  <i class="fa fa-sign-out" aria-hidden="true"><button (click)="goToHome()" class ="logout"> <b> Déconnexion </b>  </button> </i> </em></p>
+                </div>
+            </div>
+            
+        </div>
+    </body>
+</html> 

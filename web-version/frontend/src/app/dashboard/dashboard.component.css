@@ -1,0 +1,332 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Carter+One&family=Lobster&family=Righteous&display=swap');
+@import url(https://fonts.googleapis.com/css?family=Ubuntu:400,700);
+
+.divtable {
+    margin-left: 260px;
+    width: 1100px;
+    margin-right: 150px;
+}
+
+
+body{
+    height: 150vh;
+    width:100%;
+    background: #eee;
+}
+
+
+.bg-default{
+    margin-top: -60px;
+}
+ 
+
+caption {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    caption-side: bottom;
+    text-align: left;
+  }
+  
+
+legend {
+    font-size: 1.5rem;
+    line-height: inherit;
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: .5rem;
+    padding: 0;
+    white-space: normal;
+    color: inherit;
+}
+ 
+
+.title , .stat{
+    color: black;
+}
+
+
+h2,
+h5,
+.h2,
+.h5 {
+    font-family: inherit;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: .5rem;
+    color: #32325d;
+}
+  
+
+h2,
+.h2 {
+    font-size: 1.25rem;
+}
+
+  
+h5,
+.h5 {
+    font-size: .8125rem;
+}
+  
+  
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    border: 1px solid rgba(0, 0, 0, .05);
+    border-radius: .375rem;
+    background-color: #fff;
+    background-clip: border-box;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+  
+
+.card-body {
+    padding: 1.5rem;
+    flex: 1 1 auto;
+}
+
+
+.card-title {
+    margin-bottom: 1.25rem;
+}
+ 
+
+.bg-info {
+    background-color: #11cdef !important;
+}
+  
+
+.bg-warning {
+    background-color: #fb6340 !important;
+}
+ 
+
+a.bg-warning:hover,
+a.bg-warning:focus,
+button.bg-warning:hover,
+button.bg-warning:focus {
+    background-color: #e02900 !important;
+}
+
+
+.bg-danger {
+    background-color: #2ed500 !important;
+}
+
+
+a.bg-danger:hover,
+a.bg-danger:focus,
+button.bg-danger:hover,
+button.bg-danger:focus {
+    background-color: #ec0c38 !important;
+}
+  
+  
+.text-white {
+    color: #fff !important;
+}
+  
+
+.text-success {
+    color: #2dce89 !important;
+}
+
+
+a.text-success:hover,
+a.text-success:focus {
+    color: #24a46d !important;
+}
+
+
+.text-warning {
+    color: #fb6340 !important;
+}
+  
+
+a.text-warning:hover,
+a.text-warning:focus {
+    color: #fa3a0e !important;
+}
+
+
+.text-danger {
+    color: #f5365c !important;
+}
+
+
+a.text-danger:hover,
+a.text-danger:focus {
+    color: #ec0c38 !important;
+}
+  
+  
+.bg-yellow {
+    background-color: #ffd600 !important;
+}
+
+
+a.bg-yellow:hover,
+a.bg-yellow:focus,
+button.bg-yellow:hover,
+button.bg-yellow:focus {
+    background-color: #ccab00 !important;
+}
+ 
+
+.icon {
+    width: 3rem;
+    height: 3rem;
+}
+ 
+
+.icon i {
+    font-size: 2.25rem;
+}
+ 
+
+.icon-shape {
+    display: inline-flex;
+    padding: 12px;
+    text-align: center;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+}
+ 
+
+.icon-shape i {
+    font-size: 1.25rem;
+}
+  
+
+.flex-wrapper {
+    display: flex;
+    flex-flow: row nowrap;
+    margin-left: 170px ;
+    margin-top: 100px;
+}
+ 
+
+.single-chart {
+    width: 30%;
+    justify-content: space-around ;
+}
+ 
+
+.circular-chart {
+    display: block;
+    max-width: 80%;
+    max-height: 250px;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 10px;
+}
+  
+
+.circle-bg {
+    fill: none;
+    stroke: #eee;
+    stroke-width: 3.8;
+}
+
+
+.circle {
+    fill: none;
+    stroke-width: 2.8;
+    stroke-linecap: round;
+    animation: progress 1s ease-out forwards;
+}
+ 
+
+@keyframes progress {
+    0% {
+      stroke-dasharray: 0 100;
+    }
+}
+
+
+.circular-chart.orange .circle {
+    stroke: #ff9f00;
+}
+
+
+.circular-chart.green .circle {
+    stroke: #4CC790;
+}
+
+
+.circular-chart.blue .circle {
+    stroke: #3c9ee5;
+}
+  
+
+.percentage {
+    fill: #666;
+    font-family: sans-serif;
+    font-size: 0.5em;
+    text-anchor: middle;
+}
+
+
+h4{
+    margin-left: -50px;
+    text-align: center;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+
+.barchart {
+  width: 70%;
+  margin: 20px auto;
+  background-color: white;
+  margin-bottom: 50px;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+
+[class*=date] {
+  height: 40px;
+  margin: 10px 0;
+  background: #eee;
+}
+
+
+.date1 {background: #11cdef}
+
+.date2 {background: #0c9}
+
+.date3 {background: #ff9f00}
+
+@-webkit-keyframes anime1 {
+  0% {width: 0px;}
+}
+
+
+@keyframes anime1 {
+  0% {width: 0px;}
+}
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+

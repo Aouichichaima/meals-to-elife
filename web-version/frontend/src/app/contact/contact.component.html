@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+    <html lang="en">
+        <head>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        </head>
+
+
+        <body>
+            <div class="main">
+            <app-nav-home></app-nav-home>
+            <br><br>
+
+                <div class="contact-page">
+                    <h2>Informations de Contact :</h2>
+
+                    <div class="contact-info">
+                        <div class="item">
+                            <i class="fa fa-map-marker" aria-hidden="true"></i>
+                            Zone industrielle RTE TABARKA , BEJA NORD , 9000 Beja
+                        </div>
+
+                        <div class="item">
+                            <i class="fa fa-phone" aria-hidden="true"></i>
+                            +216 71 130 172
+                        </div>
+
+                        <div class="item">
+                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                            amany@fondation-tunisie.org
+                        </div>
+
+                        <div class="item">
+                            <i class="fa fa-google-plus" aria-hidden="true"></i>
+                            <a href=" http://www.fondationtunisie.org"> Site web </a>
+                        </div>
+
+                        <div class="item">
+                            <i class="fa fa-facebook-square" aria-hidden="true"></i>
+                            <a href="https://www.facebook.com/Centre-ELIFE-B%C3%A9ja-106524958092203"> Page Facebook</a>
+                        </div>
+
+                        <div class="item">
+                            <i class="fa fa-clock-o" aria-hidden="true"></i>
+                            Lundi - Vendredi : 8h00 - 17h00 / Samedi : 08h30 - 13h00 
+                        </div>
+                    </div>
+
+                    <form action="" class="contact-form">
+                        <table>
+                            <tr> 
+                                <td>
+                                    <input type="text" name="nom" class="textb" placeholder="Nom & Prenom" ngModel name="nom"#nom="ngModel"minlength="3"required placeholder="Votre nom"> &nbsp;
+                                    <input type="email" class="textb" name="email" placeholder="Adresse Email" ngModel name="email" #email="ngModel" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
+                                </td>
+                            </tr>
+
+                            <tr> 
+                                <td>
+                                    <div *ngIf="nom.touched && nom.invalid" class="alert alert-danger">
+                                        <div *ngIf="nom.errors?.['required']">Le nom est obligatoire</div>
+                                        <div *ngIf="nom.errors?.['minlength']">Le nom doit comporte au moins 3 caractères </div>
+                                    </div>
+
+                                    <br>
+
+                                    <div *ngIf="email.touched && email.invalid" class="alert alert-danger">
+                                        <div *ngIf="email.errors?.['required']">Le champ est obligatoire</div>
+                                        <div *ngIf="email.errors?.['pattern']">Entrez une adresse Email valide</div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <br>
+
+                            <tr> 
+                                <td colspan="2">
+                                    <textarea placeholder="Message" name="message" ngModel name="message" #message="ngModel" minlength="20" required></textarea>
+                                </td>
+                            </tr> 
+
+                            <tr>
+                                <td>
+                                    <div *ngIf="message.touched && message.invalid" class="alert alert-danger">
+                                        <div *ngIf="message.errors?.['required']">Le champ est obligatoire</div>
+                                        <div *ngIf="message.errors?.['minlength']">Le message doit comporte au moins 20 caractères</div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+    
+                        <input type="submit" class="btn" value='Envoyer' [disabled]="(email.invalid ||message.invalid ||nom.invalid)">
+                    </form>
+                </div>
+            </div>
+        </body>
+        <app-footer-home> </app-footer-home>
+    </html>

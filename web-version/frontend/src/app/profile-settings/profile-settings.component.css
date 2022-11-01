@@ -1,0 +1,243 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600);
+.nav * {
+  box-sizing: border-box;
+}
+
+
+.nav {
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  font-family: "Open Sans";
+  font-size: 12pt;
+}
+
+
+.navcontainer {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  padding: 0 1vw;
+  width: 80%;
+}
+
+
+.navinner {
+  position: relative;
+}
+
+
+.navinner > a:not(.profileddtrigger):not(.ddtriggermobile) {
+  color: black;
+  margin: 0 .25vw;
+  padding: 0 .5vw;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+
+@media (max-width: 1000px) {
+  .navinner > a:not(.profileddtrigger):not(.ddtriggermobile) {
+    display: none;
+  }
+}
+
+
+.profileddtrigger {
+  margin: 0 .25vw;
+}
+
+
+.ddtriggermobile {
+  margin-right: .75vw;
+  position: relative;
+  top: .75vh;
+}
+
+
+@media (min-width: 1000px) {
+  .ddtriggermobile {
+    display: none;
+  }
+}
+
+
+@media (min-width: 1000px) {
+  .mobilemenudd {
+    display: none;
+  }
+}
+
+
+.profileddtrigger {
+  position: relative;
+}
+
+
+.profileddtrigger img {
+  border: 3px solid #eee;
+  border-radius: 50%;
+  height: 50px;
+  padding: 1px;
+  width: 50px;
+}
+
+
+.ddcontainer {
+  background: #fff;
+  border-radius: 3px;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2), 0 2px 14px 0 rgba(0, 0, 0, 0.2);
+  min-width: 200px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  right: -3px;
+  top: 70px;
+  transform: translateY(-5px);
+  transition: 300ms ease;
+  z-index: -1;
+}
+
+
+.ddcontainer.active {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0px);
+  z-index: 50;
+}
+
+
+.ddheader {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1.5vw;
+}
+
+
+.ddheader:hover,
+.ddheader:focus {
+  background: #f7f7f7;
+}
+
+
+.ddheader img {
+  border-radius: 50%;
+  height: 52px;
+}
+
+
+.ddheader .ddname {
+  color: #555;
+  margin: 8px 0 4px;
+}
+
+
+.ddheader .ddtitle {
+  color: #999;
+  font-size: 10pt;
+}
+
+
+.ddnav {
+  border-top: 1px solid #e5e5e5;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.ddnav a span:not(.material-icons) {
+  margin-left: 5px;
+}
+
+
+.ddnav a:hover,
+.ddnav a:focus {
+  background: #f7f7f7;
+}
+
+
+a {
+  text-decoration: none;
+}
+
+
+h2{
+    color: #191970	;
+    font-size: 35px;
+    font-family: Arial;
+    font-weight: bold;
+    padding-left: 5px;
+    margin-right: 50px;
+    padding-top: 10px;
+    margin-top: 5px;
+}
+
+
+h3{
+    font-weight: bolder;
+    color: black;
+}
+
+
+form{
+    width:550px;
+}
+
+
+form *{
+    font-weight: bold;
+}
+
+
+form label{
+    font-size: 18px;
+    color:#8f9096;
+}
+
+
+form .form-control,form .form-control:focus{
+    border-color:transparent;
+    border-bottom-color: #bebcc1;
+    box-shadow:none;
+}
+
+
+form .btn{ 
+    border-radius: 0px;
+    border-color: transparent;
+    margin-bottom: 20px;
+}
+
+
+.btn.btn-default{
+    background: #ebebeb;
+    color:#8f9096;
+}
+
+
+.btn.btn-primary{
+    background: #1E90FF	;
+    color:white;
+}
+
+
+.body{
+    margin-left: 20%;
+    height: auto;
+}
+
+
+.col .btn-danger{
+    width: 200px;
+}
+
+.navList{
+  text-decoration: none;
+  background-color: transparent;
+  border: none;
+  font-weight: bold;
+  color: black;
+}

@@ -2,25 +2,19 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: 'app-inscription',
+  templateUrl: './inscription.component.html',
+  styleUrls: ['./inscription.component.css']
 })
-export class HomeComponent implements OnInit {
+export class InscriptionComponent implements OnInit {
 
   constructor(private router : Router) { }
 
   ngOnInit(): void {
   }
 
-  goToRegister(){
-    this.router.navigate(["/inscription"])
-  }
-  
 
   goToConnexion(){
     this.router.navigate(["/connexion"])
   }
-
-
 }
