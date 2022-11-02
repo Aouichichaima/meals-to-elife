@@ -1,5 +1,7 @@
 desktop-version/bin/
 desktop-version/.vscode/
+data-definition/.vscode/
+data-definition/meals-to-elife-database-diagram.psd
 
 # Node
 web-version/frontend/node_modules
