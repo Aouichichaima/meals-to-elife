@@ -28,6 +28,7 @@ import { ProfileSettingsComponent } from './profile-settings/profile-settings.co
 import { SendMailComponent } from './send-mail/send-mail.component';
 import { UserGestionComponent } from './user-gestion/user-gestion.component';
 import { DeliveryStaffComponent } from './restaurant/delivery-staff/delivery-staff.component';
+import { GestionComponent } from './restaurant/gestion/gestion.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +59,7 @@ import { DeliveryStaffComponent } from './restaurant/delivery-staff/delivery-sta
     SendMailComponent,
     ProfileSettingsComponent,
     DeliveryStaffComponent
+    GestionComponent
   ],
   imports: [
     BrowserModule,
