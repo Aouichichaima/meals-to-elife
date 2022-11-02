@@ -27,6 +27,7 @@ import { NavHomeComponent } from './nav-home/nav-home.component';
 import { ProfileSettingsComponent } from './profile-settings/profile-settings.component';
 import { SendMailComponent } from './send-mail/send-mail.component';
 import { UserGestionComponent } from './user-gestion/user-gestion.component';
+import { DeliveryStaffComponent } from './restaurant/delivery-staff/delivery-staff.component';
 import { GestionComponent } from './restaurant/gestion/gestion.component';
 
 @NgModule({
@@ -57,6 +58,7 @@ import { GestionComponent } from './restaurant/gestion/gestion.component';
     DashboardComponent,
     SendMailComponent,
     ProfileSettingsComponent,
+    DeliveryStaffComponent
     GestionComponent
   ],
   imports: [

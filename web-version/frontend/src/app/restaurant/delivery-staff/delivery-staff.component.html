@@ -1,0 +1,65 @@
+
+
+    <h3> Inscription livreur</h3>
+<section>
+
+
+    <div class="col-md-9 col-lg-6 col-xl-5">
+        <img src="../../assets/images/inscrittt.png" alt="Sample image">
+      </div>
+
+<form name="form" #form="ngForm" (ngSubmit)="onSubmit()">
+
+    <div class="mb-3">
+        <label for="exampleInputCin1" class="form-label">Cin</label>
+        <input type="text" name="cin" ngModel class="form-control" #cin="ngModel" />
+        
+        <div *ngIf="cin.touched && cin.value?.length !== 8"
+        class="alert alert-danger" role="alert">
+          merci d'entrer une cin valid
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="exampleInputphone1" class="form-label">phone number</label>
+        <input name="phoneNumber" ngModel class="form-control" #phoneNumber="ngModel" />
+        <div *ngIf="phoneNumber.touched && phoneNumber.value?.length !== 8"
+        class="alert alert-danger" role="alert">
+          merci d'entrer un phone number valid
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="exampleInputphone1" class="form-label">Image</label>
+        <input type="file" id="image" >
+
+        </div>
+      
+
+
+    <div class="mb-3">
+      <label for="exampleInputFirst_Name1" class="form-label">Nom</label>
+      <input name="firstName" ngModel class="form-control" #firstName="ngModel" />
+      <div *ngIf="firstName.touched && firstName.value?.length < 3"
+    class="alert alert-danger" role="alert">
+      merci d'entrer un nom valid
+    </div>
+    </div>
+  
+    <div class="mb-3">
+      <label class="form-label">Prenom</label>
+      <input name="lastName" ngModel class="form-control" #lastName="ngModel" />
+      <div *ngIf="lastName.touched && lastName.value?.length < 3"
+      class="alert alert-danger" role="alert">
+        merci d'entrer un prenom valid
+      </div>
+    </div>
+  
+
+      
+<button type="button" class="btn btn-success">Envoyer</button>
+<button type="button" class="btn btn-danger">Supprimer</button>
+<button type="button" class="btn btn-warning">Modifier</button>
+  </form>
+  </section>
+
