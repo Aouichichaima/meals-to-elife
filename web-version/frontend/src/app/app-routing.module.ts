@@ -1,3 +1,4 @@
+import { GestionComponent } from './restaurant/gestion/gestion.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutComponent } from './about/about.component';
@@ -22,7 +23,8 @@ const routes: Routes = [
   {path:'client', component: ClientComponent},
   {path:'admin', component: AdminComponent},
   {path:'restaurant', component: RestaurantComponent},
-  {path:'restaurant/gestion', component: GestionRestaurantComponent},
+  {path:'restaurant/gestion', component: GestionComponent},
+
 
   {path:'home', component: HomeComponent},
   {path:'inscription', component:InscriptionComponent},

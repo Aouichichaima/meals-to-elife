@@ -27,6 +27,7 @@ import { NavHomeComponent } from './nav-home/nav-home.component';
 import { ProfileSettingsComponent } from './profile-settings/profile-settings.component';
 import { SendMailComponent } from './send-mail/send-mail.component';
 import { UserGestionComponent } from './user-gestion/user-gestion.component';
+import { GestionComponent } from './restaurant/gestion/gestion.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { UserGestionComponent } from './user-gestion/user-gestion.component';
     AboutComponent,
     DashboardComponent,
     SendMailComponent,
-    ProfileSettingsComponent
+    ProfileSettingsComponent,
+    GestionComponent
   ],
   imports: [
     BrowserModule,
