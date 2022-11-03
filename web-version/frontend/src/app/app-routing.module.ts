@@ -16,6 +16,7 @@ import { SendMailComponent } from './send-mail/send-mail.component';
 import { SigninComponent } from './signin/signin.component';
 import { SignupComponent } from './signup/signup.component';
 import { UserGestionComponent } from './user-gestion/user-gestion.component';
+import { DepotComponent } from './restaurant/depot/depot.component';
 
 const routes: Routes = [
   {path:'', component: HomeComponent},
@@ -24,7 +25,7 @@ const routes: Routes = [
   {path:'admin', component: AdminComponent},
   {path:'restaurant', component: RestaurantComponent},
   {path:'restaurant/gestion', component: GestionComponent},
-
+  {path:'restaurant/depot', component: DepotComponent},
 
   {path:'home', component: HomeComponent},
   {path:'inscription', component:InscriptionComponent},

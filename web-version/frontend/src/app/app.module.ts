@@ -29,6 +29,7 @@ import { SendMailComponent } from './send-mail/send-mail.component';
 import { UserGestionComponent } from './user-gestion/user-gestion.component';
 import { DeliveryStaffComponent } from './restaurant/delivery-staff/delivery-staff.component';
 import { GestionComponent } from './restaurant/gestion/gestion.component';
+import { DepotComponent } from './restaurant/depot/depot.component';
 
 @NgModule({
   declarations: [
@@ -58,8 +59,9 @@ import { GestionComponent } from './restaurant/gestion/gestion.component';
     DashboardComponent,
     SendMailComponent,
     ProfileSettingsComponent,
-    DeliveryStaffComponent
-    GestionComponent
+    DeliveryStaffComponent,
+    GestionComponent,
+    DepotComponent
   ],
   imports: [
     BrowserModule,

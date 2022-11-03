@@ -1,0 +1,33 @@
+
+<div class="row">
+    <div class="col-md-4">
+        <h3>list des stocks du restaurant X...</h3>
+        <div class="list-group">
+            <a *ngFor="let stock of stocks" class="list-group-item list-group-item-action" role="button" (click)="onSelectStock(stock.id)" aria-current="true">
+              <div class="d-flex w-100 justify-content-between">
+                <div class="h3 text-info border-bottom border-info">
+                  {{stock?.title}}
+                </div>
+                <button type="button" class="btn btn-dark btn-sm">modifier</button>
+              </div>
+              <p class="mb-1">{{stock?.description}}</p>
+              <small>{{stock?.type_stock}}</small>
+            </a>
+        </div>
+    </div>
+    <div class="col-md-8">
+        <h3>list des produits d'un stock X...</h3>
+        <div *ngFor="let product of stock_products" class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title" >{{ product?.name }}</h5>
+              <span class="badge text-bg-dark p-2">Prix: {{ product?.price }} TND</span>
+              <span class="badge text-bg-dark p-2 m-2">Quantité: {{ product?.quantity }}</span>
+              <p class="card-text">{{ product?.description }}</p>
+              <a class="btn btn-success btn-sm">modifier</a>
+              <button class="btn btn-danger btn-sm mx-1">supprimer</button>
+            </div>
+          </div>
+        </div>
+    </div>
+</div>
