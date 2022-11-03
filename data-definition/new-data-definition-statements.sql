@@ -63,7 +63,7 @@ CREATE TABLE delivery_staffs (
 --@Block-table-feedback_delivery_staffs
 CREATE TABLE feedback_delivery_staffs (
     id INT PRIMARY KEY AUTO_INCREMENT,
-    rating DECIMAL(2, 2),
+    rating DECIMAL(2, 1),
     comment VARCHAR(999),
     delivery_staff_id INT,
     FOREIGN KEY (delivery_staff_id) REFERENCES delivery_staffs(id) ON DELETE CASCADE
@@ -72,6 +72,7 @@ CREATE TABLE feedback_delivery_staffs (
 --@Block-table-stocks
 CREATE TABLE stocks (
     id INT PRIMARY KEY AUTO_INCREMENT,
+    title VARCHAR(50) NOT NULL,
     type_stock VARCHAR(99),
     description VARCHAR(999),
     restaurant_id INT,
