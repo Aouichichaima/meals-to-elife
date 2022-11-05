@@ -6,6 +6,12 @@
 --@Block-database-creation
 CREATE DATABASE meals_to_elife;
 
+--@Block-table-role
+CREATE TABLE role (
+    id INT PRIMARY KEY,
+    type_of_user ENUM("admin", "client", "restaurant") NOT NULL
+);
+
 --@Block-table-user
 CREATE TABLE users (
     id INT PRIMARY KEY AUTO_INCREMENT,
@@ -15,15 +21,10 @@ CREATE TABLE users (
     phone VARCHAR(30) NOT NULL,
     email VARCHAR(60) NOT NULL UNIQUE,
     password VARCHAR(999) NOT NULL,
-    image_path VARCHAR(999) DEFAULT NULL
-);
-
---@Block-table-role
-CREATE TABLE role (
-    type_of_user ENUM("admin", "client", "restaurant") NOT NULL,
+    image_path VARCHAR(999) DEFAULT NULL,
     isAuthorized BOOLEAN NOT NULL DEFAULT FALSE,
-    user_id INT PRIMARY KEY,
-    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+    role_id INT,
+    FOREIGN KEY (role_id) REFERENCES role (id) ON DELETE NO ACTION ON UPDATE CASCADE
 );
 
 --@Block-table-restaurants
@@ -41,7 +42,7 @@ CREATE TABLE restaurants (
 CREATE TABLE customer_orders (
     id INT PRIMARY KEY AUTO_INCREMENT,
     meals JSON NOT NULL DEFAULT (JSON_ARRAY()),
-    ordered_at TIMESTAMP NOT NULL,
+    ordered_at DATETIME NOT NULL,
     client_id INT,
     restaurant_id INT,
     FOREIGN KEY (client_id) REFERENCES users(id) ON DELETE SET NULL,
