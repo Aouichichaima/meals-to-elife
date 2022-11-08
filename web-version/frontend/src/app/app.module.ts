@@ -30,6 +30,10 @@ import { UserGestionComponent } from './user-gestion/user-gestion.component';
 import { DeliveryStaffComponent } from './restaurant/delivery-staff/delivery-staff.component';
 import { GestionComponent } from './restaurant/gestion/gestion.component';
 import { DepotComponent } from './restaurant/depot/depot.component';
+import { ProductComponent } from './restaurant/depot/list-products/product/product.component';
+import { ListProductsComponent } from './restaurant/depot/list-products/list-products.component';
+import { NewStockComponent } from './restaurant/depot/new-stock/new-stock.component';
+import { NewProductComponent } from './restaurant/depot/new-product/new-product.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +65,11 @@ import { DepotComponent } from './restaurant/depot/depot.component';
     ProfileSettingsComponent,
     DeliveryStaffComponent,
     GestionComponent,
-    DepotComponent
+    DepotComponent,
+    ProductComponent,
+    ListProductsComponent,
+    NewStockComponent,
+    NewProductComponent
   ],
   imports: [
     BrowserModule,
