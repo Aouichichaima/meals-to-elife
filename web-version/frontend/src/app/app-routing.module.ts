@@ -1,5 +1,6 @@
+import { CartComponent } from './client/cart/cart.component';
 import { GestionComponent } from './restaurant/gestion/gestion.component';
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutComponent } from './about/about.component';
 import { AdminComponent } from './admin/admin.component';
@@ -35,7 +36,8 @@ const routes: Routes = [
   {path:'gestion', component:UserGestionComponent},
   {path:'dashboard', component:DashboardComponent},
   {path:'send', component:SendMailComponent},
-  {path:'profile',component:ProfileSettingsComponent}
+  {path:'profile',component:ProfileSettingsComponent},
+  {path:'cart',component:CartComponent}
 ];
 
 @NgModule({
