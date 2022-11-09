@@ -42,7 +42,6 @@ menu = [
 
   }
 ];
-
   constructor() { }
 
   ngOnInit(): void {

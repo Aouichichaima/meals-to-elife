@@ -1,7 +1,8 @@
 import { FeedbackDeliveryStaffComponent } from './restaurant/feedback-delivery-staff/feedback-delivery-staff.component';
 import { DeliveryStaffComponent } from './restaurant/delivery-staff/delivery-staff.component';
+import { CartComponent } from './client/cart/cart.component';
 import { GestionComponent } from './restaurant/gestion/gestion.component';
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutComponent } from './about/about.component';
 import { AdminComponent } from './admin/admin.component';
@@ -39,6 +40,8 @@ const routes: Routes = [
   {path:'profile',component:ProfileSettingsComponent} ,
   { path:'restaurant/delivery-staff' ,component:DeliveryStaffComponent},
   {path :'restaurant/feedback-delivery-staff',component:FeedbackDeliveryStaffComponent}
+  {path:'profile',component:ProfileSettingsComponent},
+  {path:'cart',component:CartComponent}
 ];
 
 @NgModule({

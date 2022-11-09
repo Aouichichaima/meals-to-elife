@@ -31,6 +31,7 @@ import { DeliveryStaffComponent } from './restaurant/delivery-staff/delivery-sta
 import { GestionComponent } from './restaurant/gestion/gestion.component';
 import { DepotComponent } from './restaurant/depot/depot.component';
 import { FeedbackDeliveryStaffComponent } from './restaurant/feedback-delivery-staff/feedback-delivery-staff.component';
+import { CartComponent } from './client/cart/cart.component';
 import { ProductComponent } from './restaurant/depot/list-products/product/product.component';
 import { ListProductsComponent } from './restaurant/depot/list-products/list-products.component';
 import { NewStockComponent } from './restaurant/depot/new-stock/new-stock.component';
@@ -68,6 +69,11 @@ import { NewProductComponent } from './restaurant/depot/new-product/new-product.
     GestionComponent,
     DepotComponent,
     FeedbackDeliveryStaffComponent,
+    ProductComponent,
+    ListProductsComponent,
+    NewStockComponent,
+    NewProductComponent,
+    CartComponent,
     ProductComponent,
     ListProductsComponent,
     NewStockComponent,
