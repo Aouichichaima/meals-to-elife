@@ -1,20 +1,20 @@
-<form>
+<form (ngSubmit)="onAddStock(f)" #f="ngForm">
     <div class="mb-3 row">
         <label for="title" class="col-sm-3 col-form-label"> nom du stock </label>
         <div class="col-sm-5">
-          <input type="text" class="form-control" id="title">
+          <input type="text" class="form-control" id="title" name="title" ngModel required>
         </div>
     </div>
     <div class="mb-3 row">
         <label for="type_stock" class="col-sm-3 col-form-label"> type des produits de stock </label>
         <div class="col-sm-5">
-          <input type="text" class="form-control" id="type_stock">
+          <input type="text" class="form-control" id="type_stock" name="stockType" ngModel required>
         </div>
     </div>
     <div class="mb-3 row">
         <label for="description" class="col-sm-3 col-form-label"> description de stock </label>
         <div class="col-sm-5">
-          <input type="text" class="form-control" id="description">
+          <input type="text" class="form-control" id="description" name="description" ngModel required>
         </div>
     </div>
     <div class="row">

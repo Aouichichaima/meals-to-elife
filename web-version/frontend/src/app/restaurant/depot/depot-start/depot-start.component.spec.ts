@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DepotComponent } from './depot.component';
+import { DepotStartComponent } from './depot-start.component';
 
-describe('DepotComponent', () => {
-  let component: DepotComponent;
-  let fixture: ComponentFixture<DepotComponent>;
+describe('DepotStartComponent', () => {
+  let component: DepotStartComponent;
+  let fixture: ComponentFixture<DepotStartComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DepotComponent ]
+      declarations: [ DepotStartComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(DepotComponent);
+    fixture = TestBed.createComponent(DepotStartComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

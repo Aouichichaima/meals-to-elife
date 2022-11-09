@@ -1,25 +1,33 @@
-
 <div class="row">
     <div class="col-md-4">
         <div class="list-group">
-            <a *ngFor="let stock of stocks" class="list-group-item list-group-item-action my-1" role="button" aria-current="true" (click)="onSelectStock(stock.id)">
+            <a *ngFor="let stock of stocks" class="list-group-item list-group-item-action my-1" role="button" aria-current="true">
               <div class="d-flex w-100 justify-content-between">
-                <div class="h3 text-info border-bottom border-info">
+                <div class="h3 text-info border-bottom border-info" [routerLink]="['stock', stock.id]">
                   {{stock?.title}}
                 </div>
-                <button type="button" class="btn btn-success btn-sm"><i class="bi bi-plus-circle"></i></button>
-                <button type="button" class="btn btn-dark btn-sm"><i class="bi bi-gear"></i></button>
-                <button type="button" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i></button>
+                <a routerLink="new-product">
+                  <button type="button" class="btn btn-success"><i class="bi bi-plus-circle"></i></button>
+                </a>
+                <a [routerLink]="['edit-stock', stock.id]">
+                  <button type="button" class="btn btn-dark"><i class="bi bi-gear"></i></button>
+                </a>
+                <button type="button" class="btn btn-danger btn-sm" (click)="onDeleteStock(stock.id)">
+                  <i class="bi bi-trash"></i>
+                </button>
               </div>
               <p class="mb-1">{{stock?.description}}</p>
               <small>{{stock?.type_stock}}</small>
             </a>
-            <button class="btn btn-success my-4">Ajouter un stock<i class="bi bi-plus-circle mx-3"></i></button>
+            <a class="btn btn-success my-4" routerLink="new-stock">
+              Ajouter un stock<i class="bi bi-plus-circle mx-3"></i>
+            </a>
         </div>
     </div>
     <div class="col-md-8">
       <!-- <app-list-products></app-list-products> -->
       <!-- <app-new-stock></app-new-stock> -->
-      <app-new-product></app-new-product>
+      <!-- <app-new-product></app-new-product> -->
+      <router-outlet></router-outlet>
     </div>
 </div>
