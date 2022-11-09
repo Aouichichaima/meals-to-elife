@@ -78,6 +78,9 @@ import { NewProductComponent } from './restaurant/depot/new-product/new-product.
     ListProductsComponent,
     NewStockComponent,
     NewProductComponent,
+
+    FeedbackDeliveryStaffComponent,
+  
   ],
   imports: [
     BrowserModule,
