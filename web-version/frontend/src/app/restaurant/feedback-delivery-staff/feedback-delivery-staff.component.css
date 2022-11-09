@@ -1,29 +1,31 @@
 
+
+h2{
+  margin-left: 260px;
+  font-weight: bold;
+  font-size: 30px;
+}
   section{
-    background-color: rgb(250, 225, 250);
+    background-color:  rgb(250, 225, 250);
     margin-left: 180px;
     margin-top: 70px;
     border-radius: 20px;
     width: 75%;
     padding: 20px;
-    height: auto;
+    height: 600px;
     margin-bottom: 50px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 
-h3{
-    margin-left: 220px;
-    font-weight: bold;
-    font-size: 30px;
-}
+
 
 img{
-    margin-right: 12px;
-    margin-left: -30px;
-    width: 970px;
-    height: 50vh;
-    margin-top: -50px;
+  margin-right: 12px;
+  margin-left: -30px;
+  width: 970px;
+  height: 50vh;
+  margin-top: -50px;
 }
 
 
@@ -32,5 +34,8 @@ button{
     padding: 8px;
     font-weight: bold;
     font-size: 18px;
-   
+
+  }
+  .form-select{
+    margin-top: 10%;
   }

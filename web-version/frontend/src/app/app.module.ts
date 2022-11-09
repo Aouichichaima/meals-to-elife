@@ -30,6 +30,7 @@ import { UserGestionComponent } from './user-gestion/user-gestion.component';
 import { DeliveryStaffComponent } from './restaurant/delivery-staff/delivery-staff.component';
 import { GestionComponent } from './restaurant/gestion/gestion.component';
 import { DepotComponent } from './restaurant/depot/depot.component';
+import { FeedbackDeliveryStaffComponent } from './restaurant/feedback-delivery-staff/feedback-delivery-staff.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,9 @@ import { DepotComponent } from './restaurant/depot/depot.component';
     ProfileSettingsComponent,
     DeliveryStaffComponent,
     GestionComponent,
-    DepotComponent
+    DepotComponent,
+    FeedbackDeliveryStaffComponent,
+  
   ],
   imports: [
     BrowserModule,
