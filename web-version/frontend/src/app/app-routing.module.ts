@@ -41,7 +41,7 @@ const routes: Routes = [
   { path:'restaurant/delivery-staff' ,component:DeliveryStaffComponent},
   {path :'restaurant/feedback-delivery-staff',component:FeedbackDeliveryStaffComponent}
   {path:'profile',component:ProfileSettingsComponent},
-  {path:'cart',component:CartComponent}
+  {path:'client/cart',component:CartComponent}
 ];
 
 @NgModule({
