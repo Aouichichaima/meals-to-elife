@@ -1,3 +1,5 @@
+import { FeedbackDeliveryStaffComponent } from './restaurant/feedback-delivery-staff/feedback-delivery-staff.component';
+import { DeliveryStaffComponent } from './restaurant/delivery-staff/delivery-staff.component';
 import { CartComponent } from './client/cart/cart.component';
 import { GestionComponent } from './restaurant/gestion/gestion.component';
 import { NgModule, Component } from '@angular/core';
@@ -18,7 +20,6 @@ import { SigninComponent } from './signin/signin.component';
 import { SignupComponent } from './signup/signup.component';
 import { UserGestionComponent } from './user-gestion/user-gestion.component';
 import { DepotComponent } from './restaurant/depot/depot.component';
-
 const routes: Routes = [
   {path:'', component: HomeComponent},
   // {path:'signup', component: SignupComponent},
@@ -36,6 +37,9 @@ const routes: Routes = [
   {path:'gestion', component:UserGestionComponent},
   {path:'dashboard', component:DashboardComponent},
   {path:'send', component:SendMailComponent},
+  {path:'profile',component:ProfileSettingsComponent} ,
+  { path:'restaurant/delivery-staff' ,component:DeliveryStaffComponent},
+  {path :'restaurant/feedback-delivery-staff',component:FeedbackDeliveryStaffComponent}
   {path:'profile',component:ProfileSettingsComponent},
   {path:'cart',component:CartComponent}
 ];

@@ -30,6 +30,7 @@ import { UserGestionComponent } from './user-gestion/user-gestion.component';
 import { DeliveryStaffComponent } from './restaurant/delivery-staff/delivery-staff.component';
 import { GestionComponent } from './restaurant/gestion/gestion.component';
 import { DepotComponent } from './restaurant/depot/depot.component';
+import { FeedbackDeliveryStaffComponent } from './restaurant/feedback-delivery-staff/feedback-delivery-staff.component';
 import { CartComponent } from './client/cart/cart.component';
 import { ProductComponent } from './restaurant/depot/list-products/product/product.component';
 import { ListProductsComponent } from './restaurant/depot/list-products/list-products.component';
@@ -67,14 +68,16 @@ import { NewProductComponent } from './restaurant/depot/new-product/new-product.
     DeliveryStaffComponent,
     GestionComponent,
     DepotComponent,
-
-    CartComponent,
-
+    FeedbackDeliveryStaffComponent,
     ProductComponent,
     ListProductsComponent,
     NewStockComponent,
-    NewProductComponent
-
+    NewProductComponent,
+    CartComponent,
+    ProductComponent,
+    ListProductsComponent,
+    NewStockComponent,
+    NewProductComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,36 @@
+ 
+<section>
+
+  
+    <h2>Donner votre Avis</h2>
+
+<form name="form" #form="ngForm" (ngSubmit)="onSubmit()">
+
+  <label for="comment1" class="form-label">Livreurs:         </label>
+    <div class="btn-group mx-3">
+      
+  
+      <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+        <option selected>Liste livreurs</option>
+        <option value="1">Livreur 1</option>
+        <option value="2">Livreur 2</option>
+        <option value="3">Livreur 3</option>
+      </select>
+      
+      </div>
+      <div class="mb-3">
+    
+        <label for="exampleInputFirst_Name1" class="form-label">Note de 0 à 5    : </label> 
+        <input class="mx-3" type="number" min="0" max="5">
+       </div>
+       <div class="mb-3 ">
+      <label for="comment1" class="form-label ">Comment :         </label> <textarea rows="3" cols="30"></textarea>
+       </div>
+      
+    
+      
+<button type="button" class="btn btn-success">Envoyer</button>
+<button type="button" class="btn btn-dark mx-3">Retour</button>
+  </form>
+  </section>
+
