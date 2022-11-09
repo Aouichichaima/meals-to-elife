@@ -37,7 +37,7 @@ const routes: Routes = [
   {path:'dashboard', component:DashboardComponent},
   {path:'send', component:SendMailComponent},
   {path:'profile',component:ProfileSettingsComponent},
-  {path:'cart',component:CartComponent}
+  {path:'client/cart',component:CartComponent}
 ];
 
 @NgModule({
