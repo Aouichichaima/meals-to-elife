@@ -6,30 +6,55 @@
 
 <h6>Coordonnées du restaurants</h6><br>
 <div class="mb-3">
-  <label for="formGroupExampleInput" class="form-label">Nom du restaurant :</label>
-  <input type="text" class="form-control" id="formGroupExampleInput" placeholder="nom du restaurant">
+  <label for="formGroupExampleInput" class="form-label">Nom du restaurant :</label><br>
+  <input type="text"  class="form-control"  ngModel name="nom" #nom="ngModel" required minlength="3"  placeholder="nom du restaurant"/>
+
 </div>
+<div *ngIf="nom.touched && nom.invalid" class="alert alert-danger">
+  <div *ngIf="nom.errors?.['required']">Le champ est obligatoire</div>
+  <div *ngIf="nom.errors?.['minlength']">Au moins 3 caractères</div>
+</div>
+<br>
 <div class="mb-3">
   <label for="formGroupExampleInput2" class="form-label">Adresse du restaurant :</label>
-  <input type="text" class="form-control"  placeholder="address du restaurant"><br>
+  <input type="text" class="form-control"  ngModel name="adresse" #adresse="ngModel" required minlength="3" placeholder="address du restaurant"><br>
   <button type="button" class="btn btn-primary">Enregistrer</button>
+</div>
+<div *ngIf="adresse.touched && adresse.invalid" class="alert alert-danger">
+  <div *ngIf="adresse.errors?.['required']">Le champ est obligatoire</div>
+  <div *ngIf="adresse.errors?.['minlength']">Au moins 3 caractères</div>
 </div>
 
 <h6>Ajouter ou modifier un repas </h6><br>
 <div class="mb-3">
   <label for="formGroupExampleInput" class="form-label">Nom du repas :</label>
-  <input type="text" class="form-control"  placeholder="nom du repas">
+  <input type="text" class="form-control" ngModel name="nomR" #nomR="ngModel" required minlength="3" placeholder="nom du repas"/>
 </div>
+<div *ngIf="nomR.touched && nomR.invalid" class="alert alert-danger">
+  <div *ngIf="nomR.errors?.['required']">Le champ est obligatoire</div>
+  <div *ngIf="nomR.errors?.['minlength']">Au moins 3 caractères</div>
+</div>
+<br>
 <div class="mb-3">
   <label for="formGroupExampleInput2" class="form-label">Description</label>
-  <input type="text" class="form-control" placeholder="description du repas"><br>
+  <input type="text" class="form-control" ngModel name="description" #description="ngModel" required minlength="3" placeholder="description du repas"/><br>
+</div>
+<div *ngIf="description.touched && description.invalid" class="alert alert-danger">
+  <div *ngIf="description.errors?.['required']">Le champ est obligatoire</div>
+  <div *ngIf="description.errors?.['minlength']">Au moins 3 caractères</div>
+</div>
+<br>
+
+
   <label for="exampleFormControlInput3" class="form-label"> Prix :</label>
   <input type="number" class="mx-3">
   <button type="button" class="btn btn-warning mx-3">Modifier</button>
   <button type="button" class="btn btn-primary">Ajouter</button><br>
   <button type="button" class="btn btn-dark my-3">Vider les champs</button>
-</div>
-
 <div>
   <h3>Menu Principal</h3>
 </div>
+
+
+
+

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-
+/**
+ * @author ichraktoueiti <ichrak.touaiti@esprit.tn>
+ */
 @Component({
   selector: 'app-gestion-restaurant',
   templateUrl: './gestion-restaurant.component.html',

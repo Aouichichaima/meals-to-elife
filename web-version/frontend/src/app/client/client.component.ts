@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-
+/**
+ * @author ichraktoueiti <ichrak.touaiti@esprit.tn>
+ */
 @Component({
   selector: 'app-client',
   templateUrl: './client.component.html',
@@ -42,7 +44,6 @@ menu = [
 
   }
 ];
-
   constructor() { }
 
   ngOnInit(): void {

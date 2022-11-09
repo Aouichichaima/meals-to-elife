@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-
+/**
+ * @author ichraktoueiti <ichrak.touaiti@esprit.tn>
+ */
 @Component({
   selector: 'app-list-menu',
   templateUrl: './list-menu.component.html',
