@@ -36,6 +36,7 @@ import { ProductComponent } from './restaurant/depot/list-products/product/produ
 import { ListProductsComponent } from './restaurant/depot/list-products/list-products.component';
 import { NewStockComponent } from './restaurant/depot/new-stock/new-stock.component';
 import { NewProductComponent } from './restaurant/depot/new-product/new-product.component';
+import { ListDeliveryComponent } from './restaurant/list-delivery/list-delivery.component';
 
 @NgModule({
   declarations: [
@@ -80,6 +81,7 @@ import { NewProductComponent } from './restaurant/depot/new-product/new-product.
     NewProductComponent,
 
     FeedbackDeliveryStaffComponent,
+      ListDeliveryComponent,
   
   ],
   imports: [
