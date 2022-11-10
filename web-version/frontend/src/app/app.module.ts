@@ -36,6 +36,8 @@ import { ProductComponent } from './restaurant/depot/list-products/product/produ
 import { ListProductsComponent } from './restaurant/depot/list-products/list-products.component';
 import { NewStockComponent } from './restaurant/depot/new-stock/new-stock.component';
 import { NewProductComponent } from './restaurant/depot/new-product/new-product.component';
+import { ListDeliveryComponent } from './restaurant/list-delivery/list-delivery.component';
+import { DeliveryDetailsComponent } from './restaurant/delivery-details/delivery-details.component';
 import { DepotStartComponent } from './restaurant/depot/depot-start/depot-start.component';
 
 @NgModule({
@@ -80,6 +82,11 @@ import { DepotStartComponent } from './restaurant/depot/depot-start/depot-start.
     ListProductsComponent,
     NewStockComponent,
     NewProductComponent,
+
+    FeedbackDeliveryStaffComponent,
+      ListDeliveryComponent,
+      DeliveryDetailsComponent,
+  
   ],
   imports: [
     BrowserModule,
