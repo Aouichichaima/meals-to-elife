@@ -1,58 +1,40 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
+import { DepotService } from '../depot.service';
 
+/**
+ * @author djebby <djebby.firas@gmail.com>
+ */
 @Component({
   selector: 'app-list-products',
   templateUrl: './list-products.component.html',
   styleUrls: ['./list-products.component.css']
 })
 export class ListProductsComponent implements OnInit {
-  stock_products = [
-    {
-      id: 1,
-      name: 'nom_du_produit_n°01',
-      price: 0.00,
-      quantity: 0,
-      description: 'description_du_produit_n°01'
-    },
-    {
-      id: 2,
-      name: 'nom_du_produit_n°02',
-      price: 0.00,
-      quantity: 0,
-      description: 'description_du_produit_n°02'
-    },
-    {
-      id: 3,
-      name: 'nom_du_produit_n°03',
-      price: 0.00,
-      quantity: 0,
-      description: 'description_du_produit_n°03'
-    },
-    {
-      id: 4,
-      name: 'nom_du_produit_n°04',
-      price: 0.00,
-      quantity: 0,
-      description: 'description_du_produit_n°04'
-    },
-    {
-      id: 5,
-      name: 'nom_du_produit_n°05',
-      price: 0.00,
-      quantity: 0,
-      description: 'description_du_produit_n°05'
-    },
-    {
-      id: 6,
-      name: 'nom_du_produit_n°06',
-      price: 0.00,
-      quantity: 0,
-      description: 'description_du_produit_n°06'
-    },
-  ];
-  constructor() { }
+  stock_products!:any;
+  stockId!:number;
+  stock: any;
+
+  constructor(private route: ActivatedRoute, private depotService: DepotService) { }
 
   ngOnInit(): void {
+
+    this.depotService.depotChanged.subscribe(
+      updatedStock => {
+        this.stock = this.depotService.getStock(this.stockId);
+        this.stock_products = this.stock?.products;
+      }
+    );
+
+    this.route.params.subscribe(
+      (params: Params) => {
+        this.stockId = +params['id'];
+        this.stock = this.depotService.getStock(this.stockId);
+        this.stock_products = this.stock.products;
+      }
+    )
   }
+
+  
 
 }

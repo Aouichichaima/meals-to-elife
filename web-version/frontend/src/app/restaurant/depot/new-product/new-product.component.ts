@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { DepotService } from '../depot.service';
 
 @Component({
   selector: 'app-new-product',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewProductComponent implements OnInit {
 
-  constructor() { }
+  @ViewChild('f', {static: false}) productForm!: NgForm;
+  stocks!:any;
+  constructor(private depotService: DepotService) { }
 
   ngOnInit(): void {
+    this.stocks = this.depotService.getStocks();
+  }
+
+  onAddProduct(form: NgForm) {
+    const { name, price, quantity, description, stockId } = form.value;
+    this.depotService.addProduct(+stockId, name, price, quantity, description);
   }
 
 }

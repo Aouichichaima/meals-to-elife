@@ -38,6 +38,7 @@ import { NewStockComponent } from './restaurant/depot/new-stock/new-stock.compon
 import { NewProductComponent } from './restaurant/depot/new-product/new-product.component';
 import { ListDeliveryComponent } from './restaurant/list-delivery/list-delivery.component';
 import { DeliveryDetailsComponent } from './restaurant/delivery-details/delivery-details.component';
+import { DepotStartComponent } from './restaurant/depot/depot-start/depot-start.component';
 
 @NgModule({
   declarations: [
@@ -75,6 +76,7 @@ import { DeliveryDetailsComponent } from './restaurant/delivery-details/delivery
     ListProductsComponent,
     NewStockComponent,
     NewProductComponent,
+    DepotStartComponent,
     CartComponent,
     ProductComponent,
     ListProductsComponent,

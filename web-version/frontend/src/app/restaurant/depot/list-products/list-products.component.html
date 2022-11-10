@@ -1,5 +1,5 @@
 
-    <h3>list des produits d'un stock X...</h3>
-    <app-product *ngFor="let product of stock_products" [product]="product">
+    <h3>list des produits du stock {{stock?.title}}...</h3>
+    <app-product *ngFor="let product of stock_products" [product]="product" [stockId]="stockId">
     </app-product>
-    <button class="btn btn-success my-4">Ajouter un produit<i class="bi bi-plus-circle mx-3"></i></button>
+    <a routerLink="../../new-product" class="btn btn-success my-4">Ajouter un produit<i class="bi bi-plus-circle mx-3"></i></a>

@@ -22,6 +22,11 @@ import { SigninComponent } from './signin/signin.component';
 import { SignupComponent } from './signup/signup.component';
 import { UserGestionComponent } from './user-gestion/user-gestion.component';
 import { DepotComponent } from './restaurant/depot/depot.component';
+import { NewStockComponent } from './restaurant/depot/new-stock/new-stock.component';
+import { DepotStartComponent } from './restaurant/depot/depot-start/depot-start.component';
+import { ListProductsComponent } from './restaurant/depot/list-products/list-products.component';
+import { NewProductComponent } from './restaurant/depot/new-product/new-product.component';
+
 const routes: Routes = [
   {path:'', component: HomeComponent},
   // {path:'signup', component: SignupComponent},
@@ -29,7 +34,18 @@ const routes: Routes = [
   {path:'admin', component: AdminComponent},
   {path:'restaurant', component: RestaurantComponent},
   {path:'restaurant/gestion', component: GestionComponent},
-  {path:'restaurant/depot', component: DepotComponent},
+  {
+    path:'restaurant/depot', component: DepotComponent,
+    children: [
+      { path: '', component: DepotStartComponent},
+      { path: 'stock/:id', component: ListProductsComponent},
+      { path: 'edit-stock/:id', component: NewStockComponent},
+      { path: 'new-stock', component: NewStockComponent},
+
+      {path: 'new-product', component: NewProductComponent},
+      {path: 'edit-product/:id', component: NewProductComponent},
+    ]
+  },
 
   {path:'home', component: HomeComponent},
   {path:'inscription', component:InscriptionComponent},

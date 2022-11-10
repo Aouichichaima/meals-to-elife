@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-
+/**
+ * @author ichraktoueiti <ichrak.touaiti@esprit.tn>
+ */
 @Component({
   selector: 'app-gestion',
   templateUrl: './gestion.component.html',
