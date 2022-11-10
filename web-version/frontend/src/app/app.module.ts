@@ -35,6 +35,8 @@ import { ProductComponent } from './restaurant/depot/list-products/product/produ
 import { ListProductsComponent } from './restaurant/depot/list-products/list-products.component';
 import { NewStockComponent } from './restaurant/depot/new-stock/new-stock.component';
 import { NewProductComponent } from './restaurant/depot/new-product/new-product.component';
+import { ListDeliveryComponent } from './restaurant/list-delivery/list-delivery.component';
+import { DeliveryDetailsComponent } from './restaurant/delivery-details/delivery-details.component';
 import { DepotStartComponent } from './restaurant/depot/depot-start/depot-start.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -79,7 +81,12 @@ import { HttpClientModule } from '@angular/common/http';
     ListProductsComponent,
     NewStockComponent,
     NewProductComponent,
-    HeaderComponent
+    HeaderComponent,
+
+    FeedbackDeliveryStaffComponent,
+      ListDeliveryComponent,
+      DeliveryDetailsComponent,
+  
   ],
   imports: [
     BrowserModule,
