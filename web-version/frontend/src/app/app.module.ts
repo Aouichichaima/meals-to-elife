@@ -37,6 +37,7 @@ import { ListProductsComponent } from './restaurant/depot/list-products/list-pro
 import { NewStockComponent } from './restaurant/depot/new-stock/new-stock.component';
 import { NewProductComponent } from './restaurant/depot/new-product/new-product.component';
 import { ListDeliveryComponent } from './restaurant/list-delivery/list-delivery.component';
+import { DeliveryDetailsComponent } from './restaurant/delivery-details/delivery-details.component';
 
 @NgModule({
   declarations: [
@@ -82,6 +83,7 @@ import { ListDeliveryComponent } from './restaurant/list-delivery/list-delivery.
 
     FeedbackDeliveryStaffComponent,
       ListDeliveryComponent,
+      DeliveryDetailsComponent,
   
   ],
   imports: [
