@@ -39,7 +39,7 @@ const routes: Routes = [
   {path:'send', component:SendMailComponent},
   {path:'profile',component:ProfileSettingsComponent} ,
   { path:'restaurant/delivery-staff' ,component:DeliveryStaffComponent},
-  {path :'restaurant/feedback-delivery-staff',component:FeedbackDeliveryStaffComponent}
+  {path :'restaurant/feedback-delivery-staff',component:FeedbackDeliveryStaffComponent},
   {path:'profile',component:ProfileSettingsComponent},
   {path:'client/cart',component:CartComponent}
 ];
