@@ -1,4 +1,4 @@
-import { AfterContentInit, AfterViewChecked, AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Params } from '@angular/router';
 import { DepotService } from '../depot.service';
@@ -22,8 +22,6 @@ export class NewStockComponent implements OnInit {
  
 
   ngOnInit(): void {
-
-
     if(this.route.snapshot.params['id'] != null) {
       this.isEditMode = true;
       this.stockId = +this.route.snapshot.params['id'];
@@ -53,15 +51,16 @@ export class NewStockComponent implements OnInit {
         }
       }
     );
-
-    
-    
-    
-
   }
 
 
   onAddStock(form: NgForm) {
+
+    if(!this.stockForm.valid) {
+      alert('formulaire invalid...');
+      return;
+    }
+
     const {title, description, stockType} = form.value;
     if(this.isEditMode) {
       this.depotService.updateStock(this.stockId, title, stockType, description);

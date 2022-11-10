@@ -3,31 +3,37 @@
     <div class="mb-3 row">
         <label for="name" class="col-sm-3 col-form-label"> nom du produit </label>
         <div class="col-sm-5">
-          <input type="text" class="form-control" id="name" name="name" ngModel required>
+          <input type="text" class="form-control" id="name" name="name" ngModel #name="ngModel" required
+          [className]="name.value?.length < 5 && name.touched ? 'form-control is-invalid' : 'form-control'"
+          >
         </div>
     </div>
     <div class="mb-3 row">
         <label for="price" class="col-sm-3 col-form-label"> prix du produit </label>
         <div class="col-sm-5">
-          <input type="number" class="form-control" id="price" name="price" ngModel required>
+          <input type="number" class="form-control" id="price" name="price" ngModel #price="ngModel" required
+          [className]="price.value < 1 && price.touched ? 'form-control is-invalid' : 'form-control'">
         </div>
     </div>
     <div class="mb-3 row">
         <label for="quantity" class="col-sm-3 col-form-label"> quantity du produit </label>
         <div class="col-sm-5">
-          <input type="number" class="form-control" id="quantity" name="quantity" ngModel required>
+          <input type="number" class="form-control" id="quantity" name="quantity" ngModel #quantity="ngModel" required
+          [className]="quantity.value < 1 && quantity.touched ? 'form-control is-invalid' : 'form-control'">
         </div>
     </div>
     <div class="mb-3 row">
         <label for="description" class="col-sm-3 col-form-label"> description de produit </label>
         <div class="col-sm-5">
-          <input type="text" class="form-control" id="description" name="description" ngModel required>
+          <input type="text" class="form-control" id="description" name="description" #description="ngModel" ngModel required
+          [className]="description.value?.length < 5 && description.touched ? 'form-control is-invalid' : 'form-control'">
         </div>
     </div>
 
     <div class="mb-3 row">
       <div class="col-8">
-        <select class="form-select" aria-label="Default select example" name="stockId" ngModel required>
+        <select class="form-select" aria-label="Default select example" name="stockId" #stockId="ngModel" ngModel required
+        [className]="stockId.value?.length < 5 && stockId.touched ? 'form-select is-invalid' : 'form-select'">
           <option *ngFor="let stock of stocks" [value]="stock.id">{{stock.title}}</option>
           
         </select>

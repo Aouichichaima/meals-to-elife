@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
 import { SigninComponent } from './signin/signin.component';
 import { SignupComponent } from './signup/signup.component';
 import { ClientComponent } from './client/client.component';
@@ -12,7 +11,7 @@ import { RestaurantComponent } from './restaurant/restaurant.component';
 import { GestionRestaurantComponent } from './gestion-restaurant/gestion-restaurant.component';
 import { FooterComponent } from './footer/footer.component';
 import { UpdateComponent } from './shared/update/update.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ListRestaurantsComponent } from './client/list-restaurants/list-restaurants.component';
 import { ListMenuComponent } from './client/list-menu/list-menu.component';
 import { HomeComponent } from './home/home.component';
@@ -37,11 +36,13 @@ import { ListProductsComponent } from './restaurant/depot/list-products/list-pro
 import { NewStockComponent } from './restaurant/depot/new-stock/new-stock.component';
 import { NewProductComponent } from './restaurant/depot/new-product/new-product.component';
 import { DepotStartComponent } from './restaurant/depot/depot-start/depot-start.component';
+import { HeaderComponent } from './shared/header/header.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
+
   declarations: [
     AppComponent,
-    HeaderComponent,
     SigninComponent,
     SignupComponent,
     ClientComponent,
@@ -52,8 +53,6 @@ import { DepotStartComponent } from './restaurant/depot/depot-start/depot-start.
     UpdateComponent,
     ListRestaurantsComponent,
     ListMenuComponent,
-
-
     HomeComponent,
     InscriptionComponent,
     ConnexionComponent,
@@ -80,10 +79,13 @@ import { DepotStartComponent } from './restaurant/depot/depot-start/depot-start.
     ListProductsComponent,
     NewStockComponent,
     NewProductComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
     AppRoutingModule
   ],
   providers: [],

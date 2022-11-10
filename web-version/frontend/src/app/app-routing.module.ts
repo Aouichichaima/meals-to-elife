@@ -32,6 +32,9 @@ const routes: Routes = [
   {path:'admin', component: AdminComponent},
   {path:'restaurant', component: RestaurantComponent},
   {path:'restaurant/gestion', component: GestionComponent},
+  /**
+   * @author djebby <djebby.firas@gmail.com>
+   */
   {
     path:'restaurant/depot', component: DepotComponent,
     children: [
@@ -54,8 +57,8 @@ const routes: Routes = [
   {path:'dashboard', component:DashboardComponent},
   {path:'send', component:SendMailComponent},
   {path:'profile',component:ProfileSettingsComponent} ,
-  { path:'restaurant/delivery-staff' ,component:DeliveryStaffComponent},
-  {path :'restaurant/feedback-delivery-staff',component:FeedbackDeliveryStaffComponent},
+  {path:'restaurant/delivery-staff' ,component:DeliveryStaffComponent},
+  {path :'restaurant/feedback-delivery-staff', component:FeedbackDeliveryStaffComponent},
   {path:'profile',component:ProfileSettingsComponent},
   {path:'client/cart',component:CartComponent}
 ];

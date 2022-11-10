@@ -18,6 +18,10 @@ export class NewProductComponent implements OnInit {
   }
 
   onAddProduct(form: NgForm) {
+    if(!this.productForm.valid) {
+      alert('formulaire invalid...');
+      return;
+    }
     const { name, price, quantity, description, stockId } = form.value;
     this.depotService.addProduct(+stockId, name, price, quantity, description);
   }

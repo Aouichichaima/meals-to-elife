@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 
@@ -8,6 +9,8 @@ import { Subject } from 'rxjs';
 export class DepotService {
 
   depotChanged = new Subject();
+
+  constructor(private http: HttpClient) { }
 
   private stocks = [
     {
@@ -111,6 +114,11 @@ export class DepotService {
   addStock(title: string, type_stock: string, description: string) {
     this.stocks.push({id: Math.floor(Math.random()*1_000_000_000), title, type_stock, description, products: []});
     this.depotChanged.next(this.stocks.slice());
+    // send the http post request ...
+    this.http.put('https://meals-to-elife-default-rtdb.europe-west1.firebasedatabase.app/', this.stocks)
+    .subscribe(response => {
+      console.log(response);
+    });
   }
 
   updateStock(id: number, title: string, type_stock: string, description: string) {

@@ -2,19 +2,25 @@
     <div class="mb-3 row">
         <label for="title" class="col-sm-3 col-form-label"> nom du stock </label>
         <div class="col-sm-5">
-          <input type="text" class="form-control" id="title" name="title" ngModel required>
+          <input type="text" class="form-control" id="title" name="title" ngModel #cin="ngModel" required
+          [className]="cin.value?.length < 5 && cin.touched ? 'form-control is-invalid' : 'form-control'"
+          >
         </div>
     </div>
     <div class="mb-3 row">
         <label for="type_stock" class="col-sm-3 col-form-label"> type des produits de stock </label>
         <div class="col-sm-5">
-          <input type="text" class="form-control" id="type_stock" name="stockType" ngModel required>
+          <input type="text" class="form-control" id="type_stock" name="stockType" ngModel #stockType="ngModel" required
+          [className]="stockType.value?.length < 5 && stockType.touched ? 'form-control is-invalid' : 'form-control'"
+          >
         </div>
     </div>
     <div class="mb-3 row">
         <label for="description" class="col-sm-3 col-form-label"> description de stock </label>
         <div class="col-sm-5">
-          <input type="text" class="form-control" id="description" name="description" ngModel required>
+          <input type="text" class="form-control" id="description" name="description" ngModel #description="ngModel" required
+          [className]="description.value?.length < 5 && description.touched ? 'form-control is-invalid' : 'form-control'"
+          >
         </div>
     </div>
     <div class="row">
