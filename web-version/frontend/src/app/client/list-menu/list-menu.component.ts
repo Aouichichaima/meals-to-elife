@@ -1,3 +1,5 @@
+
+import { Router } from '@angular/router';
 import { Component, Input, OnInit } from '@angular/core';
 /**
  * @author ichraktoueiti <ichrak.touaiti@esprit.tn>
@@ -10,10 +12,15 @@ import { Component, Input, OnInit } from '@angular/core';
 export class ListMenuComponent implements OnInit {
 
   @Input() menu:any;
-  constructor() { }
+item: any;
+  constructor(  private route:Router) { }
 
   ngOnInit(): void {
     console.log(this.menu);
+  }
+
+  ajouter(){
+    this.route.navigate(['client/cart'])
   }
 
   }
