@@ -7,11 +7,12 @@
 
 
 .main{
-    width: auto;
+    width: 150%;
     background: linear-gradient(to top, rgba(0,0,0,0.7)50%,rgba(0,0,0,0.6)50%), url(../../assets/images/back.png);
     background-position: center;
     background-size: cover;
     height: 95vh;
+    margin-left: -300px;
 }
 
 

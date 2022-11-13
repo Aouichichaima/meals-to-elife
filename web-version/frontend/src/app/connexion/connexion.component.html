@@ -49,7 +49,7 @@
               
 
                         <div class="text-center text-lg-start mt-4 pt-2">
-                          <button type="button" class="btn btn-primary" [disabled]="(email.invalid ||password.invalid)">Connexion</button>
+                          <button type="button" class="btn btn-primary" [disabled]="(email.invalid ||password.invalid)" routerLink="/dashboard">Connexion</button>
                           <p class="small fw-bold mt-2 pt-1 mb-0">Vous n’avez pas de compte ? <button class="insc" (click)="goToRegister()">Inscrivez-vous</button></p>
                         </div>
               
