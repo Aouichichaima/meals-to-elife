@@ -1,0 +1,2 @@
+# REST Client (extension vscode) un bon remplaçant pour postman
+# https://marketplace.visualstudio.com/items?itemName=humao.rest-client

@@ -3,10 +3,15 @@ desktop-version/.vscode/
 data-definition/.vscode/
 data-definition/meals-to-elife-database-diagram.psd
 
-# Node
+# frontend Node
 web-version/frontend/node_modules
 web-version/frontend/npm-debug.log
 web-version/frontend/yarn-error.log
+
+# backend Node
+web-version/backend/node_modules
+web-version/backend/npm-debug.log
+web-version/backend/yarn-error.log
 
 # Visual Studio Code
 web-version/frontend/.vscode/*
