@@ -1,9 +1,15 @@
+/**
+ * @author djebby <djebby.firas@gmail.com>
+ */
+
 const Stock = require("../models/stocks-model.js");
 
 
 //------------------------------------------------------------------------------------GET /api/stocks/
 const getStocks = async (req, res, next) => {
     
+    // check authorization req.userData.id (from the token)
+
     Stock.findAll().then(stocks => {
         res.status(200).json({ data: stocks });
     }).catch(error => {
@@ -14,6 +20,9 @@ const getStocks = async (req, res, next) => {
 
 //------------------------------------------------------------------------------------POST /api/stocks/
 const addStock = async (req, res, next) => {
+
+    // check authorization req.userData.id (from the token)
+
     const { title, typeStock, description } = req.body;
 
     Stock.create({ title, type_stock: typeStock, description }).then(response => {
@@ -26,6 +35,9 @@ const addStock = async (req, res, next) => {
 
 //------------------------------------------------------------------------------------PUT /api/stocks/
 const updateStock = async (req, res, next) => {
+
+    // check authorization req.userData.id (from the token) 
+
     const { id, title, typeStock, description } = req.body;
 
     Stock.update({ title, type_stock: typeStock, description }, { where: { id }})
@@ -42,8 +54,11 @@ const updateStock = async (req, res, next) => {
             });
 }
 
-//------------------------------------------------------------------------------------PUT /api/stocks/:id
+//------------------------------------------------------------------------------------DELETE /api/stocks/:id
 const deleteStock = async (req, res, next) => {
+
+    // check authorization req.userData.id (from the token)
+
     const id = req.params['id'];
     Stock.destroy({ where: { id: id}})
         .then(response => {
