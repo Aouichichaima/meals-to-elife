@@ -5,7 +5,7 @@ const bodyParser = require("body-parser");
 const fs = require("fs");
 const path = require("path");
 
-const sequelize = require("./models/sequelize-connection.js");
+const sequelize = require("./config/sequelize-connection.js");
 const stockRouters = require("./routes/stocks-routes.js");
 const log = console.log;
 

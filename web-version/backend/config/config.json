@@ -2,21 +2,21 @@
   "development": {
     "username": "root",
     "password": "toor",
-    "database": "meals_to_elife_database_development",
+    "database": "meals_to_elife_dev_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
     "password": "toor",
-    "database": "meals_to_elife_database_test",
+    "database": "meals_to_elife_test_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "production": {
     "username": "root",
     "password": "toor",
-    "database": "meals_to_elife_database_production",
+    "database": "meals_to_elife_prod_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
   }

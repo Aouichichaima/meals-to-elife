@@ -2,7 +2,7 @@
  * @author djebby <djebby.firas@gmail.com>
  */
 
-const Stock = require("../models/stocks-model.js");
+const {Product, Restaurant, Role, Stock, User} = require("../models");
 
 
 //------------------------------------------------------------------------------------GET /api/stocks/
@@ -10,7 +10,9 @@ const getStocks = async (req, res, next) => {
     
     // check authorization req.userData.id (from the token)
 
-    Stock.findAll().then(stocks => {
+    Stock.findAll({
+        include: {model: Product}
+    }).then(stocks => {
         res.status(200).json({ data: stocks });
     }).catch(error => {
         console.log(error.message);

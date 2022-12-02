@@ -2,6 +2,7 @@
 # https://marketplace.visualstudio.com/items?itemName=humao.rest-client
 
 GET http://localhost:3000/api/stocks/
+Authorization: Bearer the_token...
 
 ###
 POST http://localhost:3000/api/stocks/
@@ -19,9 +20,11 @@ PUT http://localhost:3000/api/stocks/
 Content-Type: application/json
 
 {   
-    "id": 1,
-    "typeStock": "type stock0101"
+    "id": 3,
+    "typeStock": "modification du type stock d'id 3"
 }
 
 ###
-DELETE http://localhost:3000/api/stocks/2
+DELETE http://localhost:3000/api/stocks/3
+
+
