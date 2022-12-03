@@ -11,13 +11,14 @@ const log = console.log;
 
 
 app.use(bodyParser.json());
-app.use("/api/stocks", stockRouters);
+app.use("/api/stocks", stockRouters); // djebby
+app.use('/api/users');
 
 sequelize
   .authenticate()
   .then((success) => {
     log("Successfully connected to the database");
     const PORT = process.env.PORT || 3000;
-    app.listen(PORT, () => log(`Application is running at port ${PORT}`));
+    app.listen(PORT, () => log(`application is running at port ${PORT}`));
   })
   .catch((error) => log(error.message));

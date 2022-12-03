@@ -24,7 +24,7 @@ module.exports = (sequelize, DataTypes) => {
     RestaurantId: DataTypes.INTEGER
   }, {
     sequelize,
-    modelName: 'delivery_staffs',
+    modelName: 'DeliveryStaff',
   });
   return DeliveryStaff;
 };
