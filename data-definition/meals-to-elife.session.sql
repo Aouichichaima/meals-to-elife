@@ -10,14 +10,17 @@ select * from restaurants;
 select * from stocks;
 --@Block
 select * from products;
+--@Block
+select * from delivery_staffs;
 
-
+--@Block
+select * from feedback_delivery_staffs;
 
 
 
 
 --@Block
-delete from restaurants where true;
+delete from feedback_delivery_staffs where true;
 --@Block
-ALTER TABLE restaurants AUTO_INCREMENT = 1;
+ALTER TABLE feedback_delivery_staffs AUTO_INCREMENT = 1;
 

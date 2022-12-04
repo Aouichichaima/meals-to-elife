@@ -11,6 +11,9 @@ const getStocks = async (req, res, next) => {
     // check authorization req.userData.id (from the token)
 
     Stock.findAll({
+        where : {
+            RestaurantId: 4
+        },
         include: {model: Product}
     }).then(stocks => {
         res.status(200).json({ data: stocks });

@@ -10,7 +10,9 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       cin: {
-        type: Sequelize.STRING(8)
+        type: Sequelize.STRING(8),
+        allowNull: false,
+        unique: true
       },
       phone: {
         type: Sequelize.STRING(30)

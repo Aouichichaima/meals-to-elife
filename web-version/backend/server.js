@@ -12,7 +12,6 @@ const log = console.log;
 
 app.use(bodyParser.json());
 app.use("/api/stocks", stockRouters); // djebby
-app.use('/api/users');
 
 sequelize
   .authenticate()

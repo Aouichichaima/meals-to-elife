@@ -6,6 +6,7 @@ data-definition/1000-fake-stocks.json
 data-definition/100000-fake-product.json
 data-definition/24-fake-restaurants.json
 data-definition/250000-fake-users.json
+data-definition/100-fake-delivery-staffs.json
 
 # frontend Node
 web-version/frontend/node_modules
