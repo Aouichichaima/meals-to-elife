@@ -2,6 +2,10 @@ desktop-version/bin/
 desktop-version/.vscode/
 data-definition/.vscode/
 data-definition/meals-to-elife-database-diagram.psd
+data-definition/1000-fake-stocks.json
+data-definition/100000-fake-product.json
+data-definition/24-fake-restaurants.json
+data-definition/250000-fake-users.json
 
 # frontend Node
 web-version/frontend/node_modules

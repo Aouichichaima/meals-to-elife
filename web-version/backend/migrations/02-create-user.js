@@ -11,7 +11,8 @@ module.exports = {
       },
       cin: {
         type: Sequelize.STRING(8),
-        allowNull: false
+        allowNull: false,
+        unique: true
       },
       first_name: {
         type: Sequelize.STRING(45),

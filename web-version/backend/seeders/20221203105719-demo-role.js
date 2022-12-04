@@ -8,12 +8,12 @@ module.exports = {
       type_of_user: 'admin',
       createdAt: new Date(),
       updatedAt: new Date()
-    }, {
-      type_of_user: 'client',
+    },{
+      type_of_user: 'restaurant',
       createdAt: new Date(),
       updatedAt: new Date()
     }, {
-      type_of_user: 'restaurant',
+      type_of_user: 'client',
       createdAt: new Date(),
       updatedAt: new Date()
     }], {});
