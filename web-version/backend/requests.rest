@@ -11,7 +11,8 @@ Content-Type: application/json
 {
     "title": "stock02 title",
     "typeStock": "type stock02",
-    "description": "description stock 02"
+    "description": "description stock 02",
+    "restaurantId": 9
 }
 
 
@@ -19,12 +20,11 @@ Content-Type: application/json
 PUT http://localhost:3000/api/stocks/
 Content-Type: application/json
 
-{   
+{
     "id": 3,
-    "typeStock": "modification du type stock d'id 3"
+    "typeStock": "modification du type stock d'id 3",
+    "restaurantId": 9
 }
 
 ###
-DELETE http://localhost:3000/api/stocks/3
-
-
+DELETE http://localhost:3000/api/stocks/1003
