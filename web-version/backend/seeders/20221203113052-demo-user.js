@@ -6,7 +6,7 @@ const isPrime = require('../util/isPrime.js');
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface, Sequelize) {
-    const users = generateFakeUsers(250_000);
+    const users = generateFakeUsers(50_000);
     await queryInterface.bulkInsert('users', users, {});
     
   },
@@ -53,8 +53,8 @@ function generateFakeUsers(rowsCount) {
     },
   ];
 
-  const insertedEmails = {};
-  const insertedCin = {};
+  const insertedEmails = { 'asma.chebbi@fondation-tunisie.org': true, 'mariem@fondation-tunisie.org': true };
+  const insertedCin = { '14253647': true, '14253648': true };
   
   const email = (first_name, last_name) => {
     let condidate = faker.internet.email(first_name, last_name);

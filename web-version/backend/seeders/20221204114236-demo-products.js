@@ -6,7 +6,7 @@ const { faker } = require('@faker-js/faker');
 
 module.exports = {
   async up (queryInterface, Sequelize) {
-    const products = generateFakeProducts(100_000);
+    const products = generateFakeProducts(10_000);
     await queryInterface.bulkInsert('products', products, {});
   },
 
