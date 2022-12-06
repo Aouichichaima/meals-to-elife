@@ -1,0 +1,46 @@
+
+GET http://localhost:3000/api/users/?bucketNum=2500
+
+
+###
+POST http://localhost:3000/api/users/login
+Content-Type: application/json
+
+{
+    "email": "Jett.Pollich@hotmail.com",
+    "password": "E3pswqErGd9Yxjp"
+}
+
+###
+POST http://localhost:3000/api/users/signup
+Content-Type: application/json
+
+{
+    "cin": "14263140",
+    "first_name": "firas",
+    "last_name": "djebby",
+    "phone": "58744349",
+    "email": "djebby.firas@gmail.com",
+    "password": "my-password-11-22-33",
+    "image_path": "http://some-url.com/avatar.jpg",
+    "roleId": 3
+}
+
+###
+PUT http://localhost:3000/api/users
+Content-Type: application/json
+
+{
+    "id": 250001,
+    "cin": "14263140",
+    "first_name": "firas",
+    "last_name": "djebby",
+    "phone": "58744349",
+    "email": "djebby.firas@gmail.com",
+    "password": "my-password-11-22-33",
+    "image_path": "http://some-url.com/avatar.jpg",
+    "roleId": 3
+}
+
+###
+DELETE http://localhost:3000/api/users/250004

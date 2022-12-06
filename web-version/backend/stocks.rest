@@ -7,6 +7,7 @@ Authorization: Bearer the_token...
 ###
 POST http://localhost:3000/api/stocks/
 Content-Type: application/json
+Authorization: Bearer the_token...
 
 {
     "title": "stock02 title",
@@ -19,6 +20,7 @@ Content-Type: application/json
 ###
 PUT http://localhost:3000/api/stocks/
 Content-Type: application/json
+Authorization: Bearer the_token...
 
 {
     "id": 3,
@@ -27,4 +29,5 @@ Content-Type: application/json
 }
 
 ###
-DELETE http://localhost:3000/api/stocks/1003
+DELETE http://localhost:3000/api/stocks/1005
+Authorization: Bearer the_token...
