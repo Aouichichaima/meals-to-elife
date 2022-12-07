@@ -51,11 +51,17 @@ export class DepotService {
   }
 
   updateStock(id: number, title: string, type_stock: string, description: string) {
-    console.log(id, title, type_stock, description);
-    // const stockIdx = this.stocks.findIndex(stock => stock.id === id);
-    // if(stockIdx !== -1)
-    //   this.stocks[stockIdx] = {...this.stocks[stockIdx], title, type_stock, description};
-    // this.depotChanged.next(this.stocks.slice());
+    
+    const updatedStock = {
+      id,
+      title,
+      typeStock: type_stock,
+      description
+    };
+
+    this.http.put('http://127.0.0.1:3000/api/stocks/', updatedStock).subscribe(response => {
+      this.fetchStocks();
+    });
   }
 
   deleteStock(stockId: number) {
@@ -77,25 +83,28 @@ export class DepotService {
 
 
   addProduct(stockId:number, nameProd:string, priceProd: number, quantityProd: number, descriptionProd: string) {
-    // const stockIdx = this.stocks.findIndex(stock => stock.id === stockId);
-    // this.stocks[stockIdx].products.push({
-    //   id: Math.floor(Math.random()*1_000_000_000),
-    //   name: nameProd,
-    //   price: priceProd,
-    //   quantity: quantityProd,
-    //   description: descriptionProd
-    // });
-    // this.depotChanged.next(this.stocks.slice());
+
+    const newProduct = {
+      name: nameProd,
+      price: priceProd,
+      quantity: quantityProd,
+      description: descriptionProd,
+      stockId: +stockId
+    };
+    this.http.post('http://127.0.0.1:3000/api/products', newProduct).subscribe(response => {
+      console.log(response);
+      this.fetchStocks();
+    });
   }
 
 
   deleteProduct(stockId: number, productId: number) {
-    // const stockIdx = this.stocks.findIndex(stock => stock.id === stockId);
-    // // const productIdx = this.stocks[stockIdx].products.findIndex(product => product.id === productId);
 
-    // this.stocks[stockIdx].products = this.stocks[stockIdx].products.filter(product => product.id !== productId);
-    // this.depotChanged.next(this.stocks.slice());
-
+    console.log(stockId, productId);
+    this.http.delete('http://127.0.0.1:3000/api/products/'+productId).subscribe(response => {
+      console.log(response);
+      this.fetchStocks();
+    });
 
   }
 

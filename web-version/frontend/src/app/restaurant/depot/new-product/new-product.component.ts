@@ -11,7 +11,9 @@ export class NewProductComponent implements OnInit {
 
   @ViewChild('f', {static: false}) productForm!: NgForm;
   stocks!:any;
-  constructor(private depotService: DepotService) { }
+  constructor(private depotService: DepotService) { 
+    
+  }
 
   ngOnInit(): void {
     this.stocks = this.depotService.getStocks();

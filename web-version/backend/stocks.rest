@@ -25,7 +25,6 @@ Authorization: Bearer the_token...
 {
     "id": 3,
     "typeStock": "modification du type stock d'id 3",
-    "restaurantId": 9
 }
 
 ###
