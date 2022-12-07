@@ -11,15 +11,19 @@ import { Stock } from 'app/shared/models/stock.model';
 export class DepotService {
 
   depotChanged = new Subject();
+  private stocks!:Stock[];
+
 
   constructor(private http: HttpClient) {
+    this.fetchStocks();
+  }
+
+  fetchStocks() {
     this.http.get<Stock[]>('http://127.0.0.1:3000/api/stocks/').subscribe(response => {
       this.stocks = response;
       this.depotChanged.next(this.stocks.slice());
     });
   }
-
-  private stocks!:Stock[];
 
   getStocks() {
     return this.stocks?.slice();
@@ -32,16 +36,22 @@ export class DepotService {
   }
 
   addStock(title: string, type_stock: string, description: string) {
-    // this.stocks.push({id: Math.floor(Math.random()*1_000_000_000), title, type_stock, description, products: []});
-    // this.depotChanged.next(this.stocks.slice());
-    // // send the http post request ...
-    // this.http.put('https://meals-to-elife-default-rtdb.europe-west1.firebasedatabase.app/', this.stocks)
-    // .subscribe(response => {
-    //   console.log(response);
-    // });
+   
+    const newStock = {
+      title,
+      typeStock: type_stock,
+      description
+    };
+    
+    this.http.post('http://127.0.0.1:3000/api/stocks/', newStock)
+    .subscribe(response => {
+      this.fetchStocks();
+    });
+
   }
 
   updateStock(id: number, title: string, type_stock: string, description: string) {
+    console.log(id, title, type_stock, description);
     // const stockIdx = this.stocks.findIndex(stock => stock.id === id);
     // if(stockIdx !== -1)
     //   this.stocks[stockIdx] = {...this.stocks[stockIdx], title, type_stock, description};
@@ -49,8 +59,12 @@ export class DepotService {
   }
 
   deleteStock(stockId: number) {
-    // this.stocks = this.stocks.filter(stock => stock.id !== stockId);
-    // this.depotChanged.next(this.stocks.slice());
+    console.log(`delete stock with id ${stockId}`);
+    this.http.delete(`http://127.0.0.1:3000/api/stocks/${stockId}`)
+    .subscribe(response => {
+      console.log(response);
+      this.fetchStocks();
+    });
   }
 
   getStockProducts(stockId: number) {

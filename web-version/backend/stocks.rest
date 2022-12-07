@@ -13,7 +13,7 @@ Authorization: Bearer the_token...
     "title": "stock02 title",
     "typeStock": "type stock02",
     "description": "description stock 02",
-    "restaurantId": 9
+    "restaurantId": 5
 }
 
 
@@ -29,5 +29,5 @@ Authorization: Bearer the_token...
 }
 
 ###
-DELETE http://localhost:3000/api/stocks/1005
+DELETE http://localhost:3000/api/stocks/1002
 Authorization: Bearer the_token...

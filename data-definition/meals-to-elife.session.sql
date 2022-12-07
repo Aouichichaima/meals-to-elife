@@ -10,7 +10,7 @@ select * from restaurants;
 select * from customer_orders where UserId < 100 ORDER BY UserId;
 
 --@Block
-select * from stocks ORDER BY id DESC;
+select * from stocks where RestaurantId = 5 ORDER BY id DESC;
 --@Block
 select * from products ORDER BY id DESC;
 --@Block

@@ -7,7 +7,7 @@ const { Product, Stock } = require("../models");
 //------------------------------------------------------------------------------------GET /api/stocks/
 const getStocks = async (req, res, next) => {
   // check authorization req.userData.id (from the token)
-  let restaurantId = 4;
+  let restaurantId = 5;
 
   Stock.findAll({
     where: {
@@ -28,13 +28,13 @@ const getStocks = async (req, res, next) => {
 const addStock = async (req, res, next) => {
   // check authorization req.userData.id (from the token)
 
-  const { title, typeStock, description, restaurantId } = req.body;
+  const { title, typeStock, description } = req.body;
 
   Stock.create({
     title,
     type_stock: typeStock,
     description,
-    RestaurantId: +restaurantId,
+    RestaurantId: 5,
   })
     .then((response) => {
       res.status(200).json({ response });
@@ -49,10 +49,10 @@ const addStock = async (req, res, next) => {
 const updateStock = async (req, res, next) => {
   // check authorization req.userData.id (from the token)
 
-  const { id, title, typeStock, description, restaurantId } = req.body;
+  const { id, title, typeStock, description } = req.body;
 
   Stock.update(
-    { title, type_stock: typeStock, description, RestaurantId: +restaurantId },
+    { title, type_stock: typeStock, description },
     { where: { id } }
   )
     .then(() => {
