@@ -13,13 +13,12 @@ select * from customer_orders where UserId < 100 ORDER BY UserId;
 select * from stocks ORDER BY id DESC;
 --@Block
 select * from products ORDER BY id DESC;
+
 --@Block
-select * from delivery_staffs;
+select * from deliverystaffs;
 
 --@Block
 select * from feedback_delivery_staffs;
-
-
 
 
 --@Block

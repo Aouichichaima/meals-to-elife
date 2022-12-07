@@ -1,0 +1,32 @@
+# REST Client (extension vscode) un bon remplaçant pour postman
+# https://marketplace.visualstudio.com/items?itemName=humao.rest-client
+
+GET http://localhost:3000/api/delivery-staffs/
+Authorization: Bearer the_token...
+
+###
+POST http://localhost:3000/api/delivery-staffs/
+Content-Type: application/json
+
+{
+    "id": "id101",
+    "cin": "cin01",
+    "phone": "phone02",
+    "first_name":"first_name01",
+    "last_name":"last_name01"
+}
+
+
+###
+PUT http://localhost:3000/api/delivery-staffs/
+Content-Type: application/json
+
+{   
+    "id": 101,
+  
+}
+
+###
+DELETE http://localhost:3000/api/delivery-staffs/3
+
+
