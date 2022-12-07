@@ -10,9 +10,9 @@ select * from restaurants;
 select * from customer_orders where UserId < 100 ORDER BY UserId;
 
 --@Block
-select * from stocks;
+select * from stocks ORDER BY id DESC;
 --@Block
-select * from products;
+select * from products ORDER BY id DESC;
 
 --@Block
 select * from deliverystaffs;
@@ -21,12 +21,7 @@ select * from deliverystaffs;
 select * from feedback_delivery_staffs;
 
 
-
-
 --@Block
 delete from roles where true;
 --@Block
 ALTER TABLE feedback_delivery_staffs AUTO_INCREMENT = 1;
-
---@Block
-show tables;
