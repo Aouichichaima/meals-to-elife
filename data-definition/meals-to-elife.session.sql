@@ -13,8 +13,9 @@ select * from customer_orders where UserId < 100 ORDER BY UserId;
 select * from stocks;
 --@Block
 select * from products;
+
 --@Block
-select * from delivery_staffs;
+select * from deliverystaffs;
 
 --@Block
 select * from feedback_delivery_staffs;
@@ -27,3 +28,5 @@ delete from roles where true;
 --@Block
 ALTER TABLE feedback_delivery_staffs AUTO_INCREMENT = 1;
 
+--@Block
+show tables;
