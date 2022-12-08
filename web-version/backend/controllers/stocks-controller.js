@@ -34,7 +34,7 @@ const addStock = async (req, res, next) => {
     title,
     type_stock: typeStock,
     description,
-    RestaurantId: 5,
+    RestaurantId: 5, // we should conclude the id of the restaurant from the user id wich decoded from the token...
   })
     .then((response) => {
       res.status(200).json({ response });

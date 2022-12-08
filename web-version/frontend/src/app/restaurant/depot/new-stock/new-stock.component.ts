@@ -17,10 +17,6 @@ export class NewStockComponent implements OnInit {
 
 
 
-
-
- 
-
   ngOnInit(): void {
     if(this.route.snapshot.params['id'] != null) {
       this.isEditMode = true;

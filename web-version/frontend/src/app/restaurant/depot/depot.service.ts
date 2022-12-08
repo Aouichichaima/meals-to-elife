@@ -81,6 +81,32 @@ export class DepotService {
     // return products;
   }
 
+  getProductById(id: number) {
+
+    if(this.stocks)
+      for(const stock of this.stocks) {
+        for(const product of stock.Products) {
+          if(product.id == id) return product;
+        }
+      }
+
+  }
+
+  updatedProduct(prodId: number, stockId:number, nameProd:string, priceProd: number, quantityProd: number, descriptionProd: string) {
+    const updatedProduct = {
+      id: prodId,
+      name: nameProd,
+      price: priceProd,
+      quantity: quantityProd,
+      description: descriptionProd,
+      stockId: stockId
+    };
+  
+    this.http.put('http://127.0.0.1:3000/api/products', updatedProduct).subscribe(response => {
+      console.log(response);
+      this.fetchStocks();
+    });
+  }
 
   addProduct(stockId:number, nameProd:string, priceProd: number, quantityProd: number, descriptionProd: string) {
 
