@@ -17,10 +17,6 @@ export class NewStockComponent implements OnInit {
 
 
 
-
-
- 
-
   ngOnInit(): void {
     if(this.route.snapshot.params['id'] != null) {
       this.isEditMode = true;
@@ -29,9 +25,9 @@ export class NewStockComponent implements OnInit {
       
       setTimeout(()=>{
         this.stockForm?.setValue({
-          title: this.stock.title,
-          stockType: this.stock.type_stock,
-          description: this.stock.description,
+          title: this.stock?.title,
+          stockType: this.stock?.type_stock,
+          description: this.stock?.description,
         });
       }, 30);
 
@@ -44,9 +40,9 @@ export class NewStockComponent implements OnInit {
           this.stockId = +params['id'];
           this.stock = this.depotService.getStock(this.stockId);
           this.stockForm?.setValue({
-            title: this.stock.title,
-            stockType: this.stock.type_stock,
-            description: this.stock.description,
+            title: this.stock?.title,
+            stockType: this.stock?.type_stock,
+            description: this.stock?.description,
           });
         }
       }

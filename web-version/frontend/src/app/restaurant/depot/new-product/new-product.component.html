@@ -1,5 +1,5 @@
 
-<form (ngSubmit)="onAddProduct(f)" #f="ngForm">
+<form (ngSubmit)="onSubmitProduct(f)" #f="ngForm">
     <div class="mb-3 row">
         <label for="name" class="col-sm-3 col-form-label"> nom du produit </label>
         <div class="col-sm-5">
@@ -33,7 +33,7 @@
     <div class="mb-3 row">
       <div class="col-8">
         <select class="form-select" aria-label="Default select example" name="stockId" #stockId="ngModel" ngModel required
-        [className]="stockId.value?.length < 5 && stockId.touched ? 'form-select is-invalid' : 'form-select'">
+        [className]="stockId.value?.length < 1 && stockId.touched ? 'form-select is-invalid' : 'form-select'">
           <option *ngFor="let stock of stocks" [value]="stock.id">{{stock.title}}</option>
           
         </select>

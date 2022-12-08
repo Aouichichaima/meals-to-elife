@@ -22,7 +22,7 @@ export class ListProductsComponent implements OnInit {
     this.depotService.depotChanged.subscribe(
       updatedStock => {
         this.stock = this.depotService.getStock(this.stockId);
-        this.stock_products = this.stock?.products;
+        this.stock_products = this.stock?.Products;
       }
     );
 
@@ -30,7 +30,7 @@ export class ListProductsComponent implements OnInit {
       (params: Params) => {
         this.stockId = +params['id'];
         this.stock = this.depotService.getStock(this.stockId);
-        this.stock_products = this.stock.products;
+        this.stock_products = this.stock?.Products;
       }
     )
   }

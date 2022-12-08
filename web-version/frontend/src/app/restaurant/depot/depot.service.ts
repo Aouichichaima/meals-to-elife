@@ -2,6 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 
+import { Stock } from 'app/shared/models/stock.model';
+
 /**
  * @author djebby <djebby.firas@gmail.com>
  */
@@ -9,156 +11,126 @@ import { Subject } from 'rxjs';
 export class DepotService {
 
   depotChanged = new Subject();
+  private stocks!:Stock[];
 
-  constructor(private http: HttpClient) { }
 
-  private stocks = [
-    {
-      id: Math.floor(Math.random()*1_000_000_000),
-      title: 'stocks-title-n°01',
-      type_stock: 'type_stock_n°01',
-      description: 'description_de_stock_n°01',
-      products: [
-        {
-          id: Math.floor(Math.random()*1_000_000_000),
-          name: 'nom_du_produit_n°01',
-          price: 0.00,
-          quantity: 0,
-          description: 'description_du_produit_n°01'
-        },
-        {
-          id: Math.floor(Math.random()*1_000_000_000),
-          name: 'nom_du_produit_n°02',
-          price: 0.00,
-          quantity: 0,
-          description: 'description_du_produit_n°02'
-        },
-        {
-          id: Math.floor(Math.random()*1_000_000_000),
-          name: 'nom_du_produit_n°03',
-          price: 0.00,
-          quantity: 0,
-          description: 'description_du_produit_n°03'
-        }
-      ],
-    },
-    {
-      id: Math.floor(Math.random()*1_000_000_000),
-      title: 'stocks-title-n°02',
-      type_stock: 'type_stock_n°02',
-      description: 'description_de_stock_n°02',
-      products: [
-        {
-          id: Math.floor(Math.random()*1_000_000_000),
-          name: 'nom_du_produit_n°04',
-          price: 0.00,
-          quantity: 0,
-          description: 'description_du_produit_n°04'
-        },
-        {
-          id: Math.floor(Math.random()*1_000_000_000),
-          name: 'nom_du_produit_n°05',
-          price: 0.00,
-          quantity: 0,
-          description: 'description_du_produit_n°05'
-        },
-        {
-          id: Math.floor(Math.random()*1_000_000_000),
-          name: 'nom_du_produit_n°06',
-          price: 0.00,
-          quantity: 0,
-          description: 'description_du_produit_n°06'
-        }
-      ],
-    },
-    {
-      id: Math.floor(Math.random()*1_000_000_000),
-      title: 'stocks-title-n°03',
-      type_stock: 'type_stock_n°03',
-      description: 'description_de_stock_n°03',
-      products: [
-        {
-          id: Math.floor(Math.random()*1_000_000_000),
-          name: 'nom_du_produit_n°07',
-          price: 0.00,
-          quantity: 0,
-          description: 'description_du_produit_n°07'
-        },
-        {
-          id: Math.floor(Math.random()*1_000_000_000),
-          name: 'nom_du_produit_n°08',
-          price: 0.00,
-          quantity: 0,
-          description: 'description_du_produit_n°08'
-        },
-        {
-          id: Math.floor(Math.random()*1_000_000_000),
-          name: 'nom_du_produit_n°09',
-          price: 0.00,
-          quantity: 0,
-          description: 'description_du_produit_n°09'
-        }
-      ],
-    }
-  ];
-
-  getStocks() {
-    return this.stocks.slice();
+  constructor(private http: HttpClient) {
+    this.fetchStocks();
   }
 
+  fetchStocks() {
+    this.http.get<Stock[]>('http://127.0.0.1:3000/api/stocks/').subscribe(response => {
+      this.stocks = response;
+      this.depotChanged.next(this.stocks.slice());
+    });
+  }
+
+  getStocks() {
+    return this.stocks?.slice();
+  }
+
+
   getStock(stockId: number) {
-    const stock = this.stocks.slice().find(stock => stock.id === stockId);
+    const stock = this.stocks?.slice().find(stock => stock.id === stockId);
     return stock;
   }
 
   addStock(title: string, type_stock: string, description: string) {
-    this.stocks.push({id: Math.floor(Math.random()*1_000_000_000), title, type_stock, description, products: []});
-    this.depotChanged.next(this.stocks.slice());
-    // send the http post request ...
-    this.http.put('https://meals-to-elife-default-rtdb.europe-west1.firebasedatabase.app/', this.stocks)
+   
+    const newStock = {
+      title,
+      typeStock: type_stock,
+      description
+    };
+    
+    this.http.post('http://127.0.0.1:3000/api/stocks/', newStock)
     .subscribe(response => {
-      console.log(response);
+      this.fetchStocks();
     });
+
   }
 
   updateStock(id: number, title: string, type_stock: string, description: string) {
-    const stockIdx = this.stocks.findIndex(stock => stock.id === id);
-    if(stockIdx !== -1)
-      this.stocks[stockIdx] = {...this.stocks[stockIdx], title, type_stock, description};
-    this.depotChanged.next(this.stocks.slice());
+    
+    const updatedStock = {
+      id,
+      title,
+      typeStock: type_stock,
+      description
+    };
+
+    this.http.put('http://127.0.0.1:3000/api/stocks/', updatedStock).subscribe(response => {
+      this.fetchStocks();
+    });
   }
 
   deleteStock(stockId: number) {
-    this.stocks = this.stocks.filter(stock => stock.id !== stockId);
-    this.depotChanged.next(this.stocks.slice());
+    console.log(`delete stock with id ${stockId}`);
+    this.http.delete(`http://127.0.0.1:3000/api/stocks/${stockId}`)
+    .subscribe(response => {
+      console.log(response);
+      this.fetchStocks();
+    });
   }
 
   getStockProducts(stockId: number) {
-    const products = this.stocks.find(stock => stock.id === stockId)?.products;
-    return products;
+    // this.http.get(`http://127.0.0.1:3000/api/products/${stockId}`).subscribe(response => {
+    //   console.log(response);
+    // });
+    // const products = this.stocks.find(stock => stock.id === stockId)?.products;
+    // return products;
   }
 
+  getProductById(id: number) {
 
-  addProduct(stockId:number, nameProd:string, priceProd: number, quantityProd: number, descriptionProd: string) {
-    const stockIdx = this.stocks.findIndex(stock => stock.id === stockId);
-    this.stocks[stockIdx].products.push({
-      id: Math.floor(Math.random()*1_000_000_000),
+    if(this.stocks)
+      for(const stock of this.stocks) {
+        for(const product of stock.Products) {
+          if(product.id == id) return product;
+        }
+      }
+
+  }
+
+  updatedProduct(prodId: number, stockId:number, nameProd:string, priceProd: number, quantityProd: number, descriptionProd: string) {
+    const updatedProduct = {
+      id: prodId,
       name: nameProd,
       price: priceProd,
       quantity: quantityProd,
-      description: descriptionProd
+      description: descriptionProd,
+      stockId: stockId
+    };
+  
+    this.http.put('http://127.0.0.1:3000/api/products', updatedProduct).subscribe(response => {
+      console.log(response);
+      this.fetchStocks();
     });
-    this.depotChanged.next(this.stocks.slice());
+  }
+
+  addProduct(stockId:number, nameProd:string, priceProd: number, quantityProd: number, descriptionProd: string) {
+
+    const newProduct = {
+      name: nameProd,
+      price: priceProd,
+      quantity: quantityProd,
+      description: descriptionProd,
+      stockId: +stockId
+    };
+    this.http.post('http://127.0.0.1:3000/api/products', newProduct).subscribe(response => {
+      console.log(response);
+      this.fetchStocks();
+    });
   }
 
 
   deleteProduct(stockId: number, productId: number) {
-    const stockIdx = this.stocks.findIndex(stock => stock.id === stockId);
-    // const productIdx = this.stocks[stockIdx].products.findIndex(product => product.id === productId);
 
-    this.stocks[stockIdx].products = this.stocks[stockIdx].products.filter(product => product.id !== productId);
-    this.depotChanged.next(this.stocks.slice());
-
+    console.log(stockId, productId);
+    this.http.delete('http://127.0.0.1:3000/api/products/'+productId).subscribe(response => {
+      console.log(response);
+      this.fetchStocks();
+    });
 
   }
 

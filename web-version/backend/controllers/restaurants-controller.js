@@ -25,7 +25,7 @@
  
      const {  name, address,menu,rating, UserId } = req.body;
  
-     Restaurant.create({  name, address,menu,rating, UserId}).then(response => {
+     Restaurant.create({  name, address,menu,rating, UserId }).then(response => {
          res.status(200).json({ message: "Restaurant created...",  name, address,menu,rating, UserId });
      }).catch(error => {
          console.log(error.message);

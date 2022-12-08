@@ -1,0 +1,29 @@
+###
+GET http://localhost:3000/api/products/45
+
+
+###
+POST http://localhost:3000/api/products
+Content-Type: application/json
+
+{ 
+    "name": "products10_001",
+    "price": 47.6, 
+    "quantity": 7, 
+    "description": "description of products ...", 
+    "stockId": 500
+}
+
+
+###
+PUT http://localhost:3000/api/products
+Content-Type: application/json
+
+{
+    "id": 100001,
+    "price": 50.9
+}
+
+
+###
+DELETE http://localhost:3000/api/products/100001
