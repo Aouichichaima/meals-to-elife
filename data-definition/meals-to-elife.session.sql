@@ -7,7 +7,7 @@ select * from users order by id desc;
 select * from restaurants;
 
 --@Block
-select * from customer_orders where UserId < 100 ORDER BY UserId;
+select * from customerorders where restaurantid = 11;
 
 --@Block
 select * from stocks where RestaurantId = 5 ORDER BY id DESC;
@@ -21,6 +21,14 @@ select * from deliverystaffs;
 select * from feedback_delivery_staffs;
 
 
+<<<<<<< main
+--@Block
+show tables;
+
+
+
+=======
+>>>>>>> main
 --@Block
 delete from roles where true;
 --@Block

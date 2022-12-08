@@ -13,8 +13,8 @@ const feedback_delivery_staffsRouters = require("./routes/feedback-delivery-staf
 
 const productsRouters = require("./routes/products-routes.js");
 const restaurantRouters = require("./routes/restaurants-routes.js");
+const customerorderRouters = require("./routes/customer-orders-routes.js");
 const usersRouters = require('./routes/users-routes.js');
-
 const log = console.log;
 
 
@@ -32,8 +32,9 @@ app.use("/api/feedback_delivery_staff" ,feedback_delivery_staffsRouters);//Aouic
 
 app.use("/api/products", productsRouters); // djebby
 app.use("/api/restaurants", restaurantRouters); // ichrak
-
+app.use("/api/customer-orders", customerorderRouters); //ichrak
 app.use('/api/users', usersRouters); // Oumaima
+
 
 sequelize
   .authenticate()

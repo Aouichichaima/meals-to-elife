@@ -1,0 +1,16 @@
+
+GET http://127.0.0.1:3000/api/customer-orders?bucketNum=37
+
+
+
+
+###
+POST http://127.0.0.1:3000/api/customer-orders
+
+
+###
+PUT http://127.0.0.1:3000/api/customer-orders
+
+
+###
+DELETE http://127.0.0.1:3000/127.0.0.1:3000/api/customer-orders/17

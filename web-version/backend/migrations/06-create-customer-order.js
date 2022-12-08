@@ -2,7 +2,7 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('customer_orders', {
+    await queryInterface.createTable('CustomerOrders', {
       id: {
         allowNull: false,
         autoIncrement: true,
